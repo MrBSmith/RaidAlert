@@ -8,7 +8,6 @@ func _ready() -> void:
 	randomize()
 
 
-
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		EVENTS.emit_signal("raid", "BabaDesBois", randi() % 30 + 20)

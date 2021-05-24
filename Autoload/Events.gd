@@ -1,5 +1,5 @@
 extends Node
 
-# warnings-disabled
+# warnings-disable
 
 signal raid(streamer_name, nb_raiders)

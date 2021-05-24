@@ -4,6 +4,10 @@ class_name Spawner
 export var obj_to_spawn_scene_path : String = ""
 export var max_animal_spawned : int = 100
 export var max_instance_per_tick : int = 10
+
+onready var min_spawn_y = -GAME.screen_size.y
+export var max_spawn_y = -30
+
 onready var scene_to_spawn = load(obj_to_spawn_scene_path)
 
 #### ACCESSORS ####
@@ -32,7 +36,7 @@ func spawn_animals(nb: int) -> void:
 		
 		var instance = scene_to_spawn.instance()
 		
-		var pos = Vector2(rand_range(0, GAME.screen_size.x), -50)
+		var pos = Vector2(rand_range(0, GAME.screen_size.x), rand_range(min_spawn_y, max_spawn_y))
 		instance.set_position(pos)
 		
 		call_deferred("add_child", instance)

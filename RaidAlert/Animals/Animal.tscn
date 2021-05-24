@@ -10,3 +10,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.0743256, -0.0743256 )
+scale = Vector2( 1.00743, 0.992567 )
