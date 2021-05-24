@@ -8,6 +8,8 @@ onready var initial_pos = get_position()
 onready var lateral_amplitude = rand_range(40.0, 60.0) * Math.rand_sign()
 export var rotation_amplitude : float = 25.0 
 
+
+
 #### ACCESSORS ####
 
 func is_class(value: String): return value == "Animal" or .is_class(value)
@@ -32,8 +34,10 @@ func _ready() -> void:
 
 
 func trigger_vertical_movement() -> void:
+	var sprite_size = $Sprite.get_texture().get_size()
+	
 	var __ = tween.interpolate_property(self, "position:y", initial_pos.y, 
-		initial_pos.y + GAME.screen_size.y, 6.0,
+		initial_pos.y + GAME.screen_size.y + sprite_size.y * 1.5, 6.0,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	
 	tween.start()
@@ -60,5 +64,9 @@ func trigger_horizontal_movement() -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_tween_completed(_obj: Object, key: NodePath) -> void:
-	if key.get_subname_count() > 1 && key.get_subname(1) == "x":
-		trigger_horizontal_movement()
+	if key.get_subname_count() > 1:
+		var axis_name = key.get_subname(1)
+		if axis_name == "x":
+			trigger_horizontal_movement()
+		elif axis_name == "y":
+			queue_free()
