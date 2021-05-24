@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.gd" type="Script" id=1]
 [ext_resource path="res://RaidAlert/Spawner.gd" type="Script" id=2]
-[ext_resource path="res://RaidAlert/Animals/Animal.tscn" type="PackedScene" id=3]
 
 [node name="RaidAlert" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,17 +9,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Spawner" type="Control" parent="."]
-anchor_right = 1.0
-margin_right = 640.0
-margin_bottom = 10.0
-rect_min_size = Vector2( 10, 10 )
+[node name="Spawner" type="Node2D" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 obj_to_spawn_scene_path = "res://RaidAlert/Animals/Animal.tscn"
-
-[node name="Animal" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 310.289, 51.7494 )

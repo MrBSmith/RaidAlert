@@ -359,7 +359,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/SoundEffects/SoundEffectsHandler.gd"
 }, {
-"base": "Control",
+"base": "Node2D",
 "class": "Spawner",
 "language": "GDScript",
 "path": "res://RaidAlert/Spawner.gd"
@@ -554,6 +554,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GAME="*res://Autoload/Game.gd"
+EVENTS="*res://Autoload/Events.gd"
 
 [display]
 
