@@ -1,3 +1,9 @@
 [submodule "BabaGodotLib"]
 	path = BabaGodotLib
 	url = https://github.com/MrBSmith/BabaGodotLib
+[submodule "TwiCIL"]
+	path = TwiCIL
+	url = https://github.com/drtwisted/godot-twicil
+[submodule "Gift"]
+	path = Gift
+	url = https://github.com/MennoMax/gift.git

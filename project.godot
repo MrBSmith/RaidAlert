@@ -104,6 +104,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/CombatIsoMap.gd"
 }, {
+"base": "Reference",
+"class": "CommandData",
+"language": "GDScript",
+"path": "res://addons/gift/util/cmd_data.gd"
+}, {
+"base": "Reference",
+"class": "CommandInfo",
+"language": "GDScript",
+"path": "res://addons/gift/util/cmd_info.gd"
+}, {
 "base": "ResizableWindow",
 "class": "DescriptionWindow",
 "language": "GDScript",
@@ -153,6 +163,11 @@ _global_script_classes=[ {
 "class": "IconsLineData",
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/LineContainer/DataContainer/IconsLineData.gd"
+}, {
+"base": "Resource",
+"class": "ImageCache",
+"language": "GDScript",
+"path": "res://addons/gift/util/image_cache.gd"
 }, {
 "base": "Node2D",
 "class": "InteractiveObject",
@@ -354,6 +369,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/SceneFinder/SceneFinder.gd"
 }, {
+"base": "Reference",
+"class": "SenderData",
+"language": "GDScript",
+"path": "res://addons/gift/util/sender_data.gd"
+}, {
 "base": "Node2D",
 "class": "SoundEffectsHandler",
 "language": "GDScript",
@@ -378,6 +398,11 @@ _global_script_classes=[ {
 "class": "StatesMachine",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/StateMachine.gd"
+}, {
+"base": "Node",
+"class": "StreamLabsAlertsHandler",
+"language": "GDScript",
+"path": "res://TwitchAlertHandler.gd"
 }, {
 "base": "ActorActionState",
 "class": "TB_ActorActionState",
@@ -439,6 +464,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/ToolStateMachine.gd"
 }, {
+"base": "Node",
+"class": "TwitchChatHandler",
+"language": "GDScript",
+"path": "res://addons/gift/gift_node.gd"
+}, {
 "base": "CanvasLayer",
 "class": "WorldMap",
 "language": "GDScript",
@@ -474,6 +504,8 @@ _global_script_class_icons={
 "Collectable_HUD_Label": "",
 "Collectable_IdleState": "",
 "CombatIsoMap": "",
+"CommandData": "",
+"CommandInfo": "",
 "DescriptionWindow": "",
 "DirNavHelper": "",
 "Disappear": "",
@@ -484,6 +516,7 @@ _global_script_class_icons={
 "Gauge": "",
 "IconsLineContainer": "",
 "IconsLineData": "",
+"ImageCache": "",
 "InteractiveObject": "",
 "IsoAnimatedSprite": "",
 "IsoEvents": "",
@@ -524,11 +557,13 @@ _global_script_class_icons={
 "ResizableWindow": "",
 "SFX_AnimationBase": "",
 "SceneFinder": "",
+"SenderData": "",
 "SoundEffectsHandler": "",
 "Spawner": "",
 "StateBase": "",
 "StateLabel": "",
 "StatesMachine": "",
+"StreamLabsAlertsHandler": "",
 "TB_ActorActionState": "",
 "TB_ActorFallState": "",
 "TB_ActorIdleState": "",
@@ -541,6 +576,7 @@ _global_script_class_icons={
 "TextLineContainer": "",
 "TileRenderPart": "",
 "ToolStatesMachine": "",
+"TwitchChatHandler": "",
 "WorldMap": "",
 "WorldMapEditor": "",
 "WorldMapMovingElement": ""
@@ -549,7 +585,7 @@ _global_script_class_icons={
 [application]
 
 config/name="AlertRaid"
-run/main_scene="res://RaidAlert/RaidAlert.tscn"
+run/main_scene="res://App.tscn"
 config/icon="res://icon.png"
 
 [autoload]
