@@ -1,36 +1,26 @@
 extends Node2D
 
+onready var raid_alert = $RaidAlert
 onready var chat_handler = $TwitchChatHandler
-onready var alert_handler = $TwitchAlertsHandler
+onready var interpretor = $Interpretor
+onready var chat_bot = $ChatBot
+
+export var nick_name : String = ""
+export var token : String = ""
+export var channel_to_listen : String = ""
 
 func _ready() -> void:
+	chat_handler.connect_to_twitch()
+	yield(chat_handler, "twitch_connected")
 
-	# Connect the chat handler to Twitch channel
-	var authfile := File.new()
-	var __ = authfile.open("./auth.txt", File.READ)
-	var _botname := authfile.get_line()
-	var _token := authfile.get_line()
-	var channel_name = authfile.get_line()
-	var client_id = authfile.get_line()
-	var secret = authfile.get_line()
+	chat_handler.authenticate_oauth(nick_name, token)
+	if(yield(chat_handler, "login_attempt") == false):
+	  print("Invalid username or token.")
+	  return
 
-#	chat_handler.connect_to_twitch()
-#	yield(chat_handler, "twitch_connected")
-#
-#	chat_handler.authenticate_oauth(botname, token)
-#	if(yield(chat_handler, "login_attempt") == false):
-#	  print("Invalid username or token.")
-#	  return
-#
-#	chat_handler.join_channel(channel_name)
-#
-#	chat_handler.connect("cmd_no_permission", self, "no_permission")
-#	chat_handler.connect("chat_message", self, "_on_chat_message")
+	chat_handler.join_channel(channel_to_listen)
+	var _err = chat_handler.connect("chat_message", interpretor, "_on_chat_message")
+	_err = chat_handler.connect("chat_message", chat_bot, "_on_chat_message")
 	
-	# Connect the alert handler
-	alert_handler.connect_to_alerts(client_id, secret, channel_name)
+	_err = interpretor.connect("raid", raid_alert, "_on_raid")
 
-
-
-func _on_chat_message(sender_data: SenderData, message: String) -> void:
-	print(sender_data.user + " : " + message)

@@ -6,9 +6,10 @@ export var max_animal_spawned : int = 100
 export var max_instance_per_tick : int = 10
 
 onready var min_spawn_y = -GAME.screen_size.y
-export var max_spawn_y = -30
-
 onready var scene_to_spawn = load(obj_to_spawn_scene_path)
+
+export var max_spawn_y = -30
+export var lateral_spwn_margin : float = 30.0
 
 #### ACCESSORS ####
 
@@ -18,8 +19,6 @@ func get_class() -> String: return "Spawner"
 
 #### BUILT-IN ####
 
-func _ready() -> void:
-	var __ = EVENTS.connect("raid", self, "_on_raid_event")
 
 #### VIRTUALS ####
 
@@ -36,7 +35,8 @@ func spawn_animals(nb: int) -> void:
 		
 		var instance = scene_to_spawn.instance()
 		
-		var pos = Vector2(rand_range(0, GAME.screen_size.x), rand_range(min_spawn_y, max_spawn_y))
+		var pos = Vector2(rand_range(lateral_spwn_margin, GAME.screen_size.x -lateral_spwn_margin),
+					 rand_range(min_spawn_y, max_spawn_y))
 		instance.set_position(pos)
 		
 		call_deferred("add_child", instance)
@@ -47,5 +47,3 @@ func spawn_animals(nb: int) -> void:
 
 #### SIGNAL RESPONSES ####
 
-func _on_raid_event(_streamer_name: String, nb_raiders: int) -> void:
-	spawn_animals(nb_raiders)

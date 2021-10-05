@@ -9,8 +9,9 @@ onready var initial_pos = get_position()
 onready var vertical_movement_duration : float = rand_range(6.0, 8.0)
 onready var horizontal_movement_duration : float = rand_range(0.8, 1.2)
 onready var lateral_amplitude = rand_range(10.0, 60.0) * Math.rand_sign()
-onready var sprite_size = $Sprite.get_texture().get_size()
+onready var sprite_size = Vector2.ZERO
 
+export var sprites_array := Array()
 
 export var rotation_amplitude : float = 25.0 
 
@@ -26,6 +27,11 @@ func get_class() -> String: return "Animal"
 func _ready() -> void:
 	var __ = tween.connect("tween_completed", self, "_on_tween_completed")
 	visibility_notifier.set_rect(Rect2(Vector2.ZERO, sprite_size))
+	
+	var rdm_sprite_id = Math.randi_range(0, sprites_array.size() - 1)
+	var texture = sprites_array[rdm_sprite_id]
+	$Sprite.set_texture(texture)
+	sprite_size = texture.get_size()
 	
 	__ = visibility_notifier.connect("screen_exited", self, "_on_screen_exited")
 	

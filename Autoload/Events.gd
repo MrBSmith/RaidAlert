@@ -1,5 +1,6 @@
-extends Node
+extends EventsBase
 
 # warnings-disable
 
-signal raid(streamer_name, nb_raiders)
+signal OBS_scene_changed(scene_name)
+signal alert(alert_name)

@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeMask.png" type="Texture" id=1]
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill1.png" type="Texture" id=2]
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill3.png" type="Texture" id=3]
+[ext_resource path="res://Overlay/Gauges/Sprites/Jauge.png" type="Texture" id=4]
+[ext_resource path="res://Overlay/Gauges/Overlay_Gauge.gd" type="Script" id=5]
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill2.png" type="Texture" id=6]
+[ext_resource path="res://BabaGodotLib/Fonts/MediumPixel.tres" type="DynamicFont" id=7]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 15.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 69.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 38.9
+angle_random = 1.0
+scale = 1.5
+scale_random = 1.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="Overlay_Gauge" type="TextureProgress"]
+margin_right = 181.0
+margin_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 181, 22 )
+rect_pivot_offset = Vector2( 90, 11 )
+step = 0.1
+value = 100.0
+texture_over = ExtResource( 4 )
+tint_progress = Color( 0.713726, 0.054902, 0.176471, 1 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 2
+stretch_margin_right = 11
+stretch_margin_bottom = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+fill_texture_color = Color( 0.862745, 0.156863, 0.156863, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 173.057, 10.9135 )
+emitting = false
+amount = 70
+one_shot = true
+process_material = SubResource( 1 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color( 0.862745, 0.156863, 0.156863, 1 )
+show_behind_parent = true
+light_mask = 2
+anchor_left = 0.011
+anchor_top = 0.091
+anchor_right = 0.011
+anchor_bottom = 0.091
+margin_left = -13.991
+margin_top = -0.00199986
+margin_right = 185.009
+margin_bottom = 17.998
+rect_min_size = Vector2( 13, 18 )
+texture = ExtResource( 2 )
+patch_margin_left = 5
+patch_margin_top = 2
+patch_margin_right = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 90.4911, 11.0002 )
+texture = ExtResource( 1 )
+mode = 3
+range_item_cull_mask = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 2 )
+playing = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.321569, 0, 0.176471, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+custom_fonts/font = ExtResource( 7 )
+text = "Goal text here"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

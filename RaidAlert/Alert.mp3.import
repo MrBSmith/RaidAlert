@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Alert.mp3-0465de9a822e92cec91a019645f04fa6.mp3str"
+
+[deps]
+
+source_file="res://RaidAlert/Alert.mp3"
+dest_files=[ "res://.import/Alert.mp3-0465de9a822e92cec91a019645f04fa6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.gd" type="Script" id=1]
 [ext_resource path="res://RaidAlert/Spawner.gd" type="Script" id=2]
+[ext_resource path="res://RaidAlert/Flash.gd" type="Script" id=3]
+[ext_resource path="res://Font/Coluna.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://RaidAlert/Message.gd" type="Script" id=5]
+[ext_resource path="res://RaidAlert/Alert.gd" type="Script" id=6]
+[ext_resource path="res://RaidAlert/Alert.mp3" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+use_filter = true
+font_data = ExtResource( 4 )
 
 [node name="RaidAlert" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,3 +30,106 @@ __meta__ = {
 "_edit_lock_": true
 }
 obj_to_spawn_scene_path = "res://RaidAlert/Animals/Animal.tscn"
+
+[node name="Alert" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="Flash" type="Node2D" parent="Alert"]
+script = ExtResource( 3 )
+flash_color = Color( 1, 0, 0, 0.47451 )
+
+[node name="ColorRect" type="ColorRect" parent="Alert/Flash"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Alert/Flash"]
+
+[node name="Announcement" type="Node2D" parent="Alert"]
+script = ExtResource( 5 )
+
+[node name="MessageContainer" type="Node2D" parent="Alert/Announcement"]
+position = Vector2( 640, -20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Stripes" type="Node2D" parent="Alert/Announcement/MessageContainer"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlackStripe" type="Polygon2D" parent="Alert/Announcement/MessageContainer/Stripes"]
+position = Vector2( 0, -19.432 )
+color = Color( 0.14902, 0.137255, 0.137255, 1 )
+polygon = PoolVector2Array( 0, 235, 46, 115, 640, 20, 594, 140 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OrangeStripe" type="Polygon2D" parent="Alert/Announcement/MessageContainer/Stripes"]
+position = Vector2( 0.438416, -19.4321 )
+color = Color( 0.756863, 0.529412, 0.286275, 1 )
+polygon = PoolVector2Array( 0, 235, 46, 115, 113.554, 104.188, 73.0616, 223.308 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OrangeStripe2" type="Polygon2D" parent="Alert/Announcement/MessageContainer/Stripes"]
+position = Vector2( 151.669, -43.5291 )
+color = Color( 0.756863, 0.529412, 0.286275, 1 )
+polygon = PoolVector2Array( 0, 235, 46, 115, 113.554, 104.188, 73.0616, 223.308 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OrangeStripe3" type="Polygon2D" parent="Alert/Announcement/MessageContainer/Stripes"]
+position = Vector2( 297.401, -66.8351 )
+color = Color( 0.756863, 0.529412, 0.286275, 1 )
+polygon = PoolVector2Array( 0, 235, 46, 115, 113.554, 104.188, 73.0616, 223.308 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OrangeStripe4" type="Polygon2D" parent="Alert/Announcement/MessageContainer/Stripes"]
+position = Vector2( 446.299, -90.7162 )
+color = Color( 0.756863, 0.529412, 0.286275, 1 )
+polygon = PoolVector2Array( 0, 235, 46, 115, 113.554, 104.188, 73.0616, 223.308 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Control" type="VBoxContainer" parent="Alert/Announcement/MessageContainer"]
+margin_left = 91.8201
+margin_top = 106.534
+margin_right = 529.82
+margin_bottom = 190.534
+rect_rotation = -9.2
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ChannelTitleLabel" type="Label" parent="Alert/Announcement/MessageContainer/Control"]
+margin_right = 438.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "%s lance un raid"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NbRaidersLabel" type="Label" parent="Alert/Announcement/MessageContainer/Control"]
+margin_top = 52.0
+margin_right = 438.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 2 )
+text = "%d fourmis sont parachutées dans les bois"
+
+[node name="Tween" type="Tween" parent="Alert/Announcement"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Alert"]
+stream = ExtResource( 7 )

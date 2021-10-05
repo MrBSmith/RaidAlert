@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Actor/States/ActorState/BaseStates/ActorFallState.gd"
 }, {
-"base": "ActorStateBase",
+"base": "TRPG_ActorStateBase",
 "class": "ActorHurtState",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Actor/States/ActorState/BaseStates/ActorHurtState.gd"
@@ -60,6 +60,11 @@ _global_script_classes=[ {
 "path": "res://BabaGodotLib/Actor/States/ActorState/ActorStateBase.gd"
 }, {
 "base": "Node2D",
+"class": "Alert",
+"language": "GDScript",
+"path": "res://RaidAlert/Alert.gd"
+}, {
+"base": "Node2D",
 "class": "Animal",
 "language": "GDScript",
 "path": "res://RaidAlert/Animals/Animal.gd"
@@ -69,10 +74,40 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/AbstractStates/AnimatedObjectStateBase.gd"
 }, {
+"base": "Node",
+"class": "AnimationEvent",
+"language": "GDScript",
+"path": "res://BabaGodotLib/AnimationEvents/AnimationEvent.gd"
+}, {
 "base": "StateBase",
 "class": "AppearState",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/AbstractStates/Appear.gd"
+}, {
+"base": "Trigger",
+"class": "AreaTrigger",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Triggers/AreaTrigger.gd"
+}, {
+"base": "TabContainer",
+"class": "BabaTabContainer",
+"language": "GDScript",
+"path": "res://BabaGodotLib/UI/TabContainer/BabaTabContainer.gd"
+}, {
+"base": "HSlider",
+"class": "Baba_HSlider",
+"language": "GDScript",
+"path": "res://BabaGodotLib/UI/Sliders/Baba_HSlider.gd"
+}, {
+"base": "Node",
+"class": "ChatBot",
+"language": "GDScript",
+"path": "res://ChatBot/ChatBot.gd"
+}, {
+"base": "Node",
+"class": "ChatEvent",
+"language": "GDScript",
+"path": "res://ChatBot/ChatEvent/ChatEvent.gd"
 }, {
 "base": "InteractiveObject",
 "class": "Collectable",
@@ -117,7 +152,7 @@ _global_script_classes=[ {
 "base": "ResizableWindow",
 "class": "DescriptionWindow",
 "language": "GDScript",
-"path": "res://BabaGodotLib/UI/Windows/DescritpionWindow.gd"
+"path": "res://BabaGodotLib/UI/Windows/DescriptionWindow.gd"
 }, {
 "base": "Node",
 "class": "DirNavHelper",
@@ -129,6 +164,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/AbstractStates/Disappear.gd"
 }, {
+"base": "Node2D",
+"class": "Event",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Event/Event.gd"
+}, {
 "base": "Node",
 "class": "EventsBase",
 "language": "GDScript",
@@ -138,6 +178,11 @@ _global_script_classes=[ {
 "class": "FadeTransition",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Transitions/FadeTransition.gd"
+}, {
+"base": "Node2D",
+"class": "Flash",
+"language": "GDScript",
+"path": "res://RaidAlert/Flash.gd"
 }, {
 "base": "Node",
 "class": "GameLoader",
@@ -153,6 +198,11 @@ _global_script_classes=[ {
 "class": "Gauge",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Scenes/HUD/Gauge/Gauge.gd"
+}, {
+"base": "HBoxContainer",
+"class": "Goals",
+"language": "GDScript",
+"path": "res://Overlay/Goals/Goals.gd"
 }, {
 "base": "LineContainer",
 "class": "IconsLineContainer",
@@ -174,6 +224,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Scenes/InteractiveObject/InteractiveObject.gd"
 }, {
+"base": "Node",
+"class": "Interpretor",
+"language": "GDScript",
+"path": "res://Interpretor/Interpretor.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "IsoAnimatedSprite",
 "language": "GDScript",
@@ -194,7 +249,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/IsoMap.gd"
 }, {
-"base": "TileMap",
+"base": "IsoTileMap",
 "class": "IsoMapLayer",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/IsoMapLayer.gd"
@@ -224,20 +279,35 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoRenderer/IsoRenderer.gd"
 }, {
+"base": "Tween",
+"class": "IsoRendererTween",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Isometric/IsoRenderer/RenderPart/PartTween.gd"
+}, {
 "base": "Sprite",
 "class": "IsoSprite",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoSprite.gd"
+}, {
+"base": "TileMap",
+"class": "IsoTileMap",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Isometric/IsoMap/IsoTilemap.gd"
+}, {
+"base": "Event",
+"class": "LevelEvent",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Event/LevelEvent.gd"
 }, {
 "base": "Node",
 "class": "LevelLoader",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Statics/SaveSystem/LevelLoader.gd"
 }, {
-"base": "Sprite",
+"base": "WorldMapNode",
 "class": "LevelNode",
 "language": "GDScript",
-"path": "res://BabaGodotLib/WorldMap/LevelNode/LevelNode.gd"
+"path": "res://BabaGodotLib/WorldMap/WorldMapNode/LevelNode/LevelNode.gd"
 }, {
 "base": "Path2D",
 "class": "LevelNodeBind",
@@ -258,6 +328,11 @@ _global_script_classes=[ {
 "class": "LineData",
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/LineContainer/DataContainer/LineData.gd"
+}, {
+"base": "LineEdit",
+"class": "LineField",
+"language": "GDScript",
+"path": "res://BabaGodotLib/UI/LineField/LineField.gd"
 }, {
 "base": "MenuBase",
 "class": "ListMenu",
@@ -284,6 +359,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/LineContainer/DataContainer/NormalLineData.gd"
 }, {
+"base": "Trigger",
+"class": "OnStartTrigger",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Triggers/OnStartTrigger.gd"
+}, {
 "base": "Node",
 "class": "OptionDataContainer",
 "language": "GDScript",
@@ -294,10 +374,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/LineContainer/OptionLineContainer.gd"
 }, {
-"base": "Tween",
-"class": "PartTween",
+"base": "Control",
+"class": "Overlay",
 "language": "GDScript",
-"path": "res://BabaGodotLib/Isometric/IsoRenderer/RenderPart/PartTween.gd"
+"path": "res://Overlay/Overlay.gd"
+}, {
+"base": "TextureProgress",
+"class": "Overlay_Gauge",
+"language": "GDScript",
+"path": "res://Overlay/Gauges/Overlay_Gauge.gd"
 }, {
 "base": "Position2D",
 "class": "PathPoint",
@@ -344,12 +429,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://RaidAlert/RaidAlert.gd"
 }, {
+"base": "Node2D",
+"class": "RaidAnnouncement",
+"language": "GDScript",
+"path": "res://RaidAlert/Message.gd"
+}, {
 "base": "RayCast2D",
 "class": "RayCastBase",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/Raycast/RayCastBase.gd"
 }, {
-"base": "Node2D",
+"base": "Sprite",
 "class": "RenderPart",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoRenderer/RenderPart/RenderPart.gd"
@@ -373,6 +463,11 @@ _global_script_classes=[ {
 "class": "SenderData",
 "language": "GDScript",
 "path": "res://addons/gift/util/sender_data.gd"
+}, {
+"base": "Trigger",
+"class": "SignalTrigger",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Triggers/SignalTrigger.gd"
 }, {
 "base": "Node2D",
 "class": "SoundEffectsHandler",
@@ -398,11 +493,6 @@ _global_script_classes=[ {
 "class": "StatesMachine",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/StateMachine.gd"
-}, {
-"base": "Node",
-"class": "StreamLabsAlertsHandler",
-"language": "GDScript",
-"path": "res://TwitchAlertHandler.gd"
 }, {
 "base": "ActorActionState",
 "class": "TB_ActorActionState",
@@ -449,6 +539,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoObjects/TRPG_DamagableObject.gd"
 }, {
+"base": "TextEdit",
+"class": "TextField",
+"language": "GDScript",
+"path": "res://BabaGodotLib/UI/TextField/TextField.gd"
+}, {
 "base": "LineContainer",
 "class": "TextLineContainer",
 "language": "GDScript",
@@ -459,15 +554,40 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoRenderer/RenderPart/TileRenderPart.gd"
 }, {
+"base": "HBoxContainer",
+"class": "TitleDataLabel",
+"language": "GDScript",
+"path": "res://BabaGodotLib/UI/TitleBodyLine/TitleBodyLine.gd"
+}, {
 "base": "StatesMachine",
 "class": "ToolStatesMachine",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/ToolStateMachine.gd"
 }, {
+"base": "Node2D",
+"class": "Trigger",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Triggers/Trigger.gd"
+}, {
+"base": "Node",
+"class": "TwitchAlertsHandler",
+"language": "GDScript",
+"path": "res://TwitchAlertHandler/TwitchAlertHandler.gd"
+}, {
 "base": "Node",
 "class": "TwitchChatHandler",
 "language": "GDScript",
 "path": "res://addons/gift/gift_node.gd"
+}, {
+"base": "Node",
+"class": "UserTracker",
+"language": "GDScript",
+"path": "res://ChatBot/UserTracker/UserTracker.gd"
+}, {
+"base": "Object",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Statics/Utils.gd"
 }, {
 "base": "CanvasLayer",
 "class": "WorldMap",
@@ -483,6 +603,11 @@ _global_script_classes=[ {
 "class": "WorldMapMovingElement",
 "language": "GDScript",
 "path": "res://BabaGodotLib/WorldMap/WorldMapMovingElement/WorldMapMovingElement.gd"
+}, {
+"base": "Sprite",
+"class": "WorldMapNode",
+"language": "GDScript",
+"path": "res://BabaGodotLib/WorldMap/WorldMapNode/WorldMapNode.gd"
 } ]
 _global_script_class_icons={
 "ActionMenu": "",
@@ -495,9 +620,16 @@ _global_script_class_icons={
 "ActorMoveState": "",
 "ActorPath": "",
 "ActorStateBase": "",
+"Alert": "",
 "Animal": "",
 "AnimatedObjectStateBase": "",
+"AnimationEvent": "",
 "AppearState": "",
+"AreaTrigger": "",
+"BabaTabContainer": "",
+"Baba_HSlider": "",
+"ChatBot": "",
+"ChatEvent": "",
 "Collectable": "",
 "Collectable_CollectState": "",
 "Collectable_FollowState": "",
@@ -509,15 +641,19 @@ _global_script_class_icons={
 "DescriptionWindow": "",
 "DirNavHelper": "",
 "Disappear": "",
+"Event": "",
 "EventsBase": "",
 "FadeTransition": "",
+"Flash": "",
 "GameLoader": "",
 "GameSaver": "",
 "Gauge": "",
+"Goals": "",
 "IconsLineContainer": "",
 "IconsLineData": "",
 "ImageCache": "",
 "InteractiveObject": "",
+"Interpretor": "",
 "IsoAnimatedSprite": "",
 "IsoEvents": "",
 "IsoLogic": "",
@@ -528,21 +664,27 @@ _global_script_class_icons={
 "IsoRaycast": "",
 "IsoRenderPart": "",
 "IsoRenderer": "",
+"IsoRendererTween": "",
 "IsoSprite": "",
+"IsoTileMap": "",
+"LevelEvent": "",
 "LevelLoader": "",
 "LevelNode": "",
 "LevelNodeBind": "",
 "LevelSaver": "",
 "LineContainer": "",
 "LineData": "",
+"LineField": "",
 "ListMenu": "",
 "Math": "",
 "MenuBase": "",
 "MenuOptionsBase": "",
 "NormalLineData": "",
+"OnStartTrigger": "",
 "OptionDataContainer": "",
 "OptionLineContainer": "",
-"PartTween": "",
+"Overlay": "",
+"Overlay_Gauge": "",
 "PathPoint": "",
 "PulsingLight": "",
 "PushdownAutomata": "",
@@ -552,18 +694,19 @@ _global_script_class_icons={
 "RT_ActorJumpState": "",
 "RT_ActorMoveState": "",
 "RaidAlert": "",
+"RaidAnnouncement": "",
 "RayCastBase": "",
 "RenderPart": "",
 "ResizableWindow": "",
 "SFX_AnimationBase": "",
 "SceneFinder": "",
 "SenderData": "",
+"SignalTrigger": "",
 "SoundEffectsHandler": "",
 "Spawner": "",
 "StateBase": "",
 "StateLabel": "",
 "StatesMachine": "",
-"StreamLabsAlertsHandler": "",
 "TB_ActorActionState": "",
 "TB_ActorFallState": "",
 "TB_ActorIdleState": "",
@@ -573,13 +716,20 @@ _global_script_class_icons={
 "TRPG_Actor": "",
 "TRPG_ActorStateBase": "",
 "TRPG_DamagableObject": "",
+"TextField": "",
 "TextLineContainer": "",
 "TileRenderPart": "",
+"TitleDataLabel": "",
 "ToolStatesMachine": "",
+"Trigger": "",
+"TwitchAlertsHandler": "",
 "TwitchChatHandler": "",
+"UserTracker": "",
+"Utils": "",
 "WorldMap": "",
 "WorldMapEditor": "",
-"WorldMapMovingElement": ""
+"WorldMapMovingElement": "",
+"WorldMapNode": ""
 }
 
 [application]
@@ -597,6 +747,35 @@ EVENTS="*res://Autoload/Events.gd"
 
 window/size/width=640
 window/size/height=360
+window/size/test_width=1920
+window/size/test_height=1080
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep_width"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [physics]
 
@@ -604,4 +783,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 1, 0, 1 )
 environment/default_environment="res://default_env.tres"
