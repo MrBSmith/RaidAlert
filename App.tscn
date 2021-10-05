@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/gift/gift_node.gd" type="Script" id=2]
@@ -19,6 +19,14 @@
 [ext_resource path="res://Overlay/Sprites/LastFollowPanel.png" type="Texture" id=17]
 [ext_resource path="res://Overlay/Sprites/SpotifyPanel.png" type="Texture" id=18]
 [ext_resource path="res://Overlay/Sprites/SocialMedias.png" type="Texture" id=19]
+[ext_resource path="res://Overlay/Animations/Animations.gd" type="Script" id=20]
+[ext_resource path="res://Overlay/Animations/Sounds/OuhYeah.mp3" type="AudioStream" id=21]
+[ext_resource path="res://Overlay/Animations/Sounds/Croassement.mp3" type="AudioStream" id=22]
+[ext_resource path="res://Overlay/Animations/Sounds/Cloche.mp3" type="AudioStream" id=23]
+[ext_resource path="res://Overlay/Animations/Sounds/Ding.mp3" type="AudioStream" id=24]
+[ext_resource path="res://MainSceneOverlay.gd" type="Script" id=25]
+[ext_resource path="res://LastFollowPanel.gd" type="Script" id=26]
+[ext_resource path="res://BabaGodotLib/Fonts/SmallPixel.tres" type="DynamicFont" id=27]
 
 [sub_resource type="Theme" id=1]
 Label/colors/font_color = Color( 0.321569, 0, 0.176471, 1 )
@@ -31,89 +39,105 @@ Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 9 )
 Label/styles/normal = null
 
+[sub_resource type="Theme" id=27]
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = ExtResource( 27 )
+Label/styles/normal = null
+
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 16 )
-region = Rect2( 58, 0, 58, 139 )
+region = Rect2( 0, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 16 )
-region = Rect2( 116, 0, 58, 139 )
+region = Rect2( 58, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 16 )
-region = Rect2( 174, 0, 58, 139 )
+region = Rect2( 116, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 16 )
-region = Rect2( 0, 139, 58, 139 )
+region = Rect2( 174, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 16 )
-region = Rect2( 58, 139, 58, 139 )
+region = Rect2( 0, 139, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 16 )
-region = Rect2( 116, 139, 58, 139 )
+region = Rect2( 58, 139, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 16 )
-region = Rect2( 174, 139, 58, 139 )
+region = Rect2( 116, 139, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 16 )
-region = Rect2( 0, 278, 58, 139 )
+region = Rect2( 174, 139, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 16 )
-region = Rect2( 58, 278, 58, 139 )
+region = Rect2( 0, 278, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 16 )
-region = Rect2( 116, 278, 58, 139 )
+region = Rect2( 58, 278, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 16 )
+region = Rect2( 116, 278, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 16 )
 region = Rect2( 174, 278, 58, 139 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": true,
+"frames": [ SubResource( 2 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 12 ), SubResource( 11 ), SubResource( 8 ), SubResource( 14 ) ],
+"loop": false,
 "name": "OhYeah",
-"speed": 13.0
+"speed": 10.0
 } ]
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 14 )
-region = Rect2( 91, 0, 91, 324 )
+region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 14 )
-region = Rect2( 182, 0, 91, 324 )
+region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 14 )
-region = Rect2( 273, 0, 91, 324 )
+region = Rect2( 0, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 14 )
-region = Rect2( 364, 0, 91, 324 )
+region = Rect2( 91, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 14 )
-region = Rect2( 0, 324, 91, 324 )
+region = Rect2( 91, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 14 )
-region = Rect2( 91, 324, 91, 324 )
+region = Rect2( 182, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 14 )
@@ -121,14 +145,27 @@ region = Rect2( 182, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 14 )
+region = Rect2( 273, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 14 )
 region = Rect2( 273, 324, 91, 324 )
 
-[sub_resource type="SpriteFrames" id=24]
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 14 )
+region = Rect2( 364, 0, 91, 324 )
+
+[sub_resource type="SpriteFrames" id=25]
 animations = [ {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
-"loop": true,
+"frames": [ SubResource( 16 ) ],
+"loop": false,
 "name": "default",
-"speed": 13.0
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 26 ) ],
+"loop": false,
+"name": "Panier",
+"speed": 11.0
 } ]
 
 [node name="App" type="Node2D"]
@@ -151,17 +188,19 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="Overlay"]
-wait_time = 0.1
+wait_time = 0.05
 autostart = true
 
-[node name="MainSceneOverlay" type="Control" parent="Overlay"]
+[node name="MainScene" type="Control" parent="Overlay"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 25 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="BackgroundOutline" type="TextureRect" parent="Overlay/MainSceneOverlay"]
+[node name="BackgroundOutline" type="TextureRect" parent="Overlay/MainScene"]
 margin_right = 640.0
 margin_bottom = 360.0
 texture = ExtResource( 12 )
@@ -170,7 +209,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChatPanel" type="TextureRect" parent="Overlay/MainSceneOverlay"]
+[node name="Spotify" type="TextureRect" parent="Overlay/MainScene/BackgroundOutline"]
+margin_left = 358.0
+margin_top = 252.0
+margin_right = 473.0
+margin_bottom = 275.0
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ChatPanel" type="TextureRect" parent="Overlay/MainScene"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -154.0
@@ -180,72 +230,29 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SocialMedias" type="TextureRect" parent="Overlay/MainSceneOverlay/ChatPanel"]
+[node name="SocialMedias" type="TextureRect" parent="Overlay/MainScene/ChatPanel"]
 margin_left = 4.0
-margin_right = 40.0
+margin_top = 2.0
+margin_right = 137.0
 margin_bottom = 40.0
 texture = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panels" type="Control" parent="Overlay/MainSceneOverlay"]
+[node name="Goals" type="Control" parent="Overlay/MainScene"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="LastFollowPanel" type="TextureRect" parent="Overlay/MainSceneOverlay/Panels"]
-margin_left = 167.0
-margin_top = 331.0
-margin_right = 372.0
-margin_bottom = 359.0
-texture = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Spotify" type="TextureRect" parent="Overlay/MainSceneOverlay/Panels"]
-margin_left = 358.0
-margin_top = 252.0
-margin_right = 473.0
-margin_bottom = 275.0
-texture = ExtResource( 18 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Animations" type="Node2D" parent="Overlay/MainSceneOverlay"]
-
-[node name="Moaï" type="AnimatedSprite" parent="Overlay/MainSceneOverlay/Animations"]
-position = Vector2( 29, 290 )
-frames = SubResource( 14 )
-animation = "OhYeah"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Toucan" type="AnimatedSprite" parent="Overlay/MainSceneOverlay/Animations"]
-position = Vector2( 594, 199 )
-frames = SubResource( 24 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Goals" type="HBoxContainer" parent="Overlay/MainSceneOverlay"]
 margin_left = 59.0
 margin_top = 279.0
-margin_right = 449.0
-margin_bottom = 317.0
-custom_constants/separation = 28
+margin_right = -190.0
+margin_bottom = -43.0
 script = ExtResource( 10 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
-[node name="Followers" type="VBoxContainer" parent="Overlay/MainSceneOverlay/Goals"]
+[node name="Followers" type="VBoxContainer" parent="Overlay/MainScene/Goals"]
 margin_right = 181.0
 margin_bottom = 38.0
 custom_constants/separation = 0
@@ -254,26 +261,26 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Header" type="HBoxContainer" parent="Overlay/MainSceneOverlay/Goals/Followers"]
+[node name="Header" type="HBoxContainer" parent="Overlay/MainScene/Goals/Followers"]
 margin_right = 181.0
 margin_bottom = 16.0
 
-[node name="TitleLabel" type="Label" parent="Overlay/MainSceneOverlay/Goals/Followers/Header"]
+[node name="TitleLabel" type="Label" parent="Overlay/MainScene/Goals/Followers/Header"]
 margin_right = 66.0
 margin_bottom = 16.0
 text = "Follower:"
 
-[node name="CounterLabel" type="Label" parent="Overlay/MainSceneOverlay/Goals/Followers/Header"]
+[node name="CounterLabel" type="Label" parent="Overlay/MainScene/Goals/Followers/Header"]
 margin_left = 70.0
 margin_right = 141.0
 margin_bottom = 16.0
 text = "650/1000"
 
-[node name="Gauge" parent="Overlay/MainSceneOverlay/Goals/Followers" instance=ExtResource( 8 )]
+[node name="Gauge" parent="Overlay/MainScene/Goals/Followers" instance=ExtResource( 8 )]
 margin_top = 16.0
 margin_bottom = 38.0
 
-[node name="Subs" type="VBoxContainer" parent="Overlay/MainSceneOverlay/Goals"]
+[node name="Subs" type="VBoxContainer" parent="Overlay/MainScene/Goals"]
 margin_left = 209.0
 margin_right = 390.0
 margin_bottom = 38.0
@@ -283,38 +290,145 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Header" type="HBoxContainer" parent="Overlay/MainSceneOverlay/Goals/Subs"]
+[node name="Header" type="HBoxContainer" parent="Overlay/MainScene/Goals/Subs"]
 margin_right = 181.0
 margin_bottom = 16.0
 
-[node name="TitleLabel" type="Label" parent="Overlay/MainSceneOverlay/Goals/Subs/Header"]
+[node name="TitleLabel" type="Label" parent="Overlay/MainScene/Goals/Subs/Header"]
 margin_right = 62.0
 margin_bottom = 16.0
 text = "Abonnes:"
 
-[node name="CounterLabel" type="Label" parent="Overlay/MainSceneOverlay/Goals/Subs/Header"]
+[node name="CounterLabel" type="Label" parent="Overlay/MainScene/Goals/Subs/Header"]
 margin_left = 66.0
 margin_right = 111.0
 margin_bottom = 16.0
 text = "25/35"
 
-[node name="Gauge" parent="Overlay/MainSceneOverlay/Goals/Subs" instance=ExtResource( 8 )]
+[node name="Gauge" parent="Overlay/MainScene/Goals/Subs" instance=ExtResource( 8 )]
 margin_top = 16.0
 margin_bottom = 38.0
-fill_texture_color = Color( 0.262745, 0.376471, 1, 1 )
+fill_texture_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 
-[node name="Timer" type="Timer" parent="Overlay/MainSceneOverlay/Goals"]
+[node name="Timer" type="Timer" parent="Overlay/MainScene/Goals"]
 wait_time = 0.5
 autostart = true
 
+[node name="Tween" type="Tween" parent="Overlay/MainScene"]
+
 [node name="ForegroundOutline" type="TextureRect" parent="Overlay"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 13 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="LastFollowPanel" type="TextureRect" parent="Overlay/ForegroundOutline"]
+margin_left = 167.0
+margin_top = 332.0
+margin_right = 372.0
+margin_bottom = 360.0
+texture = ExtResource( 17 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Overlay/ForegroundOutline/LastFollowPanel"]
+wait_time = 0.5
+autostart = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/ForegroundOutline/LastFollowPanel"]
+anchor_left = 0.059
+anchor_top = 0.214
+anchor_right = 0.059
+anchor_bottom = 0.214
+margin_left = -0.0950012
+margin_top = 0.00799942
+margin_right = 188.905
+margin_bottom = 36.008
+theme = SubResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/ForegroundOutline/LastFollowPanel/HBoxContainer"]
+margin_right = 189.0
+margin_bottom = 36.0
+size_flags_horizontal = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LastFollower" type="Label" parent="Overlay/ForegroundOutline/LastFollowPanel/HBoxContainer/VBoxContainer"]
+margin_right = 189.0
+margin_bottom = 8.0
+valign = 1
+
+[node name="LastSubscriber" type="Label" parent="Overlay/ForegroundOutline/LastFollowPanel/HBoxContainer/VBoxContainer"]
+margin_top = 12.0
+margin_right = 189.0
+margin_bottom = 20.0
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Overlay/ForegroundOutline/LastFollowPanel/HBoxContainer"]
+visible = false
+margin_left = 106.0
+margin_right = 209.0
+margin_bottom = 36.0
+size_flags_horizontal = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopDonater" type="Label" parent="Overlay/ForegroundOutline/LastFollowPanel/HBoxContainer/VBoxContainer2"]
+margin_right = 103.0
+margin_bottom = 16.0
+valign = 1
+
+[node name="TopSubGifter" type="Label" parent="Overlay/ForegroundOutline/LastFollowPanel/HBoxContainer/VBoxContainer2"]
+margin_top = 20.0
+margin_right = 103.0
+margin_bottom = 36.0
+valign = 1
+
+[node name="Animations" type="Node2D" parent="Overlay"]
+script = ExtResource( 20 )
+
+[node name="Moai" type="AnimatedSprite" parent="Overlay/Animations"]
+position = Vector2( 29, 290 )
+frames = SubResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OhYeah" type="AudioStreamPlayer2D" parent="Overlay/Animations/Moai"]
+position = Vector2( 91, -2 )
+stream = ExtResource( 21 )
+
+[node name="Ding" type="AudioStreamPlayer2D" parent="Overlay/Animations/Moai"]
+position = Vector2( 91, -2 )
+stream = ExtResource( 24 )
+volume_db = -6.0
+
+[node name="Toucan" type="AnimatedSprite" parent="Overlay/Animations"]
+position = Vector2( 594, 198 )
+z_index = 1
+frames = SubResource( 25 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bell" type="AudioStreamPlayer2D" parent="Overlay/Animations/Toucan"]
+position = Vector2( -82, -111 )
+stream = ExtResource( 23 )
+
+[node name="Croa" type="AudioStreamPlayer2D" parent="Overlay/Animations/Toucan"]
+position = Vector2( -82, -111 )
+stream = ExtResource( 22 )
 
 [node name="RaidAlert" parent="." instance=ExtResource( 1 )]
 

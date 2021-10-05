@@ -2,7 +2,7 @@ extends Control
 class_name Overlay
 
 onready var timer = $Timer
-onready var main_scene_overlay = $MainSceneOverlay
+onready var main_scene = $MainScene
 
 var scene_file_path = "D:/StreamDeck/StreamLabels/scenes.txt"
 var alert_file_path = "D:/StreamDeck/StreamLabels/alerts.txt"
@@ -35,15 +35,6 @@ func _ready() -> void:
 
 #### LOGIC ####
 
-func _read_file(path: String) -> String:
-	var file = File.new()
-	file.open(path, File.READ_WRITE)
-	
-	var line = file.get_line()
-	file.close()
-	
-	return line
-
 
 func _empty_file(path: String) -> void:
 	var file = File.new()
@@ -58,14 +49,14 @@ func _empty_file(path: String) -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_timer_timeout() -> void:
-	set_current_scene(_read_file(scene_file_path).replace(" ", ""))
-	var alert = _read_file(alert_file_path).replace(" ", "")
+	set_current_scene(DirNavHelper.read_file_line(scene_file_path).replace(" ", ""))
+	var alert = DirNavHelper.read_file_line(alert_file_path).replace(" ", "")
 	
 	if alert != "":
+		_empty_file(alert_file_path)
 		EVENTS.emit_signal("alert", alert)
 
 
 func _on_OBS_scene_changed(scene_name: String) -> void:
 	_empty_file(scene_file_path)
-	main_scene_overlay.set_visible(scene_name == "Main")
-	print("scene changed: %s" % scene_name)
+	main_scene.appear_animation(scene_name == "Main")

@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/AnimationEvents/AnimationEvent.gd"
 }, {
+"base": "Node2D",
+"class": "Animations",
+"language": "GDScript",
+"path": "res://Overlay/Animations/Animations.gd"
+}, {
 "base": "StateBase",
 "class": "AppearState",
 "language": "GDScript",
@@ -199,7 +204,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Scenes/HUD/Gauge/Gauge.gd"
 }, {
-"base": "HBoxContainer",
+"base": "Control",
 "class": "Goals",
 "language": "GDScript",
 "path": "res://Overlay/Goals/Goals.gd"
@@ -294,6 +299,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/IsoTilemap.gd"
 }, {
+"base": "TextureRect",
+"class": "LastFollowPanel",
+"language": "GDScript",
+"path": "res://LastFollowPanel.gd"
+}, {
 "base": "Event",
 "class": "LevelEvent",
 "language": "GDScript",
@@ -338,6 +348,11 @@ _global_script_classes=[ {
 "class": "ListMenu",
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/Menu/ListMenu.gd"
+}, {
+"base": "Control",
+"class": "MainScene",
+"language": "GDScript",
+"path": "res://MainSceneOverlay.gd"
 }, {
 "base": "Object",
 "class": "Math",
@@ -624,6 +639,7 @@ _global_script_class_icons={
 "Animal": "",
 "AnimatedObjectStateBase": "",
 "AnimationEvent": "",
+"Animations": "",
 "AppearState": "",
 "AreaTrigger": "",
 "BabaTabContainer": "",
@@ -667,6 +683,7 @@ _global_script_class_icons={
 "IsoRendererTween": "",
 "IsoSprite": "",
 "IsoTileMap": "",
+"LastFollowPanel": "",
 "LevelEvent": "",
 "LevelLoader": "",
 "LevelNode": "",
@@ -676,6 +693,7 @@ _global_script_class_icons={
 "LineData": "",
 "LineField": "",
 "ListMenu": "",
+"MainScene": "",
 "Math": "",
 "MenuBase": "",
 "MenuOptionsBase": "",
@@ -747,8 +765,9 @@ EVENTS="*res://Autoload/Events.gd"
 
 window/size/width=640
 window/size/height=360
-window/size/test_width=1920
-window/size/test_height=1080
+window/size/resizable=false
+window/size/test_width=1280
+window/size/test_height=720
 window/per_pixel_transparency/allowed=true
 window/per_pixel_transparency/enabled=true
 window/stretch/mode="2d"
@@ -776,6 +795,10 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+mp3={
+"loop": false,
+"loop_offset": 0
+}
 
 [physics]
 
@@ -783,5 +806,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 1, 0, 1 )
+environment/default_clear_color=Color( 1, 0, 1, 1 )
 environment/default_environment="res://default_env.tres"

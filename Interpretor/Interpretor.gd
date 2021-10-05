@@ -44,6 +44,7 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 		if "raid" in message:
 			var words_array = message.split(" ")
 			var channel_name = words_array[0]
+			words_array.remove(0)
 			var nb_raiders = find_number(words_array)
 			emit_signal("raid", channel_name, nb_raiders)
 	

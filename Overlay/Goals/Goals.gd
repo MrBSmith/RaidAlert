@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 class_name Goals
 
 onready var timer = $Timer

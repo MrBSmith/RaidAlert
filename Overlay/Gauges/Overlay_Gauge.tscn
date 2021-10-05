@@ -76,7 +76,7 @@ margin_top = -0.00199986
 margin_right = 185.009
 margin_bottom = 17.998
 rect_min_size = Vector2( 13, 18 )
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 patch_margin_left = 5
 patch_margin_top = 2
 patch_margin_right = 8
@@ -95,6 +95,7 @@ range_item_cull_mask = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="."]
