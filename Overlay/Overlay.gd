@@ -3,6 +3,7 @@ class_name Overlay
 
 onready var timer = $Timer
 onready var main_scene = $MainScene
+onready var panel = $Panel
 
 var scene_file_path = "D:/StreamDeck/StreamLabels/scenes.txt"
 var alert_file_path = "D:/StreamDeck/StreamLabels/alerts.txt"
@@ -16,8 +17,9 @@ func get_class() -> String: return "Overlay"
 
 func set_current_scene(value: String):
 	if value != current_scene && value != "":
+		var previous_scene = current_scene
 		current_scene = value
-		EVENTS.emit_signal("OBS_scene_changed", current_scene)
+		EVENTS.emit_signal("OBS_scene_changed", previous_scene, current_scene)
 
 #### BUILT-IN ####
 
@@ -27,6 +29,7 @@ func _ready() -> void:
 	
 	_empty_file(scene_file_path)
 	_empty_file(alert_file_path)
+	_on_OBS_scene_changed("Main", "WaitingScreen")
 
 
 #### VIRTUALS ####
@@ -57,6 +60,21 @@ func _on_timer_timeout() -> void:
 		EVENTS.emit_signal("alert", alert)
 
 
-func _on_OBS_scene_changed(scene_name: String) -> void:
+func _on_OBS_scene_changed(previous_scene: String, scene_name: String) -> void:
 	_empty_file(scene_file_path)
-	main_scene.appear_animation(scene_name == "Main")
+	
+	if scene_name == "Main":
+		main_scene.appear_animation(true)
+		yield(get_tree().create_timer(0.5), "timeout")
+		
+	elif previous_scene == "Main":
+		main_scene.appear_animation(false)
+		yield(get_tree().create_timer(0.5), "timeout")
+	
+	if scene_name in ["WaitingScreen", "EndingScreen", "Pause"]:
+		panel.set_offseted(scene_name == "Pause")
+		panel.appear_animation(true)
+	
+	elif previous_scene in ["WaitingScreen", "EndingScreen", "Pause"]:
+		panel.appear_animation(false)
+

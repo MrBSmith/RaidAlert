@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/gift/gift_node.gd" type="Script" id=2]
@@ -26,7 +26,12 @@
 [ext_resource path="res://Overlay/Animations/Sounds/Ding.mp3" type="AudioStream" id=24]
 [ext_resource path="res://MainSceneOverlay.gd" type="Script" id=25]
 [ext_resource path="res://LastFollowPanel.gd" type="Script" id=26]
-[ext_resource path="res://BabaGodotLib/Fonts/SmallPixel.tres" type="DynamicFont" id=27]
+[ext_resource path="res://Font/ColunaSmall.tres" type="DynamicFont" id=27]
+[ext_resource path="res://Overlay/Panel/Panel.gd" type="Script" id=28]
+[ext_resource path="res://Overlay/Sprites/Panel.png" type="Texture" id=29]
+[ext_resource path="res://Font/ColunaBig.tres" type="DynamicFont" id=30]
+[ext_resource path="res://Font/Coluna.otf" type="DynamicFontData" id=31]
+[ext_resource path="res://Overlay/Panel/WaitingScreenTimer.gd" type="Script" id=32]
 
 [sub_resource type="Theme" id=1]
 Label/colors/font_color = Color( 0.321569, 0, 0.176471, 1 )
@@ -39,8 +44,33 @@ Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 9 )
 Label/styles/normal = null
 
-[sub_resource type="Theme" id=27]
-Label/colors/font_color = Color( 0, 0, 0, 1 )
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 31 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+use_mipmaps = true
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+use_mipmaps = true
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 38
+use_mipmaps = true
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 19
+font_data = ExtResource( 31 )
+
+[sub_resource type="Theme" id=8]
+Label/colors/font_color = Color( 0.321569, 0, 0.176471, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 Label/constants/line_spacing = 3
@@ -50,119 +80,119 @@ Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 27 )
 Label/styles/normal = null
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 16 )
-region = Rect2( 0, 0, 58, 139 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 16 )
-region = Rect2( 0, 0, 58, 139 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 16 )
-region = Rect2( 58, 0, 58, 139 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 16 )
-region = Rect2( 116, 0, 58, 139 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 16 )
-region = Rect2( 174, 0, 58, 139 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 16 )
-region = Rect2( 0, 139, 58, 139 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 16 )
-region = Rect2( 58, 139, 58, 139 )
-
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 16 )
-region = Rect2( 116, 139, 58, 139 )
+region = Rect2( 0, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 16 )
-region = Rect2( 174, 139, 58, 139 )
+region = Rect2( 0, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 16 )
-region = Rect2( 0, 278, 58, 139 )
+region = Rect2( 58, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 16 )
-region = Rect2( 58, 278, 58, 139 )
+region = Rect2( 116, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 16 )
-region = Rect2( 116, 278, 58, 139 )
+region = Rect2( 174, 0, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 16 )
+region = Rect2( 0, 139, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 16 )
+region = Rect2( 58, 139, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 16 )
+region = Rect2( 116, 139, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 16 )
+region = Rect2( 174, 139, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 278, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 16 )
+region = Rect2( 58, 278, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 16 )
+region = Rect2( 116, 278, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 16 )
 region = Rect2( 174, 278, 58, 139 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ SubResource( 2 ) ],
+"frames": [ SubResource( 9 ) ],
 "loop": false,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 12 ), SubResource( 11 ), SubResource( 8 ), SubResource( 14 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 19 ), SubResource( 18 ), SubResource( 15 ), SubResource( 21 ) ],
 "loop": false,
 "name": "OhYeah",
 "speed": 10.0
 } ]
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 14 )
-region = Rect2( 0, 324, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 14 )
-region = Rect2( 91, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 14 )
-region = Rect2( 91, 324, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 14 )
-region = Rect2( 182, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 14 )
-region = Rect2( 182, 324, 91, 324 )
-
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 14 )
-region = Rect2( 273, 0, 91, 324 )
+region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 14 )
-region = Rect2( 273, 324, 91, 324 )
+region = Rect2( 0, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 14 )
+region = Rect2( 91, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 14 )
+region = Rect2( 91, 324, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 14 )
+region = Rect2( 182, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 14 )
+region = Rect2( 182, 324, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 14 )
+region = Rect2( 273, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 14 )
+region = Rect2( 273, 324, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 14 )
 region = Rect2( 364, 0, 91, 324 )
 
-[sub_resource type="SpriteFrames" id=25]
+[sub_resource type="SpriteFrames" id=33]
 animations = [ {
-"frames": [ SubResource( 16 ) ],
+"frames": [ SubResource( 23 ) ],
 "loop": false,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 26 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": false,
 "name": "Panier",
 "speed": 11.0
@@ -316,6 +346,116 @@ autostart = true
 
 [node name="Tween" type="Tween" parent="Overlay/MainScene"]
 
+[node name="Panel" type="TextureRect" parent="Overlay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -171.5
+margin_right = 171.5
+margin_bottom = 275.0
+theme = SubResource( 3 )
+texture = ExtResource( 29 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Overlay/Panel"]
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlay/Panel"]
+margin_left = 9.0
+margin_top = 119.0
+margin_right = 335.0
+margin_bottom = 249.0
+rect_rotation = 2.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="VBoxContainer" parent="Overlay/Panel/CenterContainer"]
+margin_left = 28.0
+margin_top = 7.0
+margin_right = 298.0
+margin_bottom = 123.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WaitingScreen" type="Label" parent="Overlay/Panel/CenterContainer/Content"]
+margin_right = 270.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 4 )
+text = "Le stream commence dans: "
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="Label" parent="Overlay/Panel/CenterContainer/Content"]
+visible = false
+margin_right = 218.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 5 )
+text = "C'est la pause!
+le stream revient dans :"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="EndingScreen" type="VBoxContainer" parent="Overlay/Panel/CenterContainer/Content"]
+visible = false
+margin_right = 310.0
+margin_bottom = 106.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Overlay/Panel/CenterContainer/Content/EndingScreen"]
+margin_right = 310.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 6 )
+text = "Le stream est terminé!"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CallToAction" type="Label" parent="Overlay/Panel/CenterContainer/Content/EndingScreen"]
+margin_top = 63.0
+margin_right = 310.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 7 )
+text = "On se retrouve toutes les aprems en semaine a 14h!
+pensez a lacher un follow si ca vous a plu :)"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TimerLabel" type="Label" parent="Overlay/Panel/CenterContainer/Content"]
+margin_top = 52.0
+margin_right = 270.0
+margin_bottom = 116.0
+custom_fonts/font = ExtResource( 30 )
+text = "10:00"
+align = 1
+script = ExtResource( 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="Overlay/Panel/CenterContainer/Content/TimerLabel"]
+wait_time = 600.0
+
+[node name="UpdateTimer" type="Timer" parent="Overlay/Panel/CenterContainer/Content/TimerLabel"]
+wait_time = 0.5
+
 [node name="ForegroundOutline" type="TextureRect" parent="Overlay"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -346,18 +486,18 @@ anchor_left = 0.059
 anchor_top = 0.214
 anchor_right = 0.059
 anchor_bottom = 0.214
-margin_left = -0.0950012
-margin_top = 0.00799942
+margin_left = -0.0950003
+margin_top = 0.0079999
 margin_right = 188.905
-margin_bottom = 36.008
-theme = SubResource( 27 )
+margin_bottom = 18.008
+theme = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Overlay/ForegroundOutline/LastFollowPanel/HBoxContainer"]
 margin_right = 189.0
-margin_bottom = 36.0
+margin_bottom = 20.0
 size_flags_horizontal = 7
 __meta__ = {
 "_edit_use_anchors_": false
@@ -400,7 +540,7 @@ script = ExtResource( 20 )
 
 [node name="Moai" type="AnimatedSprite" parent="Overlay/Animations"]
 position = Vector2( 29, 290 )
-frames = SubResource( 15 )
+frames = SubResource( 22 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -417,7 +557,7 @@ volume_db = -6.0
 [node name="Toucan" type="AnimatedSprite" parent="Overlay/Animations"]
 position = Vector2( 594, 198 )
 z_index = 1
-frames = SubResource( 25 )
+frames = SubResource( 33 )
 __meta__ = {
 "_edit_lock_": true
 }

@@ -3,19 +3,17 @@
 [ext_resource path="res://RaidAlert/RaidAlert.gd" type="Script" id=1]
 [ext_resource path="res://RaidAlert/Spawner.gd" type="Script" id=2]
 [ext_resource path="res://RaidAlert/Flash.gd" type="Script" id=3]
-[ext_resource path="res://Font/Coluna.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://Font/Coluna.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://RaidAlert/Message.gd" type="Script" id=5]
 [ext_resource path="res://RaidAlert/Alert.gd" type="Script" id=6]
 [ext_resource path="res://RaidAlert/Alert.mp3" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
-use_filter = true
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
-use_filter = true
 font_data = ExtResource( 4 )
 
 [node name="RaidAlert" type="Node2D"]
@@ -128,6 +126,7 @@ margin_right = 438.0
 margin_bottom = 84.0
 custom_fonts/font = SubResource( 2 )
 text = "%d fourmis sont parachutées dans les bois"
+align = 1
 
 [node name="Tween" type="Tween" parent="Alert/Announcement"]
 
