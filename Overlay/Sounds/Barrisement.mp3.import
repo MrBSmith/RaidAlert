@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Barrisement.mp3-fb4aa52b104b1459967515c59810fa72.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Sounds/Barrisement.mp3"
+dest_files=[ "res://.import/Barrisement.mp3-fb4aa52b104b1459967515c59810fa72.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ding.mp3-ef84766c1b3870573b085dd815b3d796.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Sounds/Ding.mp3"
+dest_files=[ "res://.import/Ding.mp3-ef84766c1b3870573b085dd815b3d796.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

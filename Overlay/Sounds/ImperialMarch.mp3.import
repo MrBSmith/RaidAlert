@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ImperialMarch.mp3-80bda444bafb29f231b5c55cc5b1fafa.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Sounds/ImperialMarch.mp3"
+dest_files=[ "res://.import/ImperialMarch.mp3-80bda444bafb29f231b5c55cc5b1fafa.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

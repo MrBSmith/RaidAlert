@@ -32,6 +32,7 @@ func update_scroll() -> void:
 
 func _trigger_scroll(delay: float = 0.0) -> void:
 	tween.stop_all()
+	
 	var from = max_scroll if scroll_dir == -1 else 0
 	var dest = 0 if scroll_dir == -1 else max_scroll
 	

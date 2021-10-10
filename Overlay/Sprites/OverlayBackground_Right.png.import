@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OverlayBackgroundx1.png-87e965a02276f5303630d11f250cbf8d.stex"
+path="res://.import/OverlayBackground_Right.png-8ef9fd3d569447394719d2a949c81d37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlay/Sprites/OverlayBackgroundx1.png"
-dest_files=[ "res://.import/OverlayBackgroundx1.png-87e965a02276f5303630d11f250cbf8d.stex" ]
+source_file="res://Overlay/Sprites/OverlayBackground_Right.png"
+dest_files=[ "res://.import/OverlayBackground_Right.png-8ef9fd3d569447394719d2a949c81d37.stex" ]
 
 [params]
 

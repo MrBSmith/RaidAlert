@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OuhYeah.mp3-ff77694cbb029fa47ef70e23d5efe11a.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Sounds/OuhYeah.mp3"
+dest_files=[ "res://.import/OuhYeah.mp3-ff77694cbb029fa47ef70e23d5efe11a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

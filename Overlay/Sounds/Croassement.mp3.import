@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Croassement.mp3-4e23e91469572cfc02707009f1776e3f.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Sounds/Croassement.mp3"
+dest_files=[ "res://.import/Croassement.mp3-4e23e91469572cfc02707009f1776e3f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -7,7 +7,7 @@
 [ext_resource path="res://Overlay/Gauges/Overlay_Gauge.gd" type="Script" id=5]
 [ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill2.png" type="Texture" id=6]
 [ext_resource path="res://BabaGodotLib/Fonts/MediumPixel.tres" type="DynamicFont" id=7]
-[ext_resource path="res://Overlay/Animations/Sounds/Ding.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Overlay/Sounds/Ding.mp3" type="AudioStream" id=8]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1

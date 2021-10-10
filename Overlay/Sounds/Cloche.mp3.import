@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cloche.mp3-e435208f4260784f87e0299d44dff832.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Sounds/Cloche.mp3"
+dest_files=[ "res://.import/Cloche.mp3-e435208f4260784f87e0299d44dff832.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
