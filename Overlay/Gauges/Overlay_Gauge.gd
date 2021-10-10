@@ -64,6 +64,8 @@ func _goal_reached_feedback() -> void:
 	for i in range(6):
 		var to = Vector2(1.3, 1.3) if i % 2 == 0 else Vector2.ONE
 		
+		$AudioStreamPlayer2D.play()
+		
 		var __ = tween.interpolate_property(self, "rect_scale", rect_scale, 
 						to, 0.3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		

@@ -4,7 +4,7 @@ class_name MainScene
 onready var tween = $Tween
 onready var chat = $ChatPanel
 onready var goals = $Goals
-onready var background = $BackgroundOutline
+onready var background = $Background
 
 #### ACCESSORS ####
 
@@ -57,14 +57,14 @@ func _trigger_chat_appear_animation(appear: bool = true, delay: float = 0.0) -> 
 
 func _trigger_goals_appear_animation(appear: bool = true, delay: float = 0.0) -> void:
 	var ease_type = Tween.EASE_OUT if appear else Tween.EASE_IN
-	var from = 100.0 if appear else 0.0
-	var to = 0.0 if appear else 100.0
+	var from = -200.0 if appear else 0.0
+	var to = 0.0 if appear else -200.0
 	
 	var children = goals.get_children()
 	
 	for child in children:
 		if child is Control:
-			child.rect_position.y = from
+			child.rect_position.x = from
 	
 	if delay != 0.0:
 		yield(get_tree().create_timer(delay), "timeout")
@@ -75,7 +75,7 @@ func _trigger_goals_appear_animation(appear: bool = true, delay: float = 0.0) ->
 		if not child is Control:
 			continue
 		
-		var __ = tween.interpolate_property(child, "rect_position:y", from, to, 
+		var __ = tween.interpolate_property(child, "rect_position:x", from, to, 
 						0.8, Tween.TRANS_BACK, ease_type, i * 0.3)
 	
 	var __ = tween.start()

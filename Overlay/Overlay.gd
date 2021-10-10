@@ -4,6 +4,7 @@ class_name Overlay
 onready var timer = $Timer
 onready var main_scene = $MainScene
 onready var panel = $Panel
+onready var tv = $TV
 
 var scene_file_path = "D:/StreamDeck/StreamLabels/scenes.txt"
 var alert_file_path = "D:/StreamDeck/StreamLabels/alerts.txt"
@@ -63,14 +64,23 @@ func _on_timer_timeout() -> void:
 func _on_OBS_scene_changed(previous_scene: String, scene_name: String) -> void:
 	_empty_file(scene_file_path)
 	
+	# TV appear/disappear animation
+	if scene_name in ["Main", "Pause"]:
+		if tv.hidden:
+			tv.appear()
+	
+	elif !tv.hidden:
+		tv.disappear()
+	
+	# Main scene animation
 	if scene_name == "Main":
 		main_scene.appear_animation(true)
-		yield(get_tree().create_timer(0.5), "timeout")
-		
+	
 	elif previous_scene == "Main":
 		main_scene.appear_animation(false)
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(1.0), "timeout")
 	
+	# Panel animation
 	if scene_name in ["WaitingScreen", "EndingScreen", "Pause"]:
 		panel.set_offseted(scene_name == "Pause")
 		panel.appear_animation(true)

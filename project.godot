@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/Sliders/Baba_HSlider.gd"
 }, {
+"base": "Node2D",
+"class": "BabyBot",
+"language": "GDScript",
+"path": "res://Overlay/BabyBot/BabyBot.gd"
+}, {
 "base": "Node",
 "class": "ChatBot",
 "language": "GDScript",
@@ -143,6 +148,11 @@ _global_script_classes=[ {
 "class": "CombatIsoMap",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/CombatIsoMap.gd"
+}, {
+"base": "Node",
+"class": "Command",
+"language": "GDScript",
+"path": "res://ChatBot/Commands/Command.gd"
 }, {
 "base": "Reference",
 "class": "CommandData",
@@ -559,6 +569,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoObjects/TRPG_DamagableObject.gd"
 }, {
+"base": "TextureRect",
+"class": "TV",
+"language": "GDScript",
+"path": "res://Overlay/TV/TV.gd"
+}, {
 "base": "TextEdit",
 "class": "TextField",
 "language": "GDScript",
@@ -654,6 +669,7 @@ _global_script_class_icons={
 "AreaTrigger": "",
 "BabaTabContainer": "",
 "Baba_HSlider": "",
+"BabyBot": "",
 "ChatBot": "",
 "ChatEvent": "",
 "Collectable": "",
@@ -662,6 +678,7 @@ _global_script_class_icons={
 "Collectable_HUD_Label": "",
 "Collectable_IdleState": "",
 "CombatIsoMap": "",
+"Command": "",
 "CommandData": "",
 "CommandInfo": "",
 "DescriptionWindow": "",
@@ -745,6 +762,7 @@ _global_script_class_icons={
 "TRPG_Actor": "",
 "TRPG_ActorStateBase": "",
 "TRPG_DamagableObject": "",
+"TV": "",
 "TextField": "",
 "TextLineContainer": "",
 "TileRenderPart": "",

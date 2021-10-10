@@ -32,13 +32,10 @@ func _panier_animation() -> void:
 	toucan.play("Panier")
 	yield(toucan, "animation_finished")
 	
-	
 	moai.play("OhYeah")
 	
 	yield(get_tree().create_timer(0.1), "timeout")
 	moai.get_node("OhYeah").play()
-
-
 
 #### INPUTS ####
 

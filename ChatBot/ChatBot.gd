@@ -2,6 +2,7 @@ extends Node
 class_name ChatBot
 
 onready var user_tracker_list = $UserTrackerList
+onready var commands = $Commands
 
 export var users_to_track := PoolStringArray()
 
@@ -43,15 +44,7 @@ func is_user_in_users_to_track(user_name: String) -> bool:
 	return false
 
 
-
-
-#### INPUTS ####
-
-
-
-#### SIGNAL RESPONSES ####
-
-func _on_chat_message(sender_data: SenderData, message: String) -> void:
+func _trigger_user_tracker(sender_data: SenderData, message: String) -> void:
 	var user = "" if sender_data == null else sender_data.user
 	
 	if !is_user_in_users_to_track(user):
@@ -68,3 +61,24 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 						[user_tracker, "first_message"])
 	
 	user_tracker.add_message(message)
+
+
+func _trigger_commands(sender_data: SenderData, message: String) -> void:
+	for word in message.split(" "):
+		for command in commands.get_children():
+			if not word in command.get_command_keywords():
+				continue 
+			
+			if command.is_user_valid(sender_data):
+				command.trigger()
+
+
+#### INPUTS ####
+
+
+
+#### SIGNAL RESPONSES ####
+
+func _on_chat_message(sender_data: SenderData, message: String) -> void:
+	_trigger_user_tracker(sender_data, message)
+	_trigger_commands(sender_data, message)
