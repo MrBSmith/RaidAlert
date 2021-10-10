@@ -1,9 +1,8 @@
 extends Node2D
 
 onready var raid_alert = $RaidAlert
-onready var chat_handler = $TwitchChatHandler
-onready var interpretor = $Interpretor
-onready var chat_bot = $ChatBot
+onready var chat_handler = $Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler
+onready var chat = $Overlay/MainScene/ChatPanel/Chat
 
 export var nick_name : String = ""
 export var token : String = ""
@@ -19,8 +18,6 @@ func _ready() -> void:
 	  return
 
 	chat_handler.join_channel(channel_to_listen)
-	var _err = chat_handler.connect("chat_message", interpretor, "_on_chat_message")
-	_err = chat_handler.connect("chat_message", chat_bot, "_on_chat_message")
 	
-	_err = interpretor.connect("raid", raid_alert, "_on_raid")
+	var _err = chat_handler.connect("chat_message", chat, "_on_chat_message")
 

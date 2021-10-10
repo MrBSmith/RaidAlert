@@ -8,8 +8,9 @@ func is_class(value: String) -> bool: return value == "RaidAlert" or .is_class(v
 func get_class() -> String: return "RaidAlert"
 
 func _ready() -> void:
+	var __ = EVENTS.connect("raid", self, "_on_raid")
 	randomize()
-	
+
 
 func _on_raid(streamer_name: String, nb_raiders: int) -> void:
 	alert.trigger_alert(streamer_name, nb_raiders)

@@ -99,7 +99,6 @@ func _trigger_background_animation(appear: bool = true, delay: float = 0.0) -> v
 		
 		var mov_dir = Vector2.RIGHT if i < 2 else Vector2.DOWN
 		var mov_sign = -1 if i % 2 == 0 else 1
-
 		
 		var from = border.get_position()
 		var to = border_start_pos[i] + border.get_size() * mov_dir * mov_sign if !appear else border_start_pos[i]

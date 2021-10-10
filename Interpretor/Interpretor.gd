@@ -3,8 +3,6 @@ class_name Interpretor
 
 export var users_to_listen := PoolStringArray()
 
-signal raid(channel_name, nb_raiders)
-
 #### ACCESSORS ####
 
 func is_class(value: String): return value == "Interpretor" or .is_class(value)
@@ -46,6 +44,6 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 			var channel_name = words_array[0]
 			words_array.remove(0)
 			var nb_raiders = find_number(words_array)
-			emit_signal("raid", channel_name, nb_raiders)
+			EVENTS.emit_signal("raid", channel_name, nb_raiders)
 	
 	print(sender_data.user + " : " + message)

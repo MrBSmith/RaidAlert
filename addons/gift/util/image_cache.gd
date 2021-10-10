@@ -30,10 +30,24 @@ const HEADERS : PoolStringArray = PoolStringArray([
 	"Accept: */*"
 ])
 
+class Entry extends Reference:
+	var path : String
+	var type : int
+	var filename : String
+	var data : Array
+
+	func _init(path : String, type : int, filename : String, data : Array):
+		self.path = path
+		self.type = type
+		self.filename = filename
+		self.data = data
+
+
 func _init(do_disk_cache : bool, cache_path : String) -> void:
 	self.disk_cache = do_disk_cache
 	self.cache_path = cache_path
 	thread.start(self, "start")
+
 
 func start(params) -> void:
 	var f : File = File.new()
@@ -83,11 +97,13 @@ func get_badge_mapping(channel_id : String = "_global") -> Dictionary:
 			return {}
 	return caches[RequestType.BADGE_MAPPING][channel_id]
 
+
 func get_badge(badge_name : String, channel_id : String = "_global", scale : String = "1") -> ImageTexture:
 	var badge_data : PoolStringArray = badge_name.split("/", true, 1)
 	var texture : ImageTexture = ImageTexture.new()
 	var cachename = badge_data[0] + "_" + badge_data[1] + "_" + scale
 	var filename : String = cache_path + "/" + RequestType.keys()[RequestType.BADGE] + "/" + channel_id + "/" + cachename + ".png"
+	
 	if !caches[RequestType.BADGE].has(channel_id):
 		caches[RequestType.BADGE][channel_id] = {}
 	if !caches[RequestType.BADGE][channel_id].has(cachename):
@@ -114,6 +130,7 @@ func get_badge(badge_name : String, channel_id : String = "_global", scale : Str
 		caches[RequestType.BADGE][channel_id][cachename] = texture
 	return caches[RequestType.BADGE][channel_id][cachename]
 
+
 func get_emote(emote_id : String, scale = "1.0") -> ImageTexture:
 	var texture : ImageTexture = ImageTexture.new()
 	var cachename : String = emote_id + "_" + scale
@@ -134,6 +151,7 @@ func get_emote(emote_id : String, scale = "1.0") -> ImageTexture:
 		texture.take_over_path(filename)
 		caches[RequestType.EMOTE][cachename] = texture
 	return caches[RequestType.EMOTE][cachename]
+
 
 func http_request(path : String, type : int) -> PoolByteArray:
 	var error := 0
@@ -176,20 +194,9 @@ func http_request(path : String, type : int) -> PoolByteArray:
 			buffer += chunk
 	return buffer
 
+
 func delay(delay : int):
 	if (OS.has_feature("web")):
 		yield(Engine.get_main_loop(), "idle_frame")
 	else:
 		OS.delay_msec(delay)
-
-class Entry extends Reference:
-	var path : String
-	var type : int
-	var filename : String
-	var data : Array
-
-	func _init(path : String, type : int, filename : String, data : Array):
-		self.path = path
-		self.type = type
-		self.filename = filename
-		self.data = data

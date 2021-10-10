@@ -180,9 +180,11 @@ func _on_request_completed(_result, _reponse_code, _headers, body: PoolByteArray
 				print("Twitch broadcaster id receivied: %s" % broadcaster_id)
 			return
 
+
 func _on_ws_data_received(id: int):
 	if print_logs:
 		print("Data received, data id : %d" % id)
+
 
 func _on_ws_client_connected(id: int, protocol: String):
 	if print_logs:

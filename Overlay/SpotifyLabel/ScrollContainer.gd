@@ -1,6 +1,6 @@
 extends ScrollContainer
 
-onready var content = $HBoxContainer
+onready var content = $CenterContainer
 onready var tween = $Tween
 
 var content_x_size : float = 54.0

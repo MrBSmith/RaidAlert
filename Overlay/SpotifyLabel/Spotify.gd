@@ -1,9 +1,8 @@
 extends TextureRect
 
-onready var scroll_container = $HBoxContainer/VBoxContainer/ScrollContainer
-onready var title_label = $HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/Title
-onready var album_label = $HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/Album
-onready var artist_label = $HBoxContainer/VBoxContainer/Artist
+onready var title_label = $HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer/Title
+onready var album_label = $HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer/Album
+onready var artist_label = $HBoxContainer/VBoxContainer/ArtistContainer/CenterContainer/Artist
 onready var cover_texture_rect = $HBoxContainer/CoverFrame/Cover
 
 var track_name_file_path = "D:/Snip/Snip_Track.txt"
@@ -35,8 +34,7 @@ func _update() -> void:
 	if track != title_label.get_text():
 		title_label.set_text(track)
 		artist_label.set_text(artist)
-		
-		scroll_container.update_scroll()
+		$HBoxContainer/VBoxContainer/TitleAlbumContainer.update_scroll()
 	
 	if album != album_label.get_text():
 		album_label.set_text(album)
@@ -46,6 +44,7 @@ func _update() -> void:
 		image.load(cover_file_path)
 		cover.create_from_image(image)
 		cover_texture_rect.set_texture(cover)
+		$HBoxContainer/VBoxContainer/ArtistContainer.update_scroll()
 
 
 #### INPUTS ####
