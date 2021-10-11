@@ -83,5 +83,7 @@ func _on_tween_completed(_obj: Object, key: NodePath) -> void:
 
 
 func _on_screen_exited() -> void:
+	yield(get_tree().create_timer(1.0), "timeout")
+	
 	if position.y > GAME.screen_size.y:
 		queue_free()

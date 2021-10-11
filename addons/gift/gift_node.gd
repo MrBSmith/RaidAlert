@@ -30,21 +30,26 @@ signal badge_downloaded(badge_name)
 
 # Messages starting with one of these symbols are handled as commands. '/' will be ignored, reserved by Twitch.
 export(Array, String) var command_prefixes : Array = ["!"]
+
 # Time to wait in msec after each sent chat message. Values below ~310 might lead to a disconnect after 100 messages.
 export(int) var chat_timeout_ms = 320
 export(bool) var get_images : bool = false
+
 # If true, caches emotes/badges to disk, so that they don't have to be redownloaded on every restart.
 # This however means that they might not be updated if they change until you clear the cache.
 export(bool) var disk_cache : bool = false
+
 # Disk Cache has to be enbaled for this to work
 export(String, FILE) var disk_cache_path = "user://gift/cache"
 
 var websocket := WebSocketClient.new()
 var user_regex := RegEx.new()
 var twitch_restarting
+
 # Twitch disconnects connected clients if too many chat messages are being sent. (At about 100 messages/30s)
 var chat_queue = []
 var last_msg = OS.get_ticks_msec()
+
 # Mapping of channels to their channel info, like available badges.
 var channels : Dictionary = {}
 var commands : Dictionary = {}

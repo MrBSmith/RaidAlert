@@ -1,0 +1,20 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://RaidAlert/Animals/Animal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Panda.png" type="Texture" id=2]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Suricate.png" type="Texture" id=3]
+[ext_resource path="res://RaidAlert/Animals/Sprites/RatonLaveur.png" type="Texture" id=4]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Elephant.png" type="Texture" id=5]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Girafe.png" type="Texture" id=6]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Lapin.png" type="Texture" id=7]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Castor.png" type="Texture" id=8]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Ecureuil.png" type="Texture" id=9]
+[ext_resource path="res://RaidAlert/Animals/Sprites/Ratel.png" type="Texture" id=10]
+
+[node name="FollowAnimal" instance=ExtResource( 1 )]
+sprites_array = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 3 ) ]
+
+[node name="VisibilityNotifier2D" parent="." index="2"]
+position = Vector2( 0, 0 )
+scale = Vector2( 1, 1 )
+rect = Rect2( -50, -200, 100, 400 )

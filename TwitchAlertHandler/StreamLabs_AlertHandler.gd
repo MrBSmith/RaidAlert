@@ -1,5 +1,5 @@
 extends Node
-class_name TwitchAlertsHandler
+class_name StreamLabs_AlertsHandler
 
 export var callback_url = "" 
 export var print_logs : bool = true
@@ -24,13 +24,13 @@ var http_request = HTTPRequest.new()
 signal token_obtained(token)
 signal broadcaster_id_obtained(id)
 
-#signal raid()
-#signal host()
-#signal sub()
-#signal resub()
-#signal follow()
-#signal donation()
-#signal bits()
+signal raid()
+signal host()
+signal sub()
+signal resub()
+signal follow()
+signal donation()
+signal bits()
 
 #### ACCESSORS ####
 
@@ -41,11 +41,11 @@ func get_class() -> String: return "StreamLabsAlertsHandler"
 #### BUILT-IN ####
 
 func _ready() -> void:
-#	var __ = websocket.connect("data_received", self, "_on_websocket_data_received")
-#	__ = websocket.connect("connection_established", self, "_on_websocket_connection_established")
-#	__ = websocket.connect("connection_closed", self, "_on_websocket_connection_closed")
-#	__ = websocket.connect("server_close_request", self, "_on_websocket_sever_close_request")
-#	__ = websocket.connect("connection_error", self, "_on_websocket_connection_error")
+	var __ = websocket.connect("data_received", self, "_on_websocket_data_received")
+	__ = websocket.connect("connection_established", self, "_on_websocket_connection_established")
+	__ = websocket.connect("connection_closed", self, "_on_websocket_connection_closed")
+	__ = websocket.connect("server_close_request", self, "_on_websocket_sever_close_request")
+	__ = websocket.connect("connection_error", self, "_on_websocket_connection_error")
 	
 	add_child(http_request)
 	http_request.connect("request_completed", self, "_on_request_completed")

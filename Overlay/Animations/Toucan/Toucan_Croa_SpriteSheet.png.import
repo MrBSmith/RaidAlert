@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ToucanSpriteSheet.png-ded8e14986e7e3ffcfb098e8a5e562a6.stex"
+path="res://.import/Toucan_Croa_SpriteSheet.png-04e1f51ee93a14959a01322ccddba09a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlay/Sprites/ToucanSpriteSheet.png"
-dest_files=[ "res://.import/ToucanSpriteSheet.png-ded8e14986e7e3ffcfb098e8a5e562a6.stex" ]
+source_file="res://Overlay/Animations/Toucan/Toucan_Croa_SpriteSheet.png"
+dest_files=[ "res://.import/Toucan_Croa_SpriteSheet.png-04e1f51ee93a14959a01322ccddba09a.stex" ]
 
 [params]
 
