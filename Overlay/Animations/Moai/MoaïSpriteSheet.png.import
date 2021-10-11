@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MoaïSpriteSheet.png-6bb550c2da3260985e4a25cec216be00.stex"
+path="res://.import/MoaïSpriteSheet.png-aa731318621c26091f145fbcbec402c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlay/Sprites/MoaïSpriteSheet.png"
-dest_files=[ "res://.import/MoaïSpriteSheet.png-6bb550c2da3260985e4a25cec216be00.stex" ]
+source_file="res://Overlay/Animations/Moai/MoaïSpriteSheet.png"
+dest_files=[ "res://.import/MoaïSpriteSheet.png-aa731318621c26091f145fbcbec402c4.stex" ]
 
 [params]
 

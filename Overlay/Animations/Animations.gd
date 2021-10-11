@@ -14,6 +14,7 @@ func get_class() -> String: return "Animations"
 
 func _ready() -> void:
 	var __ = EVENTS.connect("alert", self, "_on_alert")
+	__ = EVENTS.connect("OBS_scene_changed", self, "_on_OBS_scene_changed")
 	
 	for child in get_children():
 		if child is AnimatedSprite:
@@ -36,6 +37,7 @@ func _panier_animation() -> void:
 	
 	yield(get_tree().create_timer(0.1), "timeout")
 	moai.get_node("OhYeah").play()
+
 
 #### INPUTS ####
 
@@ -75,3 +77,8 @@ func _on_animated_sprite_frame_changed(animated_sprite: AnimatedSprite) -> void:
 			
 			if frame == 8:
 				moai.get_node("Ding").play()
+
+
+func _on_OBS_scene_changed(previous_scene: String, next_scene: String) -> void:
+	if "Main" in [previous_scene, next_scene]:
+		moai.play("Eyes")

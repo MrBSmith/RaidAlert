@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=2]
+[gd_scene load_steps=175 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -15,7 +15,7 @@
 [ext_resource path="res://Overlay/Sprites/Overlayx1.png" type="Texture" id=13]
 [ext_resource path="res://Overlay/Sprites/ToucanSpriteSheet.png" type="Texture" id=14]
 [ext_resource path="res://Overlay/Sprites/ChatPanel.png" type="Texture" id=15]
-[ext_resource path="res://Overlay/Sprites/MoaïSpriteSheet.png" type="Texture" id=16]
+[ext_resource path="res://Overlay/Animations/Moai/MoaïSpriteSheet.png" type="Texture" id=16]
 [ext_resource path="res://Overlay/Sprites/LastFollowPanel.png" type="Texture" id=17]
 [ext_resource path="res://Overlay/Sprites/SpotifyPanel.png" type="Texture" id=18]
 [ext_resource path="res://Overlay/Sprites/SocialMedias.png" type="Texture" id=19]
@@ -49,6 +49,7 @@
 [ext_resource path="res://Overlay/Sounds/PassageSecret.mp3" type="AudioStream" id=47]
 [ext_resource path="res://Overlay/Chat/Chat.gd" type="Script" id=48]
 [ext_resource path="res://BabaGodotLib/Fonts/SmallPixel.tres" type="DynamicFont" id=49]
+[ext_resource path="res://Overlay/Animations/Moai/Moaï_Eyes_SpriteSheet.png" type="Texture" id=50]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -102,6 +103,18 @@ Label/styles/normal = null
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 50 )
+region = Rect2( 0, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 50 )
+region = Rect2( 58, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 50 )
+region = Rect2( 0, 139, 58, 139 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 16 )
@@ -157,6 +170,11 @@ animations = [ {
 "loop": false,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 123 ) ],
+"loop": false,
+"name": "Eyes",
+"speed": 8.0
 }, {
 "frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 18 ), SubResource( 17 ), SubResource( 14 ), SubResource( 20 ) ],
 "loop": false,
@@ -1064,6 +1082,7 @@ script = ExtResource( 20 )
 [node name="Moai" type="AnimatedSprite" parent="Overlay/Foreground/Animations"]
 position = Vector2( 29, 290 )
 frames = SubResource( 21 )
+animation = "Eyes"
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1170,7 +1189,6 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="Overlay/TV"]
 
 [node name="Panel" type="TextureRect" parent="Overlay"]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -171.5
