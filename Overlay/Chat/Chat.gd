@@ -2,10 +2,10 @@ extends VBoxContainer
 class_name Chat
 
 onready var chat_handler = $TwitchChatHandler
+onready var message_min_y = get_global_position().y
 
-var line_scene = preload("res://BabaGodotLib/UI/TitleBodyLine/TitleBodyLine.tscn")
-
-export var font : DynamicFont
+export var normal_font : DynamicFont
+export var bold_font : DynamicFont
 
 class EmoteLocation extends Reference:
 	var id : String
@@ -54,7 +54,7 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 	var badges : String = ""
 	var badges_names = tags["badges"].split(",", false)
 	for badge in badges_names:
-		badges += "[img=8]" + chat_handler.get_badge(badge, tags["room-id"]).resource_path + "[/img] "
+		badges += "[img=12]" + chat_handler.get_badge(badge, tags["room-id"]).resource_path + "[/img] "
 	
 	var locations : Array = []
 	for emote in tags["emotes"].split("/", false):
@@ -66,17 +66,25 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 	
 	var offset = 0
 	for loc in locations:
-		var emote_string = "[img=10]" + chat_handler.image_cache.get_emote(loc.id).resource_path +"[/img]"
+		var emote_string = "[img=12]" + chat_handler.image_cache.get_emote(loc.id).resource_path +"[/img]"
 		msg = msg.substr(0, loc.start + offset) + emote_string + msg.substr(loc.end + offset + 1)
 		offset += emote_string.length() + loc.start - loc.end - 1
 	
 	var message_label = RichTextLabel.new()
 	var user_name_text = "[b][color=" + color_code + "]" + user_name + "[/color][/b]: "
 	
-	message_label.add_font_override("normal_font", font)
-	message_label.add_font_override("bold_font", font)
+	message_label.add_font_override("normal_font", normal_font)
+	message_label.add_font_override("bold_font", bold_font)
 	message_label.fit_content_height = true
 	message_label.bbcode_enabled = true
 	message_label.bbcode_text = badges + user_name_text + msg
 	
+	message_label.connect("ready", self, "_on_message_ready", [], CONNECT_ONESHOT)
 	call_deferred("add_child", message_label)
+
+
+func _on_message_ready() -> void:
+	var first_message = get_child(1)
+	
+	if get_child_count() > 10:
+		first_message.queue_free()

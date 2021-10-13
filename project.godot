@@ -509,6 +509,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Triggers/SignalTrigger.gd"
 }, {
+"base": "TextureRect",
+"class": "SocialMedia",
+"language": "GDScript",
+"path": "res://SocialMedias.gd"
+}, {
 "base": "Node2D",
 "class": "SoundEffectsHandler",
 "language": "GDScript",
@@ -775,6 +780,7 @@ _global_script_class_icons={
 "SceneFinder": "",
 "SenderData": "",
 "SignalTrigger": "",
+"SocialMedia": "",
 "SoundEffectsHandler": "",
 "Spawner": "",
 "StateBase": "",
