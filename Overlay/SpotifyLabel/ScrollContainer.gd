@@ -23,22 +23,24 @@ func _ready() -> void:
 #### LOGIC ####
 
 func update_scroll() -> void:
-	content_x_size = content.get_size().x
-	max_scroll = abs(content_x_size - get_size().x)
+	yield(get_tree(), "idle_frame")
+	content_x_size = content.rect_size.x
+	max_scroll = max(0, content.rect_size.x - rect_size.x)
 	scroll_dir = 1
 	
-	_trigger_scroll(3.0)
+	if max_scroll != 0:
+		_trigger_scroll(3.0)
 
 
 func _trigger_scroll(delay: float = 0.0) -> void:
 	tween.stop_all()
 	
-	var from = max_scroll if scroll_dir == -1 else 0
+	var from = scroll_horizontal
 	var dest = 0 if scroll_dir == -1 else max_scroll
+	var duration = content_x_size / 30.0
 	
-	tween.interpolate_property(self, "scroll_horizontal", from, dest,
-								 content_x_size / 30.0, Tween.TRANS_LINEAR,
-								 Tween.EASE_IN_OUT, delay)
+	tween.interpolate_property(self, "scroll_horizontal", from, dest, duration,
+								Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
 	
 	tween.start()
 
@@ -51,5 +53,4 @@ func _trigger_scroll(delay: float = 0.0) -> void:
 
 func _on_tween_completed() -> void:
 	scroll_dir = -scroll_dir
-	var delay = 0.0 if scroll_dir == -1 else 2.0
-	_trigger_scroll(delay)
+	_trigger_scroll(4.0)

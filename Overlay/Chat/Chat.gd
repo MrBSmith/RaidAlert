@@ -46,16 +46,24 @@ func get_class() -> String: return "Chat"
 
 func _on_chat_message(sender_data: SenderData, message: String) -> void:
 	var tags = sender_data.tags
-	var color_code = tags["color"]
+	var color_code = tags["color"] if tags["color"] != "" else "aqua"
 	var user_name = tags["display-name"]
 	
 	var msg = message
 	
 	var badges : String = ""
 	var badges_names = tags["badges"].split(",", false)
-	for badge in badges_names:
-		badges += "[img=12]" + chat_handler.get_badge(badge, tags["room-id"]).resource_path + "[/img] "
 	
+	# Fetch badges
+	for badge in badges_names:
+		var badge_texture = chat_handler.get_badge(badge, tags["room-id"])
+		var badge_res_path = badge_texture.resource_path
+		if badge_texture == null or badge_res_path == "":
+			continue
+		
+		badges += "[img=18]%s[/img] " % badge_res_path
+	
+	# Fetch emote locations in the message
 	var locations : Array = []
 	for emote in tags["emotes"].split("/", false):
 		var data : Array = emote.split(":")
@@ -64,14 +72,17 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 			locations.append(EmoteLocation.new(data[0], int(start_end[0]), int(start_end[1])))
 	locations.sort_custom(EmoteLocation, "smaller")
 	
+	# Fetch & place emotes in the message
 	var offset = 0
 	for loc in locations:
-		var emote_string = "[img=12]" + chat_handler.image_cache.get_emote(loc.id).resource_path +"[/img]"
+		var emote_texture = chat_handler.get_emote(loc.id)
+		var emote_path = emote_texture.resource_path
+		var emote_string = "[img]%s[/img]" % emote_path if emote_path != "" else ""
 		msg = msg.substr(0, loc.start + offset) + emote_string + msg.substr(loc.end + offset + 1)
 		offset += emote_string.length() + loc.start - loc.end - 1
 	
 	var message_label = RichTextLabel.new()
-	var user_name_text = "[b][color=" + color_code + "]" + user_name + "[/color][/b]: "
+	var user_name_text = "[b][color=%s]%s[/color][/b]: " % [color_code, user_name]
 	
 	message_label.add_font_override("normal_font", normal_font)
 	message_label.add_font_override("bold_font", bold_font)

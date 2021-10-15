@@ -38,12 +38,20 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 	if not user in users_to_listen:
 		return
 
-	if user == "moobot" or user == "babadesbois":
-		if "raid" in message:
-			var words_array = message.split(" ")
+	if user == "wizebot" or user == "babadesbois":
+		var words_array = message.split(" ")
+		
+		if "raid".is_subsequence_ofi(message):
 			var channel_name = words_array[0]
 			words_array.remove(0)
 			var nb_raiders = find_number(words_array)
 			EVENTS.emit_signal("raid", channel_name, nb_raiders)
+		
+		elif "follow".is_subsequence_ofi(message):
+			var follow = words_array[2]
+			EVENTS.emit_signal("new_follower", follow)
+		
+		elif "sub".is_subsequence_ofi(message):
+			pass
 	
 	print(sender_data.user + " : " + message)

@@ -106,14 +106,16 @@ func get_badge(badge_name : String, channel_id : String = "_global", scale : Str
 	
 	if !caches[RequestType.BADGE].has(channel_id):
 		caches[RequestType.BADGE][channel_id] = {}
+		
 	if !caches[RequestType.BADGE][channel_id].has(cachename):
-		if !disk_cache && file.file_exists(filename):
+		if file.file_exists(filename):
 			file.open(filename, File.READ)
 			var img : Image = Image.new()
 			img.load_png_from_buffer(file.get_buffer(file.get_len()))
-			texture.create_from_image(img)
+			texture.create_from_image(img, 0)
 			file.close()
-		else:
+		
+		elif disk_cache:
 			var map : Dictionary = caches[RequestType.BADGE_MAPPING].get(channel_id, get_badge_mapping(channel_id))
 			if !map.empty():
 				if map.has(badge_data[0]):
@@ -135,14 +137,16 @@ func get_emote(emote_id : String, scale = "1.0") -> ImageTexture:
 	var texture : ImageTexture = ImageTexture.new()
 	var cachename : String = emote_id + "_" + scale
 	var filename : String = cache_path + "/" + RequestType.keys()[RequestType.EMOTE] + "/" + cachename + ".png"
+	
 	if !caches[RequestType.EMOTE].has(cachename):
-		if !disk_cache && file.file_exists(filename):
+		if file.file_exists(filename):
 			file.open(filename, File.READ)
 			var img : Image = Image.new()
 			img.load_png_from_buffer(file.get_buffer(file.get_len()))
-			texture.create_from_image(img)
+			texture.create_from_image(img, 0)
 			file.close()
-		else:
+			
+		elif disk_cache:
 			mutex.lock()
 			queue.append(Entry.new(emote_id + "/" + scale, RequestType.EMOTE, filename, [cachename]))
 			mutex.unlock()

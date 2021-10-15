@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/TabContainer/BabaTabContainer.gd"
 }, {
+"base": "Tween",
+"class": "BabaTween",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Tween/BabaTween.gd"
+}, {
 "base": "TwitchChatHandler",
 "class": "BabaTwitchChatHandler",
 "language": "GDScript",
@@ -154,7 +159,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Scenes/InteractiveObject/Collectable/States/Follow.gd"
 }, {
-"base": "Control",
+"base": "HBoxContainer",
 "class": "Collectable_HUD_Label",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Scenes/HUD/Collectable_HUD_Label.gd"
@@ -394,7 +399,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/Menu/GameMenuBase.gd"
 }, {
-"base": "Button",
+"base": "Control",
 "class": "MenuOptionsBase",
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/Menu/OptionButtons/MenuOptionsBase.gd"
@@ -699,6 +704,7 @@ _global_script_class_icons={
 "AppearState": "",
 "AreaTrigger": "",
 "BabaTabContainer": "",
+"BabaTween": "",
 "BabaTwitchChatHandler": "",
 "Baba_HSlider": "",
 "BabyBot": "",
@@ -842,6 +848,10 @@ window/stretch/aspect="keep_width"
 
 [importer_defaults]
 
+mp3={
+"loop": false,
+"loop_offset": 0
+}
 texture={
 "compress/bptc_ldr": 0,
 "compress/hdr_mode": 0,
@@ -861,10 +871,6 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
-}
-mp3={
-"loop": false,
-"loop_offset": 0
 }
 
 [physics]

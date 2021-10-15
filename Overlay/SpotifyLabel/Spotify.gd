@@ -36,15 +36,22 @@ func _update() -> void:
 		artist_label.set_text(artist)
 		$HBoxContainer/VBoxContainer/TitleAlbumContainer.update_scroll()
 	
-	if album != album_label.get_text():
+	var album_changed = album != album_label.get_text()
+	
+	if album_changed:
 		album_label.set_text(album)
-		
-		var cover = ImageTexture.new()
-		var image = Image.new()
-		image.load(cover_file_path)
-		cover.create_from_image(image)
-		cover_texture_rect.set_texture(cover)
 		$HBoxContainer/VBoxContainer/ArtistContainer.update_scroll()
+	
+	if album_changed or cover_texture_rect.get_texture() == null:
+		_update_cover()
+
+
+func _update_cover() -> void:
+	var cover = ImageTexture.new()
+	var image = Image.new()
+	image.load(cover_file_path)
+	cover.create_from_image(image)
+	cover_texture_rect.set_texture(cover)
 
 
 #### INPUTS ####

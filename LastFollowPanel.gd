@@ -26,7 +26,7 @@ func get_class() -> String: return "LastFollowPanel"
 func _ready() -> void:
 	var __ = timer.connect("timeout", self, "_on_timer_timeout")
 	
-	_update(true)
+	_update()
 
 
 #### VIRTUALS ####
@@ -35,20 +35,16 @@ func _ready() -> void:
 
 #### LOGIC ####
 
-func _update(init: bool = false) -> void:
+func _update() -> void:
 	var follow = DirNavHelper.read_file_line(last_follower_file_path)
 	if follow != last_follow && follow != "":
 		last_follower_label.set_text("Dernier follow: %s" % follow)
 		last_follow = follow
-		if !init: 
-			EVENTS.emit_signal("new_follower", follow)
 	
 	var sub = DirNavHelper.read_file_line(last_sub_file_path)
 	if sub != last_sub && sub != "":
 		last_subscriber_label.set_text(sub)
 		last_sub = sub
-		if !init: 
-			EVENTS.emit_signal("new_subscriber", sub)
 	
 	top_donater_label.set_text(DirNavHelper.read_file_line(top_donater_file_path))
 	top_sub_gifter_label.set_text(DirNavHelper.read_file_line(top_sub_gifter_file_path))

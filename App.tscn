@@ -177,56 +177,56 @@ atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 55 )
+atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 0, 91, 324 )
+atlas = ExtResource( 14 )
+region = Rect2( 0, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 324, 91, 324 )
+atlas = ExtResource( 14 )
+region = Rect2( 91, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 55 )
-region = Rect2( 0, 324, 91, 324 )
+atlas = ExtResource( 14 )
+region = Rect2( 91, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 91, 324 )
+region = Rect2( 182, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 14 )
-region = Rect2( 0, 324, 91, 324 )
+region = Rect2( 182, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 14 )
-region = Rect2( 91, 0, 91, 324 )
+region = Rect2( 273, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 14 )
-region = Rect2( 91, 324, 91, 324 )
+region = Rect2( 273, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 14 )
-region = Rect2( 182, 0, 91, 324 )
+region = Rect2( 364, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 14 )
-region = Rect2( 182, 324, 91, 324 )
+atlas = ExtResource( 55 )
+region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 14 )
-region = Rect2( 273, 0, 91, 324 )
+atlas = ExtResource( 55 )
+region = Rect2( 91, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 14 )
-region = Rect2( 273, 324, 91, 324 )
+atlas = ExtResource( 55 )
+region = Rect2( 91, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 14 )
-region = Rect2( 364, 0, 91, 324 )
+atlas = ExtResource( 55 )
+region = Rect2( 0, 324, 91, 324 )
 
 [sub_resource type="SpriteFrames" id=37]
 animations = [ {
@@ -235,15 +235,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
-"loop": true,
-"name": "Croa",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": false,
 "name": "Panier",
 "speed": 11.0
+}, {
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"loop": true,
+"name": "Croa",
+"speed": 10.0
 } ]
 
 [sub_resource type="AtlasTexture" id=38]
@@ -913,6 +913,7 @@ bold_font = ExtResource( 56 )
 script = ExtResource( 2 )
 get_images = true
 disk_cache = true
+disk_cache_path = "res://gift/cache"
 
 [node name="ChatBot" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler"]
 script = ExtResource( 5 )

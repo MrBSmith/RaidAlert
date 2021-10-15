@@ -21,6 +21,7 @@ func _ready() -> void:
 		if not border is TextureRect: continue
 		border_start_pos.append(border.get_position())
 
+
 #### VIRTUALS ####
 
 
