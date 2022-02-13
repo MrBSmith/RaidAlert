@@ -189,6 +189,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gift/util/cmd_info.gd"
 }, {
+"base": "Node",
+"class": "CommandList",
+"language": "GDScript",
+"path": "res://Commands.gd"
+}, {
 "base": "ResizableWindow",
 "class": "DescriptionWindow",
 "language": "GDScript",
@@ -721,6 +726,7 @@ _global_script_class_icons={
 "Command": "",
 "CommandData": "",
 "CommandInfo": "",
+"CommandList": "",
 "DescriptionWindow": "",
 "DirNavHelper": "",
 "Disappear": "",

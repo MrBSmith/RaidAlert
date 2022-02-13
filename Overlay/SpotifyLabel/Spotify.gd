@@ -42,16 +42,24 @@ func _update() -> void:
 		album_label.set_text(album)
 		$HBoxContainer/VBoxContainer/ArtistContainer.update_scroll()
 	
-	if album_changed or cover_texture_rect.get_texture() == null:
+	if album_changed or is_cover_empty():
 		_update_cover()
 
 
 func _update_cover() -> void:
 	var cover = ImageTexture.new()
 	var image = Image.new()
-	image.load(cover_file_path)
-	cover.create_from_image(image)
-	cover_texture_rect.set_texture(cover)
+	
+	if image.load(cover_file_path) == OK:
+		cover.create_from_image(image)
+		cover_texture_rect.set_texture(cover)
+	else:
+		cover_texture_rect.set_texture(null)
+
+
+func is_cover_empty() -> bool:
+	var cover_texture = cover_texture_rect.get_texture()
+	return cover_texture != null && cover_texture.get_size().length() < 2
 
 
 #### INPUTS ####

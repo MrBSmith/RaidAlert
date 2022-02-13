@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DejaVu.mp3-941155f2bffaa549c0667ca641b32d1a.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Animations/DejaVu/DejaVu.mp3"
+dest_files=[ "res://.import/DejaVu.mp3-941155f2bffaa549c0667ca641b32d1a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

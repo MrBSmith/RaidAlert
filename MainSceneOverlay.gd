@@ -29,26 +29,27 @@ func _ready() -> void:
 #### LOGIC ####
 
 
-func appear_animation(appear: bool = true) -> void:
-	var background_delay = 0.0 if appear else 1.2 
-	var chat_delay = 1.0
-	var goals_delay = 1.2 if appear else 0.0
+func appear_animation(appear: bool = true, instant: bool = false, delay: float = 0.0) -> void:
+	var background_delay = 0.0 if appear or instant else 1.2
+	var chat_delay = 1.0 if !instant else 0.0
+	var goals_delay = 1.2 if appear and !instant else 0.0
 	
 	set_visible(true)
 	
-	_trigger_background_animation(appear, background_delay)
-	_trigger_chat_appear_animation(appear, chat_delay)
-	_trigger_goals_appear_animation(appear, goals_delay)
+	_trigger_background_animation(appear, instant, background_delay + delay)
+	_trigger_chat_appear_animation(appear, instant, chat_delay + delay)
+	_trigger_goals_appear_animation(appear, instant, goals_delay + delay)
 	
 	if !appear:
 		yield(tween, "tween_all_completed")
 		set_visible(false)
 
 
-func _trigger_chat_appear_animation(appear: bool = true, delay: float = 0.0) -> void:
+func _trigger_chat_appear_animation(appear: bool = true, instant: bool = false, delay: float = 0.0) -> void:
 	var trans = Tween.TRANS_BOUNCE if appear else Tween.TRANS_CUBIC
 	var form = -chat.rect_size.y if appear else 0
 	var to = 0 if appear else -chat.rect_size.y
+	var dur = 1.0 if !instant else 0.0
 	
 	chat.set_position(Vector2(chat.rect_position.x, form))
 	
@@ -56,21 +57,22 @@ func _trigger_chat_appear_animation(appear: bool = true, delay: float = 0.0) -> 
 		yield(get_tree().create_timer(delay), "timeout")
 	
 	var __ = tween.interpolate_property(chat, "rect_position:y", 
-				form, to, 1.0, trans, Tween.EASE_OUT)
+				form, to, dur, trans, Tween.EASE_OUT)
 	
 	__ = tween.start()
 
 
-func _trigger_goals_appear_animation(appear: bool = true, delay: float = 0.0) -> void:
+func _trigger_goals_appear_animation(appear: bool = true, instant: bool = false, delay: float = 0.0) -> void:
 	var ease_type = Tween.EASE_OUT if appear else Tween.EASE_IN
-	var from = -200.0 if appear else 0.0
-	var to = 0.0 if appear else -200.0
+	var from = 50.0 if appear else 0.0
+	var to = 0.0 if appear else 50.0
+	var dur = 0.8 if !instant else 0.0
 	
 	var children = goals.get_children()
 	
 	for child in children:
 		if child is Control:
-			child.rect_position.x = from
+			child.rect_position.y = from
 	
 	if delay != 0.0:
 		yield(get_tree().create_timer(delay), "timeout")
@@ -81,13 +83,15 @@ func _trigger_goals_appear_animation(appear: bool = true, delay: float = 0.0) ->
 		if not child is Control:
 			continue
 		
-		var __ = tween.interpolate_property(child, "rect_position:x", from, to, 
-						0.8, Tween.TRANS_BACK, ease_type, i * 0.3)
+		var __ = tween.interpolate_property(child, "rect_position:y", from, to, 
+						dur, Tween.TRANS_BACK, ease_type, i * 0.3)
 	
 	var __ = tween.start()
 
 
-func _trigger_background_animation(appear: bool = true, delay: float = 0.0) -> void:
+func _trigger_background_animation(appear: bool = true, instant: bool = false, delay: float = 0.0) -> void:
+	var dur = 1.0 if !instant else 0.0
+	
 	if delay != 0.0:
 		yield(get_tree().create_timer(delay), "timeout")
 	
@@ -105,11 +109,12 @@ func _trigger_background_animation(appear: bool = true, delay: float = 0.0) -> v
 		var to = border_start_pos[i] + border.get_size() * mov_dir * mov_sign if !appear else border_start_pos[i]
 		
 		var __ = tween.interpolate_property(border, "rect_position", from, to, 
-										1.0, Tween.TRANS_SINE, Tween.EASE_OUT)
+										dur, Tween.TRANS_SINE, Tween.EASE_OUT)
 	
 	var __ = tween.start()
 	
-	$Background/AudioStreamPlayer.play()
+	if !instant:
+		$Background/AudioStreamPlayer.play()
 
 
 

@@ -1,6 +1,8 @@
 extends Node2D
 class_name Animations
 
+onready var video_player = $VideoPlayer
+onready var audio_alert = $AudioAlerts
 onready var moai = $Moai
 onready var toucan = $Toucan
 
@@ -15,13 +17,12 @@ func get_class() -> String: return "Animations"
 func _ready() -> void:
 	var __ = EVENTS.connect("alert", self, "_on_alert")
 	__ = EVENTS.connect("OBS_scene_changed", self, "_on_OBS_scene_changed")
+	__ = $VideoPlayer.connect("finished", self, "_on_video_player_finished")
 	
 	for child in get_children():
 		if child is AnimatedSprite:
 			child.connect("animation_finished", self, "_on_animated_sprite_animation_finished", [child])
 			child.connect("frame_changed", self, "_on_animated_sprite_frame_changed", [child])
-
-
 
 #### VIRTUALS ####
 
@@ -46,8 +47,23 @@ func _panier_animation() -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_alert(alert_name: String) -> void:
-	if alert_name == "Panier":
-		_panier_animation()
+	if alert_name in GAME.alert_dict["video"].keys():
+		video_player.stream = GAME.alert_dict["video"][alert_name]
+		video_player.play()
+		
+		yield(get_tree().create_timer(0.5), "timeout")
+		video_player.set_visible(true)
+		
+	elif alert_name in GAME.alert_dict["audio"].keys():
+		audio_alert.stream = GAME.alert_dict["audio"][alert_name]
+		audio_alert.play()
+	
+	else:
+		match(alert_name):
+			"Panier": _panier_animation()
+			"Couette": $Couette_douce/Master.play("CouetteAlert")
+			"DejaVu": $DejaVu/AnimationPlayer.play("DejaVu")
+			"Salty": $Salty/AnimationPlayer.play("Salty")
 
 
 func _on_animated_sprite_animation_finished(animated_sprite: AnimatedSprite) -> void:
@@ -82,3 +98,7 @@ func _on_animated_sprite_frame_changed(animated_sprite: AnimatedSprite) -> void:
 func _on_OBS_scene_changed(previous_scene: String, next_scene: String) -> void:
 	if "Main" in [previous_scene, next_scene]:
 		moai.play("Eyes")
+
+
+func _on_video_player_finished() -> void:
+	video_player.set_visible(false)

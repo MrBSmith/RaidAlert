@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fast Glitch 2.mp3-f74fe5e18e38d6d4fbb6349ab77be4dc.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Animations/DejaVu/Fast Glitch 2.mp3"
+dest_files=[ "res://.import/Fast Glitch 2.mp3-f74fe5e18e38d6d4fbb6349ab77be4dc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

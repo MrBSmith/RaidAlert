@@ -29,15 +29,18 @@ func _ready() -> void:
 
 #### LOGIC ####
 
-func appear_animation(appear: bool = true) -> void:
+func appear_animation(appear: bool = true, instant : bool = false, delay: float = 0.0) -> void:
 	var from = -rect_size.y if appear else initial_pos.y
 	var to = initial_pos.y if appear else -rect_size.y
 	var trans_type = Tween.TRANS_BOUNCE if appear else Tween.TRANS_LINEAR
 	var ease_type = Tween.EASE_OUT if appear else Tween.EASE_IN
 	var dur = 1.0 if appear else 0.5
+	if instant:
+		dur = 0.0
+	
 	
 	var __ = tween.interpolate_property(self, "rect_position:y", from, to, dur, 
-									trans_type, ease_type)
+									trans_type, ease_type, delay)
 	
 	__ = tween.start()
 

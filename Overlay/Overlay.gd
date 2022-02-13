@@ -64,27 +64,41 @@ func _on_timer_timeout() -> void:
 func _on_OBS_scene_changed(previous_scene: String, scene_name: String) -> void:
 	_empty_file(scene_file_path)
 	
+	var logo_transition = previous_scene == "WaitingScreen" or scene_name == "EndingScreen"
+	var delay = 1.0 if logo_transition else 0.0 
+	
 	# TV appear/disappear animation
-	if scene_name in ["Main", "Pause"]:
+	if scene_name in ["Main", "Pause", "FullScreen"]:
 		if tv.hidden:
 			tv.appear()
 	
 	elif !tv.hidden:
 		tv.disappear()
 	
+	# FullScreen scene
+	var full_screen = (scene_name == "FullScreen")
+	var facecam = scene_name == "FaceCam"
+	$Foreground.set_visible(!full_screen)
+	$Spotify.set_visible(!full_screen && !facecam)
+	
 	# Main scene animation
 	if scene_name == "Main":
-		main_scene.appear_animation(true)
+		main_scene.appear_animation(true, logo_transition, delay)
 	
 	elif previous_scene == "Main":
-		main_scene.appear_animation(false)
-		yield(get_tree().create_timer(1.0), "timeout")
+		main_scene.appear_animation(false, logo_transition, delay)
+		
+		if !logo_transition:
+			yield(get_tree().create_timer(1.0), "timeout")
 	
 	# Panel animation
 	if scene_name in ["WaitingScreen", "EndingScreen", "Pause"]:
 		panel.set_offseted(scene_name == "Pause")
-		panel.appear_animation(true)
+		panel.appear_animation(true, logo_transition, delay)
 	
 	elif previous_scene in ["WaitingScreen", "EndingScreen", "Pause"]:
-		panel.appear_animation(false)
-
+		panel.appear_animation(false, logo_transition, delay)
+	
+	if logo_transition:
+		$LogoTransition.set_frame(0)
+		$LogoTransition.play("default")

@@ -42,8 +42,8 @@ func _disappear() -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_OBS_scene_changed(previous_scene: String, next_scene: String) -> void:
-	if previous_scene == "Main":
+	if previous_scene in ["Main", "FullScreen"]:
 		if get_position() != starting_pos:
 			_appear()
-	elif next_scene == "Main":
+	elif next_scene in ["Main", "FullScreen"]:
 		_disappear()

@@ -87,12 +87,12 @@ func _ready() -> void:
 	websocket.connect("server_close_request", self, "sever_close_request")
 	websocket.connect("connection_error", self, "connection_error")
 	
-	if(get_images):
+	if get_images:
 		image_cache = ImageCache.new(disk_cache, disk_cache_path)
 
 
 func connect_to_twitch() -> void:
-	if(websocket.connect_to_url("wss://irc-ws.chat.twitch.tv:443") != OK):
+	if websocket.connect_to_url("wss://irc-ws.chat.twitch.tv:443") != OK:
 		print_debug("Could not connect to Twitch.")
 		emit_signal("twitch_unavailable")
 
@@ -149,14 +149,16 @@ func data_received() -> void:
 	var messages : PoolStringArray = websocket.get_peer(1).get_packet().get_string_from_utf8().strip_edges(false).split("\r\n")
 	var tags = {}
 	for message in messages:
-		if(message.begins_with("@")):
+		if message.begins_with("@"):
 			var msg : PoolStringArray = message.split(" ", false, 1)
 			message = msg[1]
 			for tag in msg[0].split(";"):
 				var pair = tag.split("=")
 				tags[pair[0]] = pair[1]
-		if(OS.is_debug_build()):
+		
+		if OS.is_debug_build():
 			print("> " + message)
+		
 		handle_message(message, tags)
 
 

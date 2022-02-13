@@ -2,18 +2,21 @@ extends ScrollContainer
 
 onready var content = $CenterContainer
 onready var tween = $Tween
+onready var timer = $Timer
 
 var content_x_size : float = 54.0
 var max_scroll = 0
 var scroll_dir = -1
 
+
 #### ACCESSORS ####
 
-func _ready() -> void:
-	var __ = tween.connect("tween_all_completed", self, "_on_tween_completed")
+
 
 #### BUILT-IN ####
 
+func _ready() -> void:
+	var __ = timer.connect("timeout", self, "_on_timer_timeout")
 
 
 #### VIRTUALS ####
@@ -23,9 +26,15 @@ func _ready() -> void:
 #### LOGIC ####
 
 func update_scroll() -> void:
+	scroll_horizontal = 0
+	tween.stop_all()
+	timer.stop()
+	content.set_size(Vector2.ZERO)
+	
 	yield(get_tree(), "idle_frame")
+	
 	content_x_size = content.rect_size.x
-	max_scroll = max(0, content.rect_size.x - rect_size.x)
+	max_scroll = int(max(0, content_x_size - rect_size.x))
 	scroll_dir = 1
 	
 	if max_scroll != 0:
@@ -42,6 +51,8 @@ func _trigger_scroll(delay: float = 0.0) -> void:
 	tween.interpolate_property(self, "scroll_horizontal", from, dest, duration,
 								Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
 	
+	timer.start(duration + delay)
+	
 	tween.start()
 
 
@@ -51,6 +62,6 @@ func _trigger_scroll(delay: float = 0.0) -> void:
 
 #### SIGNAL RESPONSES ####
 
-func _on_tween_completed() -> void:
+func _on_timer_timeout() -> void:
 	scroll_dir = -scroll_dir
 	_trigger_scroll(4.0)

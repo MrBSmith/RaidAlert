@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Coquinou.ogg-df121f58f4a103f92694c52798c45e2e.oggstr"
+
+[deps]
+
+source_file="res://Alerts/Audios/Coquinou.ogg"
+dest_files=[ "res://.import/Coquinou.ogg-df121f58f4a103f92694c52798c45e2e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

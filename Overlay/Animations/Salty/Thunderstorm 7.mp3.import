@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Thunderstorm 7.mp3-591da0cb38c8726061442509aaa878b9.mp3str"
+
+[deps]
+
+source_file="res://Overlay/Animations/Salty/Thunderstorm 7.mp3"
+dest_files=[ "res://.import/Thunderstorm 7.mp3-591da0cb38c8726061442509aaa878b9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

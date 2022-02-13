@@ -64,13 +64,12 @@ func _trigger_user_tracker(sender_data: SenderData, message: String) -> void:
 
 
 func _trigger_commands(sender_data: SenderData, message: String) -> void:
-	for word in message.split(" "):
-		for command in commands.get_children():
-			if not word in command.get_command_keywords():
-				continue 
-			
-			if command.is_user_valid(sender_data):
-				command.trigger()
+	for command in commands.get_children():
+		for keyword in command.get_command_keywords():
+			if keyword in message:
+				if command.is_user_valid(sender_data):
+					command.trigger()
+
 
 
 #### INPUTS ####

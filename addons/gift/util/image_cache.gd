@@ -13,6 +13,8 @@ var caches := {
 	RequestType.BADGE_MAPPING: {}
 }
 
+var place_holder_img = preload("res://addons/gift/placeholder.png")
+
 var queue := []
 var thread := Thread.new()
 var mutex := Mutex.new()
@@ -36,47 +38,58 @@ class Entry extends Reference:
 	var filename : String
 	var data : Array
 
-	func _init(path : String, type : int, filename : String, data : Array):
-		self.path = path
-		self.type = type
-		self.filename = filename
-		self.data = data
+	func _init(_path : String, _type : int, _filename : String, _data : Array):
+		path = _path
+		type = _type
+		filename = _filename
+		data = _data
 
 
-func _init(do_disk_cache : bool, cache_path : String) -> void:
-	self.disk_cache = do_disk_cache
-	self.cache_path = cache_path
+func _init(_do_disk_cache : bool, _cache_path : String) -> void:
+	disk_cache = _do_disk_cache
+	cache_path = _cache_path
 	thread.start(self, "start")
 
 
 func start(params) -> void:
-	var f : File = File.new()
-	var d : Directory = Directory.new()
-	if (disk_cache):
+	var f := File.new()
+	var d := Directory.new()
+	
+	if disk_cache:
 		for type in caches.keys():
 			var cache_dir = RequestType.keys()[type]
 			caches[cache_dir] = {}
 			var error := d.make_dir_recursive(cache_path + "/" + cache_dir)
+	
 	while active:
-		if (!queue.empty()):
+		if !queue.empty():
 			mutex.lock()
 			var entry : Entry = queue.pop_front()
 			mutex.unlock()
 			var buffer : PoolByteArray = http_request(entry.path, entry.type)
-			if (disk_cache):
-				if !d.dir_exists(entry.filename.get_base_dir()):
-					d.make_dir(entry.filename.get_base_dir())
-				f.open(entry.filename, File.WRITE)
-				f.store_buffer(buffer)
-				f.close()
-			var texture = ImageTexture.new()
-			var img : Image = Image.new()
-			img.load_png_from_buffer(buffer)
-			if entry.type == RequestType.BADGE:
-				caches[RequestType.BADGE][entry.data[0]][entry.data[1]].create_from_image(img, 0)
-			elif entry.type == RequestType.EMOTE:
-				caches[RequestType.EMOTE][entry.data[0]].create_from_image(img, 0)
+			
+			if !buffer.empty():
+				if disk_cache:
+					if !d.dir_exists(entry.filename.get_base_dir()):
+						d.make_dir(entry.filename.get_base_dir())
+					
+					f.open(entry.filename, File.WRITE)
+					f.store_buffer(buffer)
+					f.close()
+				
+				var texture := ImageTexture.new()
+				var img := Image.new()
+				img.load_png_from_buffer(buffer)
+				
+				if img.get_size() != Vector2.ZERO:
+					if entry.type == RequestType.BADGE:
+						caches[RequestType.BADGE][entry.data[0]][entry.data[1]].create_from_image(img, 0)
+					
+					elif entry.type == RequestType.EMOTE:
+						caches[RequestType.EMOTE][entry.data[0]].create_from_image(img, 0)
+			
 		yield(Engine.get_main_loop(), "idle_frame")
+
 
 # Gets badge mappings for the specified channel. Default: _global (global mappings)
 func get_badge_mapping(channel_id : String = "_global") -> Dictionary:
@@ -117,19 +130,24 @@ func get_badge(badge_name : String, channel_id : String = "_global", scale : Str
 		
 		elif disk_cache:
 			var map : Dictionary = caches[RequestType.BADGE_MAPPING].get(channel_id, get_badge_mapping(channel_id))
+			
 			if !map.empty():
 				if map.has(badge_data[0]):
 					mutex.lock()
 					queue.append(Entry.new(map[badge_data[0]]["versions"][badge_data[1]]["image_url_" + scale + "x"].substr("https://static-cdn.jtvnw.net/badges/v1/".length()), RequestType.BADGE, filename, [channel_id, cachename]))
 					mutex.unlock()
-					var img = preload("res://addons/gift/placeholder.png")
-					texture.create_from_image(img)
+				
+					texture.create_from_image(place_holder_img)
+				
 				elif channel_id != "_global":
 					return get_badge(badge_name, "_global", scale)
+			
 			elif channel_id != "_global":
 				return get_badge(badge_name, "_global", scale)
+		
 		texture.take_over_path(filename)
 		caches[RequestType.BADGE][channel_id][cachename] = texture
+	
 	return caches[RequestType.BADGE][channel_id][cachename]
 
 
@@ -150,10 +168,11 @@ func get_emote(emote_id : String, scale = "1.0") -> ImageTexture:
 			mutex.lock()
 			queue.append(Entry.new(emote_id + "/" + scale, RequestType.EMOTE, filename, [cachename]))
 			mutex.unlock()
-			var img = preload("res://addons/gift/placeholder.png")
-			texture.create_from_image(img)
+			texture.create_from_image(place_holder_img)
+		
 		texture.take_over_path(filename)
 		caches[RequestType.EMOTE][cachename] = texture
+	
 	return caches[RequestType.EMOTE][cachename]
 
 

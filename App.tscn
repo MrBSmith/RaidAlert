@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=2]
+[gd_scene load_steps=485 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://Overlay/Goals/Goals.gd" type="Script" id=10]
 [ext_resource path="res://Overlay/Overlay.gd" type="Script" id=11]
 [ext_resource path="res://Overlay/Sprites/OverlayBackground_Left.png" type="Texture" id=12]
-[ext_resource path="res://Overlay/Sprites/Overlayx1.png" type="Texture" id=13]
+[ext_resource path="res://Overlay/Sprites/Overlay.png" type="Texture" id=13]
 [ext_resource path="res://Overlay/Animations/Toucan/ToucanSpriteSheet.png" type="Texture" id=14]
 [ext_resource path="res://Overlay/Sprites/ChatPanel.png" type="Texture" id=15]
 [ext_resource path="res://Overlay/Animations/Moai/MoaïSpriteSheet.png" type="Texture" id=16]
@@ -57,6 +57,184 @@
 [ext_resource path="res://Overlay/Animations/Toucan/Toucan_Croa_SpriteSheet.png" type="Texture" id=55]
 [ext_resource path="res://BabaGodotLib/Fonts/SmallPixelBold.tres" type="DynamicFont" id=56]
 [ext_resource path="res://SocialMedias.gd" type="Script" id=57]
+[ext_resource path="res://Transition/00158.png" type="Texture" id=58]
+[ext_resource path="res://Overlay/Sounds/CouetteDouce.wav" type="AudioStream" id=59]
+[ext_resource path="res://Transition/00149.png" type="Texture" id=60]
+[ext_resource path="res://Transition/00153.png" type="Texture" id=61]
+[ext_resource path="res://Transition/00161.png" type="Texture" id=62]
+[ext_resource path="res://Overlay/Animations/Couette_douce/Couette_douce.png" type="Texture" id=63]
+[ext_resource path="res://Overlay/Animations/Couette_douce/babyBotHammerSpriteSheet.png" type="Texture" id=64]
+[ext_resource path="res://Overlay/Animations/DejaVu/DejaVu.png" type="Texture" id=65]
+[ext_resource path="res://Overlay/Animations/DejaVu/DejaVu.mp3" type="AudioStream" id=66]
+[ext_resource path="res://Overlay/Animations/DejaVu/Fast Glitch 2.mp3" type="AudioStream" id=67]
+[ext_resource path="res://Overlay/Animations/DejaVu/Digital TV Glitch 2.mp3" type="AudioStream" id=68]
+[ext_resource path="res://Transition/00163.png" type="Texture" id=69]
+[ext_resource path="res://Commands.gd" type="Script" id=70]
+[ext_resource path="res://Transition/00142.png" type="Texture" id=71]
+[ext_resource path="res://Transition/00141.png" type="Texture" id=72]
+[ext_resource path="res://Overlay/Animations/Salty/SuperSalty.png" type="Texture" id=73]
+[ext_resource path="res://Overlay/Animations/Salty/Lightning.png" type="Texture" id=74]
+[ext_resource path="res://Transition/00143.png" type="Texture" id=75]
+[ext_resource path="res://Overlay/Animations/Salty/Thunderstorm 7.mp3" type="AudioStream" id=76]
+[ext_resource path="res://Overlay/Animations/Salty/Thunderstorm 8.mp3" type="AudioStream" id=77]
+[ext_resource path="res://Overlay/Animations/Salty/Salty.wav" type="AudioStream" id=78]
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill2.png" type="Texture" id=79]
+[ext_resource path="res://Transition/00160.png" type="Texture" id=82]
+[ext_resource path="res://Transition/00145.png" type="Texture" id=84]
+[ext_resource path="res://Transition/00157.png" type="Texture" id=88]
+[ext_resource path="res://Transition/00162.png" type="Texture" id=89]
+[ext_resource path="res://Transition/00151.png" type="Texture" id=91]
+[ext_resource path="res://Transition/00148.png" type="Texture" id=92]
+[ext_resource path="res://Transition/00152.png" type="Texture" id=93]
+[ext_resource path="res://Transition/00144.png" type="Texture" id=95]
+[ext_resource path="res://Transition/00159.png" type="Texture" id=96]
+[ext_resource path="res://Transition/00147.png" type="Texture" id=104]
+[ext_resource path="res://Transition/00156.png" type="Texture" id=105]
+[ext_resource path="res://Transition/00150.png" type="Texture" id=109]
+[ext_resource path="res://Transition/00154.png" type="Texture" id=110]
+[ext_resource path="res://Transition/00146.png" type="Texture" id=111]
+[ext_resource path="res://Transition/00155.png" type="Texture" id=112]
+[ext_resource path="res://Transition/00006.png" type="Texture" id=115]
+[ext_resource path="res://Transition/00011.png" type="Texture" id=116]
+[ext_resource path="res://Transition/00013.png" type="Texture" id=117]
+[ext_resource path="res://Transition/00014.png" type="Texture" id=118]
+[ext_resource path="res://Transition/00009.png" type="Texture" id=119]
+[ext_resource path="res://Transition/00016.png" type="Texture" id=120]
+[ext_resource path="res://Transition/00020.png" type="Texture" id=121]
+[ext_resource path="res://Transition/00024.png" type="Texture" id=122]
+[ext_resource path="res://Transition/00025.png" type="Texture" id=123]
+[ext_resource path="res://Transition/00026.png" type="Texture" id=124]
+[ext_resource path="res://Transition/00027.png" type="Texture" id=125]
+[ext_resource path="res://Transition/00028.png" type="Texture" id=126]
+[ext_resource path="res://Transition/00005.png" type="Texture" id=127]
+[ext_resource path="res://Transition/00002.png" type="Texture" id=128]
+[ext_resource path="res://Transition/00007.png" type="Texture" id=129]
+[ext_resource path="res://Transition/00015.png" type="Texture" id=130]
+[ext_resource path="res://Transition/00029.png" type="Texture" id=131]
+[ext_resource path="res://Transition/00000.png" type="Texture" id=132]
+[ext_resource path="res://Transition/00004.png" type="Texture" id=133]
+[ext_resource path="res://Transition/00008.png" type="Texture" id=134]
+[ext_resource path="res://Transition/00003.png" type="Texture" id=135]
+[ext_resource path="res://Transition/00019.png" type="Texture" id=136]
+[ext_resource path="res://Transition/00021.png" type="Texture" id=137]
+[ext_resource path="res://Transition/00001.png" type="Texture" id=138]
+[ext_resource path="res://Transition/00018.png" type="Texture" id=139]
+[ext_resource path="res://Transition/00023.png" type="Texture" id=140]
+[ext_resource path="res://Transition/00017.png" type="Texture" id=141]
+[ext_resource path="res://Transition/00010.png" type="Texture" id=142]
+[ext_resource path="res://Transition/00012.png" type="Texture" id=143]
+[ext_resource path="res://Transition/00022.png" type="Texture" id=144]
+[ext_resource path="res://Transition/00030.png" type="Texture" id=145]
+[ext_resource path="res://Transition/00032.png" type="Texture" id=146]
+[ext_resource path="res://Transition/00033.png" type="Texture" id=147]
+[ext_resource path="res://Transition/00034.png" type="Texture" id=148]
+[ext_resource path="res://Transition/00035.png" type="Texture" id=149]
+[ext_resource path="res://Transition/00031.png" type="Texture" id=150]
+[ext_resource path="res://Transition/00052.png" type="Texture" id=151]
+[ext_resource path="res://Transition/00053.png" type="Texture" id=152]
+[ext_resource path="res://Transition/00038.png" type="Texture" id=153]
+[ext_resource path="res://Transition/00063.png" type="Texture" id=154]
+[ext_resource path="res://Transition/00040.png" type="Texture" id=155]
+[ext_resource path="res://Transition/00066.png" type="Texture" id=156]
+[ext_resource path="res://Transition/00067.png" type="Texture" id=157]
+[ext_resource path="res://Transition/00047.png" type="Texture" id=158]
+[ext_resource path="res://Transition/00042.png" type="Texture" id=159]
+[ext_resource path="res://Transition/00050.png" type="Texture" id=160]
+[ext_resource path="res://Transition/00058.png" type="Texture" id=161]
+[ext_resource path="res://Transition/00061.png" type="Texture" id=162]
+[ext_resource path="res://Transition/00064.png" type="Texture" id=163]
+[ext_resource path="res://Transition/00054.png" type="Texture" id=164]
+[ext_resource path="res://Transition/00065.png" type="Texture" id=165]
+[ext_resource path="res://Transition/00051.png" type="Texture" id=166]
+[ext_resource path="res://Transition/00043.png" type="Texture" id=167]
+[ext_resource path="res://Transition/00068.png" type="Texture" id=168]
+[ext_resource path="res://Transition/00036.png" type="Texture" id=169]
+[ext_resource path="res://Transition/00046.png" type="Texture" id=170]
+[ext_resource path="res://Transition/00069.png" type="Texture" id=171]
+[ext_resource path="res://Transition/00070.png" type="Texture" id=172]
+[ext_resource path="res://Transition/00055.png" type="Texture" id=173]
+[ext_resource path="res://Transition/00041.png" type="Texture" id=174]
+[ext_resource path="res://Transition/00060.png" type="Texture" id=175]
+[ext_resource path="res://Transition/00037.png" type="Texture" id=176]
+[ext_resource path="res://Transition/00057.png" type="Texture" id=177]
+[ext_resource path="res://Transition/00059.png" type="Texture" id=178]
+[ext_resource path="res://Transition/00048.png" type="Texture" id=179]
+[ext_resource path="res://Transition/00049.png" type="Texture" id=180]
+[ext_resource path="res://Transition/00062.png" type="Texture" id=181]
+[ext_resource path="res://Transition/00056.png" type="Texture" id=182]
+[ext_resource path="res://Transition/00045.png" type="Texture" id=183]
+[ext_resource path="res://Transition/00039.png" type="Texture" id=184]
+[ext_resource path="res://Transition/00044.png" type="Texture" id=185]
+[ext_resource path="res://Transition/00079.png" type="Texture" id=186]
+[ext_resource path="res://Transition/00139.png" type="Texture" id=187]
+[ext_resource path="res://Transition/00140.png" type="Texture" id=188]
+[ext_resource path="res://Transition/00089.png" type="Texture" id=189]
+[ext_resource path="res://Transition/00077.png" type="Texture" id=190]
+[ext_resource path="res://Transition/00092.png" type="Texture" id=191]
+[ext_resource path="res://Transition/00088.png" type="Texture" id=192]
+[ext_resource path="res://Transition/00102.png" type="Texture" id=193]
+[ext_resource path="res://Transition/00104.png" type="Texture" id=194]
+[ext_resource path="res://Transition/00107.png" type="Texture" id=195]
+[ext_resource path="res://Transition/00082.png" type="Texture" id=196]
+[ext_resource path="res://Transition/00087.png" type="Texture" id=197]
+[ext_resource path="res://Transition/00103.png" type="Texture" id=198]
+[ext_resource path="res://Transition/00108.png" type="Texture" id=199]
+[ext_resource path="res://Transition/00114.png" type="Texture" id=200]
+[ext_resource path="res://Transition/00115.png" type="Texture" id=201]
+[ext_resource path="res://Transition/00095.png" type="Texture" id=202]
+[ext_resource path="res://Transition/00117.png" type="Texture" id=203]
+[ext_resource path="res://Transition/00109.png" type="Texture" id=204]
+[ext_resource path="res://Transition/00121.png" type="Texture" id=205]
+[ext_resource path="res://Transition/00096.png" type="Texture" id=206]
+[ext_resource path="res://Transition/00119.png" type="Texture" id=207]
+[ext_resource path="res://Transition/00078.png" type="Texture" id=208]
+[ext_resource path="res://Transition/00090.png" type="Texture" id=209]
+[ext_resource path="res://Transition/00091.png" type="Texture" id=210]
+[ext_resource path="res://Transition/00094.png" type="Texture" id=211]
+[ext_resource path="res://Transition/00122.png" type="Texture" id=212]
+[ext_resource path="res://Transition/00123.png" type="Texture" id=213]
+[ext_resource path="res://Transition/00124.png" type="Texture" id=214]
+[ext_resource path="res://Transition/00093.png" type="Texture" id=215]
+[ext_resource path="res://Transition/00101.png" type="Texture" id=216]
+[ext_resource path="res://Transition/00083.png" type="Texture" id=217]
+[ext_resource path="res://Transition/00084.png" type="Texture" id=218]
+[ext_resource path="res://Transition/00098.png" type="Texture" id=219]
+[ext_resource path="res://Transition/00112.png" type="Texture" id=220]
+[ext_resource path="res://Transition/00118.png" type="Texture" id=221]
+[ext_resource path="res://Transition/00105.png" type="Texture" id=222]
+[ext_resource path="res://Transition/00125.png" type="Texture" id=223]
+[ext_resource path="res://Transition/00120.png" type="Texture" id=224]
+[ext_resource path="res://Transition/00080.png" type="Texture" id=225]
+[ext_resource path="res://Transition/00110.png" type="Texture" id=226]
+[ext_resource path="res://Transition/00113.png" type="Texture" id=227]
+[ext_resource path="res://Transition/00126.png" type="Texture" id=228]
+[ext_resource path="res://Transition/00100.png" type="Texture" id=229]
+[ext_resource path="res://Transition/00106.png" type="Texture" id=230]
+[ext_resource path="res://Transition/00081.png" type="Texture" id=231]
+[ext_resource path="res://Transition/00111.png" type="Texture" id=232]
+[ext_resource path="res://Transition/00099.png" type="Texture" id=233]
+[ext_resource path="res://Transition/00127.png" type="Texture" id=234]
+[ext_resource path="res://Transition/00128.png" type="Texture" id=235]
+[ext_resource path="res://Transition/00130.png" type="Texture" id=236]
+[ext_resource path="res://Transition/00086.png" type="Texture" id=237]
+[ext_resource path="res://Transition/00116.png" type="Texture" id=238]
+[ext_resource path="res://Transition/00131.png" type="Texture" id=239]
+[ext_resource path="res://Transition/00129.png" type="Texture" id=240]
+[ext_resource path="res://Transition/00132.png" type="Texture" id=241]
+[ext_resource path="res://Transition/00133.png" type="Texture" id=242]
+[ext_resource path="res://Transition/00085.png" type="Texture" id=243]
+[ext_resource path="res://Transition/00134.png" type="Texture" id=244]
+[ext_resource path="res://Transition/00135.png" type="Texture" id=245]
+[ext_resource path="res://Transition/00097.png" type="Texture" id=246]
+[ext_resource path="res://Transition/00136.png" type="Texture" id=247]
+[ext_resource path="res://Transition/00137.png" type="Texture" id=248]
+[ext_resource path="res://Transition/00138.png" type="Texture" id=249]
+[ext_resource path="res://Transition/00074.png" type="Texture" id=250]
+[ext_resource path="res://Transition/00075.png" type="Texture" id=251]
+[ext_resource path="res://Transition/00076.png" type="Texture" id=252]
+[ext_resource path="res://Transition/00073.png" type="Texture" id=253]
+[ext_resource path="res://Transition/00071.png" type="Texture" id=254]
+[ext_resource path="res://Transition/00072.png" type="Texture" id=255]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -81,6 +259,31 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 9 )
 Label/styles/normal = null
+
+[sub_resource type="DynamicFont" id=127]
+size = 10
+extra_spacing_top = -2
+extra_spacing_bottom = -2
+font_data = ExtResource( 31 )
+
+[sub_resource type="Theme" id=128]
+Label/colors/font_color = Color( 0.321569, 0, 0.176471, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 127 )
+Label/styles/normal = null
+
+[sub_resource type="DynamicFont" id=130]
+size = 14
+font_data = ExtResource( 31 )
+
+[sub_resource type="Theme" id=129]
+default_font = SubResource( 130 )
+Label/fonts/font = null
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -177,56 +380,56 @@ atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 55 )
 region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 14 )
-region = Rect2( 0, 324, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 55 )
 region = Rect2( 91, 0, 91, 324 )
 
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 14 )
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 55 )
 region = Rect2( 91, 324, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 55 )
+region = Rect2( 0, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 14 )
-region = Rect2( 182, 0, 91, 324 )
+region = Rect2( 0, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 14 )
-region = Rect2( 182, 324, 91, 324 )
+region = Rect2( 0, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 14 )
-region = Rect2( 273, 0, 91, 324 )
+region = Rect2( 91, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 14 )
-region = Rect2( 273, 324, 91, 324 )
+region = Rect2( 91, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 14 )
-region = Rect2( 364, 0, 91, 324 )
+region = Rect2( 182, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 55 )
-region = Rect2( 0, 0, 91, 324 )
+atlas = ExtResource( 14 )
+region = Rect2( 182, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 0, 91, 324 )
+atlas = ExtResource( 14 )
+region = Rect2( 273, 0, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 324, 91, 324 )
+atlas = ExtResource( 14 )
+region = Rect2( 273, 324, 91, 324 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 55 )
-region = Rect2( 0, 324, 91, 324 )
+atlas = ExtResource( 14 )
+region = Rect2( 364, 0, 91, 324 )
 
 [sub_resource type="SpriteFrames" id=37]
 animations = [ {
@@ -235,15 +438,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": false,
-"name": "Panier",
-"speed": 11.0
-}, {
-"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": true,
 "name": "Croa",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"loop": false,
+"name": "Panier",
+"speed": 11.0
 } ]
 
 [sub_resource type="AtlasTexture" id=38]
@@ -309,6 +512,795 @@ animations = [ {
 "name": "default",
 "speed": 13.0
 } ]
+
+[sub_resource type="AtlasTexture" id=132]
+atlas = ExtResource( 64 )
+region = Rect2( 96, 160, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=133]
+atlas = ExtResource( 64 )
+region = Rect2( 0, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=134]
+atlas = ExtResource( 64 )
+region = Rect2( 32, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=135]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=145]
+atlas = ExtResource( 64 )
+region = Rect2( 96, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=146]
+atlas = ExtResource( 64 )
+region = Rect2( 0, 160, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=147]
+atlas = ExtResource( 64 )
+region = Rect2( 32, 160, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=148]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 160, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=136]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=137]
+atlas = ExtResource( 64 )
+region = Rect2( 96, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=138]
+atlas = ExtResource( 64 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=139]
+atlas = ExtResource( 64 )
+region = Rect2( 32, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=140]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=141]
+atlas = ExtResource( 64 )
+region = Rect2( 96, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=142]
+atlas = ExtResource( 64 )
+region = Rect2( 0, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=143]
+atlas = ExtResource( 64 )
+region = Rect2( 32, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=144]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 128, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=149]
+animations = [ {
+"frames": [ SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ) ],
+"loop": true,
+"name": "Move",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ) ],
+"loop": true,
+"name": "Push",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
+"loop": false,
+"name": "Rise",
+"speed": 13.0
+} ]
+
+[sub_resource type="Animation" id=152]
+resource_name = "BabybotPush"
+length = 10.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Babybot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00179042, 0.755383, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "Rise", false ],
+"method": "play"
+}, {
+"args": [ "Move", false ],
+"method": "play"
+}, {
+"args": [ "Push", false ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Babybot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.000209903, 0.00167969 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Babybot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.755383, 2.8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 486.457, 344 ), Vector2( 486.457, 344 ), Vector2( 296.5, 344 ), Vector2( -50, 344 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Embroidery:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.8, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 270.864, 328 ), Vector2( -79, 328 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Embroidery:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.8, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 10.0, -300.0 ]
+}
+
+[sub_resource type="Animation" id=150]
+resource_name = "Fall"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Embroidery:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -39, -0.0470212, -1.00585, 0.0955997, 110.472, 143.805, -0.196474, -67.4371, 0.148398, 89.5711, 250, -0.251602, -10.7911, 0.045163, 8.56113, 270.864, -0.113767, -2.88135, 0.25, 0 ),
+"times": PoolRealArray( 0.000157058, 0.826971, 1.26967, 1.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Embroidery:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 125.142, -0.0812401, 16.8459, 0.498144, -86.5156, 328, -0.2748, -214.494, 0.0862196, -136.128, 328, -0.0942212, -90.2951, 0.0390055, -22.2395, 328, -0.0594854, -22.2395, 0.25, 0 ),
+"times": PoolRealArray( 0.000157058, 0.82, 1.26967, 1.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Embroidery:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -190, -0.25, 0, 0.245935, 45.7744, -70, -0.289052, -93.2606, 0.201934, 7.2612, -30, -0.195297, -32.7388, 0.122154, 8.73494, 10, -0.0490167, -18.7265, 0.25, 0 ),
+"times": PoolRealArray( 0.00114339, 0.827375, 1.26982, 1.5 )
+}
+
+[sub_resource type="Animation" id=151]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Embroidery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -36.0149, 70.0976 ) ]
+}
+
+[sub_resource type="Animation" id=153]
+resource_name = "CouetteAlert"
+length = 12.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("Emboidery")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Fall", "BabybotPush" ),
+"times": PoolRealArray( 0.141861, 1.64186 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AtlasTexture" id=154]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 0, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=155]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 128, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=156]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 256, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=157]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 384, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=158]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 512, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=159]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 640, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=160]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 768, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=161]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 896, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=162]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1024, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=163]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1152, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=164]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1280, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=165]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1408, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=166]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1536, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=167]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1664, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=168]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1792, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=169]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 1920, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=170]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2048, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=171]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2176, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=172]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2304, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=173]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2432, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=174]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2560, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=175]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2688, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=176]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2816, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=177]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 2944, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=178]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3072, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=179]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3200, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=180]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3328, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=181]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3456, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=182]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3584, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=183]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3712, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=184]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3840, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=185]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 3968, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=186]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4096, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=187]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4224, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=188]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4352, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=189]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4480, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=190]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4608, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=191]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4736, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=192]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4864, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=193]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 4992, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=194]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 5120, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=195]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 5248, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=196]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 5376, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=197]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 5504, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=198]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 5632, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=199]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 5760, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=200]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 5888, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=201]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6016, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=202]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6144, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=203]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6272, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=204]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6400, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=205]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6528, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=206]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6656, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=207]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6784, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=208]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 6912, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=209]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7040, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=210]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7168, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=211]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7296, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=212]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7424, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=213]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7552, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=214]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7680, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=215]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7808, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=216]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 7936, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=217]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8064, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=218]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8192, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=219]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8320, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=220]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8448, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=221]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8576, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=222]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8704, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=223]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8832, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=224]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 8960, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=225]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9088, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=226]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9216, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=227]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9344, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=228]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9472, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=229]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9600, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=230]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9728, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=231]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9856, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=232]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 9984, 287, 128 )
+
+[sub_resource type="AtlasTexture" id=233]
+atlas = ExtResource( 65 )
+region = Rect2( 0, 10112, 287, 128 )
+
+[sub_resource type="SpriteFrames" id=234]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ), SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ), SubResource( 195 ), SubResource( 196 ), SubResource( 197 ), SubResource( 198 ), SubResource( 199 ), SubResource( 200 ), SubResource( 201 ), SubResource( 202 ), SubResource( 203 ), SubResource( 204 ), SubResource( 205 ), SubResource( 206 ), SubResource( 207 ), SubResource( 208 ), SubResource( 209 ), SubResource( 210 ), SubResource( 211 ), SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ), SubResource( 216 ), SubResource( 217 ), SubResource( 218 ), SubResource( 219 ), SubResource( 220 ), SubResource( 221 ), SubResource( 222 ), SubResource( 223 ), SubResource( 224 ), SubResource( 225 ), SubResource( 226 ), SubResource( 227 ), SubResource( 228 ), SubResource( 229 ), SubResource( 230 ), SubResource( 231 ), SubResource( 232 ), SubResource( 233 ) ],
+"loop": true,
+"name": "DejaVu",
+"speed": 20.0
+} ]
+
+[sub_resource type="Animation" id=235]
+resource_name = "DejaVu"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "DejaVu", false ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Glitch1:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Glitch2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("DejaVu:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Curve2D" id=236]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 476.159, 118.34, 20.8111, -20.8111, -20.8111, 20.8111, 378.893, 146.043, 24.9733, -8.32445, -24.9733, 8.32445, 257.663, 239.255, 30.3248, 2.37841, -30.3248, -2.37841, 153.012, 244.912, 15.4597, 19.0273, -15.4597, -19.0273, 81.0922, 203.721, -1.78381, 16.6489, 1.78381, -16.6489, 78.5723, 112.377, -38.6492, -1.18921, 38.6492, 1.18921, 150.183, 78.0345, -22.0003, -16.6489, 22.0003, 16.6489, 249.885, 129.653, -20.2165, -12.4867, 20.2165, 12.4867, 361.608, 239.255, -30.3248, -1.18921, 30.3248, 1.18921, 483.938, 274.61, -11.2975, 37.46, 11.2975, -37.46, 563.841, 244.912, 10.1083, 24.9733, -10.1083, -24.9733, 563.841, 167.837, 26.7572, 4.75683, -26.7572, -4.75683, 507.272, 126.825, 49.3521, -14.2705, -49.3521, 14.2705, 291.407, 170.489, 0, 0, 0, 0, 115.614, 236.302 )
+}
+
+[sub_resource type="AtlasTexture" id=237]
+atlas = ExtResource( 73 )
+region = Rect2( 0, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=238]
+atlas = ExtResource( 73 )
+region = Rect2( 80, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=239]
+atlas = ExtResource( 73 )
+region = Rect2( 0, 80, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=240]
+atlas = ExtResource( 73 )
+region = Rect2( 80, 80, 80, 80 )
+
+[sub_resource type="SpriteFrames" id=241]
+animations = [ {
+"frames": [ SubResource( 237 ), SubResource( 238 ), SubResource( 239 ), SubResource( 240 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=242]
+atlas = ExtResource( 74 )
+region = Rect2( 0, 0, 100, 360 )
+
+[sub_resource type="AtlasTexture" id=243]
+atlas = ExtResource( 74 )
+region = Rect2( 100, 0, 100, 360 )
+
+[sub_resource type="AtlasTexture" id=244]
+atlas = ExtResource( 74 )
+region = Rect2( 200, 0, 100, 360 )
+
+[sub_resource type="AtlasTexture" id=245]
+atlas = ExtResource( 74 )
+region = Rect2( 300, 0, 100, 360 )
+
+[sub_resource type="AtlasTexture" id=246]
+atlas = ExtResource( 74 )
+region = Rect2( 400, 0, 100, 360 )
+
+[sub_resource type="AtlasTexture" id=247]
+atlas = ExtResource( 74 )
+region = Rect2( 500, 0, 100, 360 )
+
+[sub_resource type="SpriteFrames" id=248]
+animations = [ {
+"frames": [ SubResource( 242 ), SubResource( 243 ), SubResource( 244 ), SubResource( 245 ), SubResource( 246 ), SubResource( 247 ) ],
+"loop": true,
+"name": "default",
+"speed": 18.0
+} ]
+
+[sub_resource type="Animation" id=249]
+resource_name = "Salty"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("LightningRight:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.286005 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Path2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.113995, 2.82632 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LightningRight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.29067 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 2.79366 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("LightningLeft:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.69366, 2.79366, 2.975 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LightningLeft:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2.69366, 2.79366, 2.97967 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("ThunderSounds")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 7.96,
+"start_offset": 0.5,
+"stream": ExtResource( 76 )
+}, {
+"end_offset": 8.10134,
+"start_offset": 0.4,
+"stream": ExtResource( 77 )
+} ],
+"times": PoolRealArray( 0, 2.6 )
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("SuperSalty")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 78 )
+} ],
+"times": PoolRealArray( 0.6 )
+}
 
 [sub_resource type="AtlasTexture" id=53]
 atlas = ExtResource( 35 )
@@ -611,22 +1603,13 @@ font_data = ExtResource( 31 )
 size = 19
 font_data = ExtResource( 31 )
 
-[sub_resource type="DynamicFont" id=127]
-size = 10
-extra_spacing_top = -2
-extra_spacing_bottom = -2
-font_data = ExtResource( 31 )
-
-[sub_resource type="Theme" id=128]
-Label/colors/font_color = Color( 0.321569, 0, 0.176471, 1 )
-Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
-Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-Label/constants/line_spacing = 3
-Label/constants/shadow_as_outline = 0
-Label/constants/shadow_offset_x = 1
-Label/constants/shadow_offset_y = 1
-Label/fonts/font = SubResource( 127 )
-Label/styles/normal = null
+[sub_resource type="SpriteFrames" id=131]
+animations = [ {
+"frames": [ ExtResource( 132 ), ExtResource( 138 ), ExtResource( 128 ), ExtResource( 135 ), ExtResource( 133 ), ExtResource( 127 ), ExtResource( 115 ), ExtResource( 129 ), ExtResource( 134 ), ExtResource( 119 ), ExtResource( 142 ), ExtResource( 116 ), ExtResource( 143 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 130 ), ExtResource( 120 ), ExtResource( 141 ), ExtResource( 139 ), ExtResource( 136 ), ExtResource( 121 ), ExtResource( 137 ), ExtResource( 144 ), ExtResource( 140 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 131 ), ExtResource( 145 ), ExtResource( 150 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 169 ), ExtResource( 176 ), ExtResource( 153 ), ExtResource( 184 ), ExtResource( 155 ), ExtResource( 174 ), ExtResource( 159 ), ExtResource( 167 ), ExtResource( 185 ), ExtResource( 183 ), ExtResource( 170 ), ExtResource( 158 ), ExtResource( 179 ), ExtResource( 180 ), ExtResource( 160 ), ExtResource( 166 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 164 ), ExtResource( 173 ), ExtResource( 182 ), ExtResource( 177 ), ExtResource( 161 ), ExtResource( 178 ), ExtResource( 175 ), ExtResource( 162 ), ExtResource( 181 ), ExtResource( 154 ), ExtResource( 163 ), ExtResource( 165 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 168 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 254 ), ExtResource( 255 ), ExtResource( 253 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 190 ), ExtResource( 208 ), ExtResource( 186 ), ExtResource( 225 ), ExtResource( 231 ), ExtResource( 196 ), ExtResource( 217 ), ExtResource( 218 ), ExtResource( 243 ), ExtResource( 237 ), ExtResource( 197 ), ExtResource( 192 ), ExtResource( 189 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 191 ), ExtResource( 215 ), ExtResource( 211 ), ExtResource( 202 ), ExtResource( 206 ), ExtResource( 246 ), ExtResource( 219 ), ExtResource( 233 ), ExtResource( 229 ), ExtResource( 216 ), ExtResource( 193 ), ExtResource( 198 ), ExtResource( 194 ), ExtResource( 222 ), ExtResource( 230 ), ExtResource( 195 ), ExtResource( 199 ), ExtResource( 204 ), ExtResource( 226 ), ExtResource( 232 ), ExtResource( 220 ), ExtResource( 227 ), ExtResource( 200 ), ExtResource( 201 ), ExtResource( 238 ), ExtResource( 203 ), ExtResource( 221 ), ExtResource( 207 ), ExtResource( 224 ), ExtResource( 205 ), ExtResource( 212 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 223 ), ExtResource( 228 ), ExtResource( 234 ), ExtResource( 235 ), ExtResource( 240 ), ExtResource( 236 ), ExtResource( 239 ), ExtResource( 241 ), ExtResource( 242 ), ExtResource( 244 ), ExtResource( 245 ), ExtResource( 247 ), ExtResource( 248 ), ExtResource( 249 ), ExtResource( 187 ), ExtResource( 188 ), ExtResource( 72 ), ExtResource( 71 ), ExtResource( 75 ), ExtResource( 95 ), ExtResource( 84 ), ExtResource( 111 ), ExtResource( 104 ), ExtResource( 92 ), ExtResource( 60 ), ExtResource( 109 ), ExtResource( 91 ), ExtResource( 93 ), ExtResource( 61 ), ExtResource( 110 ), ExtResource( 112 ), ExtResource( 105 ), ExtResource( 88 ), ExtResource( 58 ), ExtResource( 96 ), ExtResource( 82 ), ExtResource( 62 ), ExtResource( 89 ), ExtResource( 69 ) ],
+"loop": false,
+"name": "default",
+"speed": 40.0
+} ]
 
 [node name="App" type="Node2D"]
 script = ExtResource( 3 )
@@ -652,7 +1635,7 @@ wait_time = 0.05
 autostart = true
 
 [node name="SocialMedias" type="TextureRect" parent="Overlay"]
-margin_left = 7.96841
+margin_left = 10.0
 margin_top = 5.59033
 margin_right = 140.968
 margin_bottom = 45.5903
@@ -694,199 +1677,136 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -160.0
+margin_left = -63.0
 texture = ExtResource( 44 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_lock_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="TopBorder" type="TextureRect" parent="Overlay/MainScene/Background"]
 anchor_left = 0.061
 anchor_right = 0.753
 margin_left = -0.0400009
-margin_right = 0.0799866
-margin_bottom = 6.0
+margin_right = 97.08
+margin_bottom = 30.0
 texture = ExtResource( 45 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
+[node name="LastFollowPanel" type="TextureRect" parent="Overlay/MainScene/Background/TopBorder"]
+margin_left = -32.3358
+margin_top = 0.877502
+margin_right = 202.664
+margin_bottom = 28.8775
+texture = ExtResource( 17 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel"]
+wait_time = 0.5
+autostart = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel"]
+anchor_left = 0.047
+anchor_top = 0.214
+anchor_right = 0.047
+anchor_bottom = 0.214
+margin_left = -0.0450001
+margin_top = 0.00799942
+margin_right = 211.955
+margin_bottom = 18.008
+theme = SubResource( 128 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel/HBoxContainer"]
+margin_right = 104.0
+margin_bottom = 18.0
+size_flags_horizontal = 7
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LastFollower" type="Label" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel/HBoxContainer/VBoxContainer"]
+margin_right = 104.0
+margin_bottom = 7.0
+size_flags_vertical = 6
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LastSubscriber" type="Label" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel/HBoxContainer/VBoxContainer"]
+margin_top = 11.0
+margin_right = 104.0
+margin_bottom = 18.0
+size_flags_vertical = 6
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel/HBoxContainer"]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 18.0
+size_flags_horizontal = 7
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TopDonater" type="Label" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel/HBoxContainer/VBoxContainer2"]
+margin_right = 104.0
+margin_bottom = 7.0
+size_flags_vertical = 6
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TopSubGifter" type="Label" parent="Overlay/MainScene/Background/TopBorder/LastFollowPanel/HBoxContainer/VBoxContainer2"]
+margin_top = 11.0
+margin_right = 104.0
+margin_bottom = 18.0
+size_flags_vertical = 6
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="BottomBorder" type="TextureRect" parent="Overlay/MainScene/Background"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -107.0
+margin_top = -43.0
 texture = ExtResource( 46 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Spotify" type="TextureRect" parent="Overlay/MainScene/Background/BottomBorder"]
-margin_left = 295.0
-margin_top = -2.0
-margin_right = 467.0
-margin_bottom = 48.0
-texture = ExtResource( 18 )
-script = ExtResource( 43 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MainScene/Background/BottomBorder/Spotify"]
-anchor_left = 0.035
-anchor_top = 0.24
-anchor_right = 0.035
-anchor_bottom = 0.24
-margin_left = -0.02
-margin_right = 154.98
-margin_bottom = 32.0
-custom_constants/separation = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CoverFrame" type="ColorRect" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-color = Color( 0.321569, 0, 0.176471, 1 )
-
-[node name="Cover" type="TextureRect" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/CoverFrame"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = 1.0
-margin_right = -1.0
-margin_bottom = -1.0
-rect_min_size = Vector2( 30, 30 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer"]
-margin_left = 38.0
-margin_top = 2.0
-margin_right = 155.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-
-[node name="TitleAlbumContainer" type="ScrollContainer" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer"]
-margin_right = 117.0
-margin_bottom = 12.0
-rect_min_size = Vector2( 0, 12 )
-custom_styles/bg = SubResource( 4 )
-scroll_vertical_enabled = false
-script = ExtResource( 27 )
-
-[node name="CenterContainer" type="CenterContainer" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer"]
-margin_right = 117.0
-margin_bottom = 12.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer"]
-margin_left = 31.0
-margin_top = 2.0
-margin_right = 85.0
-margin_bottom = 10.0
-size_flags_vertical = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="Label" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer"]
-margin_right = 19.0
-margin_bottom = 8.0
-size_flags_horizontal = 7
-custom_fonts/font = SubResource( 5 )
-text = "Title"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Separation" type="Label" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer"]
-margin_left = 23.0
-margin_right = 26.0
-margin_bottom = 8.0
-size_flags_horizontal = 7
-custom_fonts/font = SubResource( 5 )
-text = "-"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Album" type="Label" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer"]
-margin_left = 30.0
-margin_right = 54.0
-margin_bottom = 8.0
-size_flags_horizontal = 6
-custom_fonts/font = SubResource( 5 )
-text = "album"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer"]
-
-[node name="ArtistContainer" type="ScrollContainer" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer"]
-margin_top = 16.0
-margin_right = 117.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 0, 12 )
-size_flags_horizontal = 7
-custom_styles/bg = SubResource( 4 )
-scroll_vertical_enabled = false
-script = ExtResource( 27 )
-
-[node name="CenterContainer" type="CenterContainer" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/ArtistContainer"]
-margin_right = 117.0
-margin_bottom = 12.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Artist" type="Label" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/ArtistContainer/CenterContainer"]
-margin_left = 46.0
-margin_top = 2.0
-margin_right = 71.0
-margin_bottom = 10.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = SubResource( 5 )
-text = "Artist"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="Overlay/MainScene/Background/BottomBorder/Spotify/HBoxContainer/VBoxContainer/ArtistContainer"]
-
-[node name="Timer" type="Timer" parent="Overlay/MainScene/Background/BottomBorder/Spotify"]
-wait_time = 0.5
-autostart = true
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Overlay/MainScene/Background"]
 stream = ExtResource( 47 )
 
 [node name="ChatPanel" type="TextureRect" parent="Overlay/MainScene"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -154.0
 margin_bottom = 265.0
 texture = ExtResource( 15 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_lock_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Chat" type="VBoxContainer" parent="Overlay/MainScene/ChatPanel"]
@@ -913,7 +1833,6 @@ bold_font = ExtResource( 56 )
 script = ExtResource( 2 )
 get_images = true
 disk_cache = true
-disk_cache_path = "res://gift/cache"
 
 [node name="ChatBot" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler"]
 script = ExtResource( 5 )
@@ -935,41 +1854,150 @@ requirement = {
 stream = ExtResource( 7 )
 
 [node name="Commands" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot"]
+script = ExtResource( 70 )
 
 [node name="Dance" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
 script = ExtResource( 36 )
 command = "!dance"
-aliases = PoolStringArray( "!danse" )
 alert = "babybot_dance"
+aliases = PoolStringArray( "!danse" )
 
 [node name="Babar" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
 script = ExtResource( 36 )
 command = "!babar"
-users = PoolStringArray( "BabaDesBois", "Dark_Babar" )
 alert = "dark_babar"
+users = PoolStringArray( "BabaDesBois", "Dark_Babar" )
+
+[node name="Couette" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!couette"
+alert = "Couette"
+users = PoolStringArray( "BabaDesBois", "couette_douce" )
+
+[node name="DejaVu" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "deja vu"
+alert = "DejaVu"
+aliases = PoolStringArray( "déjà vu", "déja vu" )
+
+[node name="Salty" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!salty"
+alert = "Salty"
+aliases = PoolStringArray( "déjà vu", "déja vu" )
+users = PoolStringArray( "saltyn64", "babadesbois" )
+
+[node name="AFewMomentLater" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!afewmomentlater"
+alert = "AFewMomentLater"
+cooldown = 30.0
+
+[node name="AucuneMalice" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!aucunemalice"
+alert = "AucuneMalice"
+cooldown = 30.0
+
+[node name="DoIt" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!doit"
+alert = "DoIt"
+cooldown = 30.0
+
+[node name="DropTheMic" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!dropthemic"
+alert = "DropTheMic"
+cooldown = 30.0
+
+[node name="Embobine" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!embobine"
+alert = "Embobine"
+cooldown = 30.0
+
+[node name="Evidemment" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!evidemment"
+alert = "Evidemment"
+cooldown = 30.0
+
+[node name="Habile" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!habile"
+alert = "Habile"
+cooldown = 30.0
+
+[node name="Honteux" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!honteux"
+alert = "Honteux"
+cooldown = 30.0
+
+[node name="Indignite" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!indignite"
+alert = "Indignite"
+cooldown = 30.0
+
+[node name="Pierre" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!pierre"
+alert = "Pierre"
+cooldown = 30.0
+
+[node name="Revolte" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!revolte"
+alert = "Revolte"
+cooldown = 30.0
+
+[node name="RoiLoth" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!roiloth"
+alert = "RoiLoth"
+cooldown = 30.0
+
+[node name="Sable" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!sable"
+alert = "Sable"
+cooldown = 30.0
+
+[node name="Thunes" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!thunes"
+alert = "Thunes"
+cooldown = 30.0
+
+[node name="Voila" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!voila"
+alert = "Voila"
+cooldown = 30.0
 
 [node name="Interpretor" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler"]
 script = ExtResource( 4 )
-users_to_listen = PoolStringArray( "moobot", "babadesbois" )
+users_to_listen = PoolStringArray( "moobot", "babadesbois", "wizebot" )
 
 [node name="Goals" type="Control" parent="Overlay/MainScene"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 59.0
-margin_top = 259.0
-margin_right = -396.0
-margin_bottom = -21.0
+margin_left = 65.0
+margin_top = 321.0
+margin_right = -182.0
+theme = SubResource( 129 )
 script = ExtResource( 10 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Followers" type="VBoxContainer" parent="Overlay/MainScene/Goals"]
-margin_top = -3.368
-margin_right = 181.0
-margin_bottom = 34.632
-custom_constants/separation = -1
+margin_left = -4.523
+margin_right = 176.477
+margin_bottom = 38.0
+custom_constants/separation = -3
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -977,50 +2005,60 @@ __meta__ = {
 
 [node name="Header" type="HBoxContainer" parent="Overlay/MainScene/Goals/Followers"]
 margin_right = 181.0
-margin_bottom = 16.0
+margin_bottom = 15.0
 
 [node name="TitleLabel" type="Label" parent="Overlay/MainScene/Goals/Followers/Header"]
-margin_right = 66.0
-margin_bottom = 16.0
+margin_right = 42.0
+margin_bottom = 15.0
 text = "Follower:"
 
 [node name="CounterLabel" type="Label" parent="Overlay/MainScene/Goals/Followers/Header"]
-margin_left = 70.0
-margin_right = 141.0
-margin_bottom = 16.0
+margin_left = 46.0
+margin_right = 85.0
+margin_bottom = 15.0
 text = "650/1000"
 
 [node name="Gauge" parent="Overlay/MainScene/Goals/Followers" instance=ExtResource( 8 )]
-margin_top = 15.0
-margin_bottom = 37.0
+margin_top = 12.0
+margin_bottom = 34.0
+
+[node name="NinePatchRect" parent="Overlay/MainScene/Goals/Followers/Gauge" index="1"]
+texture = ExtResource( 79 )
+
+[node name="AnimatedSprite" parent="Overlay/MainScene/Goals/Followers/Gauge" index="3"]
+frame = 1
+
+[node name="Label" parent="Overlay/MainScene/Goals/Followers/Gauge" index="4"]
+modulate = Color( 0.321569, 0, 0.176471, 1 )
 
 [node name="Subs" type="VBoxContainer" parent="Overlay/MainScene/Goals"]
-margin_top = 35.892
-margin_right = 181.0
-margin_bottom = 73.892
-custom_constants/separation = -1
+margin_left = 188.44
+margin_right = 369.44
+margin_bottom = 37.0
+custom_constants/separation = -3
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Header" type="HBoxContainer" parent="Overlay/MainScene/Goals/Subs"]
 margin_right = 181.0
-margin_bottom = 16.0
+margin_bottom = 15.0
 
 [node name="TitleLabel" type="Label" parent="Overlay/MainScene/Goals/Subs/Header"]
-margin_right = 62.0
-margin_bottom = 16.0
+margin_right = 40.0
+margin_bottom = 15.0
 text = "Abonnes:"
 
 [node name="CounterLabel" type="Label" parent="Overlay/MainScene/Goals/Subs/Header"]
-margin_left = 66.0
-margin_right = 111.0
-margin_bottom = 16.0
+margin_left = 44.0
+margin_right = 69.0
+margin_bottom = 15.0
 text = "25/35"
 
 [node name="Gauge" parent="Overlay/MainScene/Goals/Subs" instance=ExtResource( 8 )]
-margin_top = 15.0
-margin_bottom = 37.0
+margin_top = 12.0
+margin_bottom = 34.0
 fill_texture_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 
 [node name="Timer" type="Timer" parent="Overlay/MainScene/Goals"]
@@ -1028,6 +2066,173 @@ wait_time = 0.5
 autostart = true
 
 [node name="Tween" type="Tween" parent="Overlay/MainScene"]
+
+[node name="Spotify" type="TextureRect" parent="Overlay"]
+margin_left = 435.576
+margin_top = -3.21938
+margin_right = 625.576
+margin_bottom = 46.7806
+texture = ExtResource( 18 )
+script = ExtResource( 43 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Spotify"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -77.5
+margin_top = -18.0
+margin_right = 77.5
+margin_bottom = 14.0
+custom_constants/separation = 6
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CoverFrame" type="ColorRect" parent="Overlay/Spotify/HBoxContainer"]
+margin_top = 2.0
+margin_right = 28.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 28, 28 )
+size_flags_vertical = 4
+color = Color( 0.321569, 0, 0.176471, 1 )
+
+[node name="Cover" type="TextureRect" parent="Overlay/Spotify/HBoxContainer/CoverFrame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+rect_min_size = Vector2( 26, 26 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Spotify/HBoxContainer"]
+margin_left = 34.0
+margin_top = 2.0
+margin_right = 155.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="TitleAlbumContainer" type="ScrollContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer"]
+margin_right = 121.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 0, 12 )
+custom_styles/bg = SubResource( 4 )
+scroll_vertical_enabled = false
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer"]
+margin_right = 121.0
+margin_bottom = 12.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer"]
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 87.0
+margin_bottom = 10.0
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer"]
+margin_right = 19.0
+margin_bottom = 8.0
+size_flags_horizontal = 7
+custom_fonts/font = SubResource( 5 )
+text = "Title"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Separation" type="Label" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer"]
+margin_left = 23.0
+margin_right = 26.0
+margin_bottom = 8.0
+size_flags_horizontal = 7
+custom_fonts/font = SubResource( 5 )
+text = "-"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Album" type="Label" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer"]
+margin_left = 30.0
+margin_right = 54.0
+margin_bottom = 8.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 5 )
+text = "album"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer"]
+
+[node name="Timer" type="Timer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer"]
+
+[node name="ArtistContainer" type="ScrollContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer"]
+margin_top = 16.0
+margin_right = 121.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 12 )
+size_flags_horizontal = 7
+custom_styles/bg = SubResource( 4 )
+scroll_vertical_enabled = false
+script = ExtResource( 27 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/ArtistContainer"]
+margin_right = 121.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Artist" type="Label" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/ArtistContainer/CenterContainer"]
+margin_left = 48.0
+margin_top = 2.0
+margin_right = 73.0
+margin_bottom = 10.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 5 )
+text = "Artist"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/ArtistContainer"]
+
+[node name="Timer" type="Timer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/ArtistContainer"]
+
+[node name="Timer" type="Timer" parent="Overlay/Spotify"]
+wait_time = 0.5
+autostart = true
 
 [node name="Foreground" type="TextureRect" parent="Overlay"]
 anchor_right = 1.0
@@ -1042,7 +2247,8 @@ __meta__ = {
 script = ExtResource( 20 )
 
 [node name="Moai" type="AnimatedSprite" parent="Overlay/Foreground/Animations"]
-position = Vector2( 29, 290 )
+position = Vector2( 29, 290.5 )
+z_index = 1
 frames = SubResource( 22 )
 animation = "Eyes"
 __meta__ = {
@@ -1123,8 +2329,8 @@ margin_top = 0.0199995
 margin_right = -0.00200272
 margin_bottom = 0.00199509
 rect_clip_content = false
-custom_fonts/normal_font = ExtResource( 49 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 49 )
 bbcode_enabled = true
 fit_content_height = true
 scroll_active = false
@@ -1150,36 +2356,138 @@ __meta__ = {
 
 [node name="DarkBabar" type="AnimatedSprite" parent="Overlay/Foreground/Animations"]
 visible = false
-position = Vector2( 86.7646, 221.249 )
+position = Vector2( 92, 285 )
 frames = SubResource( 52 )
 script = ExtResource( 39 )
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="ImperialMarch" type="AudioStreamPlayer2D" parent="Overlay/Foreground/Animations/DarkBabar"]
-position = Vector2( -86.7646, -221.249 )
+[node name="ImperialMarch" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations/DarkBabar"]
 stream = ExtResource( 41 )
 volume_db = -6.0
+
+[node name="BabarSound" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations/DarkBabar"]
+stream = ExtResource( 42 )
+volume_db = 3.975
+
+[node name="Couette_douce" type="Node2D" parent="Overlay/Foreground/Animations"]
+
+[node name="Embroidery" type="Sprite" parent="Overlay/Foreground/Animations/Couette_douce"]
+position = Vector2( -36.0149, 70.0976 )
+rotation = -3.15181
+texture = ExtResource( 63 )
+
+[node name="Babybot" type="AnimatedSprite" parent="Overlay/Foreground/Animations/Couette_douce"]
+position = Vector2( 236.441, 344 )
+frames = SubResource( 149 )
+animation = "Rise"
+flip_h = true
+
+[node name="Emboidery" type="AnimationPlayer" parent="Overlay/Foreground/Animations/Couette_douce"]
+anims/BabybotPush = SubResource( 152 )
+anims/Fall = SubResource( 150 )
+anims/RESET = SubResource( 151 )
+
+[node name="Master" type="AnimationPlayer" parent="Overlay/Foreground/Animations/Couette_douce"]
+anims/CouetteAlert = SubResource( 153 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations/Couette_douce"]
+stream = ExtResource( 59 )
+
+[node name="DejaVu" type="AnimatedSprite" parent="Overlay/Foreground/Animations"]
+position = Vector2( 155.574, 303.682 )
+frames = SubResource( 234 )
+flip_h = true
+
+[node name="DejaVu" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations/DejaVu"]
+stream = ExtResource( 66 )
+
+[node name="Glitch1" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations/DejaVu"]
+stream = ExtResource( 68 )
+volume_db = -9.0
+
+[node name="Glitch2" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations/DejaVu"]
+stream = ExtResource( 67 )
+volume_db = -6.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Foreground/Animations/DejaVu"]
+anims/DejaVu = SubResource( 235 )
+
+[node name="Salty" type="Node2D" parent="Overlay/Foreground/Animations"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BabarSound" type="AudioStreamPlayer2D" parent="Overlay/Foreground/Animations/DarkBabar"]
-position = Vector2( -86.7646, -221.249 )
-stream = ExtResource( 42 )
-volume_db = 3.975
+[node name="Path2D" type="Path2D" parent="Overlay/Foreground/Animations/Salty"]
+visible = false
+curve = SubResource( 236 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Overlay/Foreground/Animations/Salty/Path2D"]
+position = Vector2( 476.159, 118.34 )
+rotation = 3.03901
+
+[node name="SuperSalty" type="AnimatedSprite" parent="Overlay/Foreground/Animations/Salty/Path2D/PathFollow2D"]
+rotation = 1.61443
+frames = SubResource( 241 )
+frame = 2
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LightningRight" type="AnimatedSprite" parent="Overlay/Foreground/Animations/Salty"]
+visible = false
+position = Vector2( 471.07, 180 )
+frames = SubResource( 248 )
+frame = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LightningLeft" type="AnimatedSprite" parent="Overlay/Foreground/Animations/Salty"]
+visible = false
+position = Vector2( 111.07, 180 )
+frames = SubResource( 248 )
+frame = 3
+flip_v = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Foreground/Animations/Salty"]
+anims/Salty = SubResource( 249 )
+
+[node name="ThunderSounds" type="AudioStreamPlayer2D" parent="Overlay/Foreground/Animations/Salty"]
+stream = ExtResource( 77 )
+volume_db = -12.0
+pitch_scale = 1.36
+bus = "Thunder"
+
+[node name="SuperSalty" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations/Salty"]
+stream = ExtResource( 78 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Overlay/Foreground/Animations"]
+visible = false
+margin_left = 89.8984
+margin_top = 54.6882
+margin_right = 495.898
+margin_bottom = 262.688
+autoplay = true
+bus = "Videos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioAlerts" type="AudioStreamPlayer" parent="Overlay/Foreground/Animations"]
 
 [node name="TV" type="TextureRect" parent="Overlay"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -159.0
-margin_top = -127.0
+margin_left = -147.0
+margin_top = -121.0
 texture = ExtResource( 33 )
 script = ExtResource( 38 )
 __meta__ = {
@@ -1241,7 +2549,7 @@ __meta__ = {
 [node name="Content" type="VBoxContainer" parent="Overlay/Panel/CenterContainer"]
 margin_left = 28.0
 margin_top = 7.0
-margin_right = 298.0
+margin_right = 297.0
 margin_bottom = 123.0
 custom_constants/separation = 20
 __meta__ = {
@@ -1249,7 +2557,7 @@ __meta__ = {
 }
 
 [node name="WaitingScreen" type="Label" parent="Overlay/Panel/CenterContainer/Content"]
-margin_right = 270.0
+margin_right = 269.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 123 )
 text = "Le stream commence dans: "
@@ -1306,7 +2614,7 @@ __meta__ = {
 
 [node name="TimerLabel" type="Label" parent="Overlay/Panel/CenterContainer/Content"]
 margin_top = 52.0
-margin_right = 270.0
+margin_right = 269.0
 margin_bottom = 116.0
 custom_fonts/font = ExtResource( 30 )
 text = "10:00"
@@ -1322,78 +2630,16 @@ wait_time = 600.0
 [node name="UpdateTimer" type="Timer" parent="Overlay/Panel/CenterContainer/Content/TimerLabel"]
 wait_time = 0.5
 
-[node name="LastFollowPanel" type="TextureRect" parent="Overlay"]
-margin_left = 146.0
-margin_top = 335.0
-margin_right = 381.0
-margin_bottom = 363.0
-texture = ExtResource( 17 )
-script = ExtResource( 26 )
+[node name="LogoTransition" type="AnimatedSprite" parent="Overlay"]
+scale = Vector2( 0.334, 0.334 )
+z_index = 3
+frames = SubResource( 131 )
+centered = false
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
-
-[node name="Timer" type="Timer" parent="Overlay/LastFollowPanel"]
-wait_time = 0.5
-autostart = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/LastFollowPanel"]
-anchor_left = 0.047
-anchor_top = 0.214
-anchor_right = 0.047
-anchor_bottom = 0.214
-margin_left = -0.0450001
-margin_top = 0.00799942
-margin_right = 211.955
-margin_bottom = 18.008
-theme = SubResource( 128 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/LastFollowPanel/HBoxContainer"]
-margin_right = 104.0
-margin_bottom = 18.0
-size_flags_horizontal = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LastFollower" type="Label" parent="Overlay/LastFollowPanel/HBoxContainer/VBoxContainer"]
-margin_right = 104.0
-margin_bottom = 7.0
-size_flags_vertical = 6
-valign = 1
-
-[node name="LastSubscriber" type="Label" parent="Overlay/LastFollowPanel/HBoxContainer/VBoxContainer"]
-margin_top = 11.0
-margin_right = 104.0
-margin_bottom = 18.0
-size_flags_vertical = 6
-valign = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Overlay/LastFollowPanel/HBoxContainer"]
-margin_left = 108.0
-margin_right = 212.0
-margin_bottom = 18.0
-size_flags_horizontal = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TopDonater" type="Label" parent="Overlay/LastFollowPanel/HBoxContainer/VBoxContainer2"]
-margin_right = 104.0
-margin_bottom = 7.0
-size_flags_vertical = 6
-valign = 1
-
-[node name="TopSubGifter" type="Label" parent="Overlay/LastFollowPanel/HBoxContainer/VBoxContainer2"]
-margin_top = 11.0
-margin_right = 104.0
-margin_bottom = 18.0
-size_flags_vertical = 6
-valign = 1
 
 [node name="RaidAlert" parent="." instance=ExtResource( 1 )]
+z_index = 4
+
+[editable path="Overlay/MainScene/Goals/Followers/Gauge"]
