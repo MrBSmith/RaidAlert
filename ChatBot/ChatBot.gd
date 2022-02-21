@@ -16,7 +16,7 @@ func get_class() -> String: return "ChatBot"
 #### BUILT-IN ####
 
 func _ready() -> void:
-	var __ = connect("alert", self, "_on_EVENTS_alert")
+	var __ = EVENTS.connect("alert", self, "_on_EVENTS_alert")
 
 
 #### VIRTUALS ####
@@ -86,4 +86,5 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 
 
 func _on_EVENTS_alert(alert: String) -> void:
-	pass
+	if alert in message_alert_dict.keys():
+		get_parent().chat(message_alert_dict[alert])
