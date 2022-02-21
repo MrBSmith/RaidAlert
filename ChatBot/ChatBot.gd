@@ -5,7 +5,7 @@ onready var user_tracker_list = $UserTrackerList
 onready var commands = $Commands
 
 export var users_to_track := PoolStringArray()
-
+export var message_alert_dict : Dictionary = {}
 
 #### ACCESSORS ####
 
@@ -15,6 +15,8 @@ func get_class() -> String: return "ChatBot"
 
 #### BUILT-IN ####
 
+func _ready() -> void:
+	var __ = connect("alert", self, "_on_EVENTS_alert")
 
 
 #### VIRTUALS ####
@@ -81,3 +83,7 @@ func _trigger_commands(sender_data: SenderData, message: String) -> void:
 func _on_chat_message(sender_data: SenderData, message: String) -> void:
 	_trigger_user_tracker(sender_data, message)
 	_trigger_commands(sender_data, message)
+
+
+func _on_EVENTS_alert(alert: String) -> void:
+	pass

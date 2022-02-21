@@ -118,6 +118,7 @@ __meta__ = {
 [node name="ChannelTitleLabel" type="Label" parent="Alert/Announcement/MessageContainer/Control"]
 margin_right = 438.0
 margin_bottom = 48.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "%s lance un raid"
 align = 1
@@ -129,6 +130,7 @@ __meta__ = {
 margin_top = 52.0
 margin_right = 438.0
 margin_bottom = 84.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "%d fourmis sont parachutées dans les bois"
 align = 1

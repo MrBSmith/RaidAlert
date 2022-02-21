@@ -9,6 +9,7 @@ extends Node
 
 #### BUILT-IN ####
 
+
 func _ready() -> void:
 	for category_dict in GAME.alert_dict.values():
 		for alert_name in category_dict.keys():
@@ -21,8 +22,7 @@ func _ready() -> void:
 				var __ = command.connect("ready", self, "_on_command_ready", [command], CONNECT_ONESHOT)
 				call_deferred("add_child", command)
 				print("command created: %s" % alert_name)
-			
-		print("command creation finished")
+
 
 
 #### VIRTUALS ####

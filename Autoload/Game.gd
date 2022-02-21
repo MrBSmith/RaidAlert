@@ -4,7 +4,13 @@ extends Node
 const VIDEO_ALERT_DIR_PATH = "res://Alerts/Videos/"
 const AUDIO_ALERT_DIR_PATH = "res://Alerts/Audios/"
 
-var alert_dict = {}
+var print_logs := true
+
+var alert_dict = { "audio" : {
+		"vilain": load("res://Alerts/Audios/Vilain.ogg"),
+		"malaxe": load("res://Alerts/Audios/Malaxe.ogg"),
+		"coquinou": load("res://Alerts/Audios/Coquinou.ogg")
+	}}
 
 var screen_size = Vector2(ProjectSettings.get_setting("display/window/size/width"),
 						ProjectSettings.get_setting("display/window/size/height"))
@@ -17,8 +23,6 @@ var screen_size = Vector2(ProjectSettings.get_setting("display/window/size/width
 
 func _ready() -> void:
 	_fetch_alerts_files(VIDEO_ALERT_DIR_PATH, "video")
-	_fetch_alerts_files(AUDIO_ALERT_DIR_PATH, "audio")
-	return
 
 
 #### VIRTUALS ####
@@ -30,6 +34,7 @@ func _ready() -> void:
 
 func _fetch_alerts_files(path: String, category_name: String) -> void:
 	var file_array = DirNavHelper.fetch_dir_content(path, DirNavHelper.DIR_FETCH_MODE.FILE_ONLY)
+	if print_logs: print("%s file fetching started")
 	
 	if !alert_dict.has(category_name):
 		alert_dict[category_name] = {}
@@ -38,7 +43,10 @@ func _fetch_alerts_files(path: String, category_name: String) -> void:
 		if ".import".is_subsequence_ofi(file):
 			continue
 		
-		alert_dict[category_name][file.split(".")[0]] = load(path + file)
+		var resource = load(path + file)
+		if print_logs: print("%s file loaded at path %s" % [file, path + file])
+		
+		alert_dict[category_name][file.split(".")[0].to_lower()] = resource
 
 
 

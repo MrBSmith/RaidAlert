@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vilain.ogg-e5cfbb088987bd44f1a1a6c11f5ca9c6.oggstr"
+
+[deps]
+
+source_file="res://Alerts/Audios/Vilain.ogg"
+dest_files=[ "res://.import/Vilain.ogg-e5cfbb088987bd44f1a1a6c11f5ca9c6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Malaxe.ogg-df8ff35ded260d05fe67cc95e8176dff.oggstr"
+
+[deps]
+
+source_file="res://Alerts/Audios/Malaxe.ogg"
+dest_files=[ "res://.import/Malaxe.ogg-df8ff35ded260d05fe67cc95e8176dff.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
