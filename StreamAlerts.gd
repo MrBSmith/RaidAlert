@@ -49,7 +49,6 @@ func _ready() -> void:
 	__ = EVENTS.connect("OBS_scene_changed", self, "_on_OBS_scene_changed")
 	__ = animation_player.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	__ = $VideoPlayer.connect("finished", self, "_on_video_player_finished")
-	__ = $JamCat.connect("finished", self, "_on_jamcat_video_player_finished")
 	__ = $AudioAlerts.connect("finished", self, "_on_audio_alert_finished")
 	
 	for child in get_children():
@@ -136,10 +135,6 @@ func _on_alert(alert_name: String) -> void:
 			"dejavu": $DejaVu/AnimationPlayer.play("DejaVu")
 			"salty": $Salty/AnimationPlayer.play("Salty")
 			"bonk": $Bonk/AnimationPlayer.play("Bonk")
-			"jam": 
-				$JamCat.play()
-				yield(get_tree().create_timer(0.5), "timeout")
-				$JamCat.set_visible(true)
 		
 		if print_logs: print("play special alert %s" % alert_name)
 

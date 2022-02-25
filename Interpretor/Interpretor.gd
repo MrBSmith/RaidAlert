@@ -46,7 +46,9 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 		
 		if "RAID" in message:
 			var channel_name = words_array[0]
-			var nb_raiders = find_number(words_array)
+			var message_wo_channel_name = words_array.duplicate()
+			message_wo_channel_name.erase(channel_name)
+			var nb_raiders = find_number(message_wo_channel_name)
 			EVENTS.emit_signal("raid", channel_name, nb_raiders)
 		
 		elif "FOLLOW" in message:
