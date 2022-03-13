@@ -1,4 +1,4 @@
-extends TextureRect
+extends NinePatchRect
 
 onready var title_label = $HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer/Title
 onready var album_label = $HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer/HBoxContainer/Album

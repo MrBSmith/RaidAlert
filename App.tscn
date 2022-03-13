@@ -2563,30 +2563,32 @@ autostart = true
 
 [node name="Tween" type="Tween" parent="Overlay/MainScene"]
 
-[node name="Spotify" type="TextureRect" parent="Overlay"]
-margin_left = 435.576
-margin_top = -3.21938
-margin_right = 625.576
-margin_bottom = 46.7806
+[node name="Spotify" type="NinePatchRect" parent="Overlay"]
+margin_left = 416.0
+margin_top = -2.0
+margin_right = 626.0
+margin_bottom = 37.0
 texture = ExtResource( 18 )
+patch_margin_left = 15
+patch_margin_top = 13
+patch_margin_right = 15
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 script = ExtResource( 43 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Spotify"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -77.5
-margin_top = -18.0
-margin_right = 77.5
-margin_bottom = 14.0
+margin_left = -83.0
+margin_top = -13.5
+margin_right = 99.0
+margin_bottom = 18.5
 custom_constants/separation = 6
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -2614,13 +2616,13 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Spotify/HBoxContainer"]
 margin_left = 34.0
 margin_top = 2.0
-margin_right = 155.0
+margin_right = 182.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
 [node name="TitleAlbumContainer" type="ScrollContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer"]
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 0, 12 )
 custom_styles/bg = SubResource( 8 )
@@ -2631,7 +2633,7 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer"]
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 12.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -2640,9 +2642,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/TitleAlbumContainer/CenterContainer"]
-margin_left = 33.0
+margin_left = 47.0
 margin_top = 2.0
-margin_right = 87.0
+margin_right = 101.0
 margin_bottom = 10.0
 size_flags_vertical = 7
 __meta__ = {
@@ -2693,7 +2695,7 @@ __meta__ = {
 
 [node name="ArtistContainer" type="ScrollContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer"]
 margin_top = 16.0
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 0, 12 )
 size_flags_horizontal = 7
@@ -2702,15 +2704,15 @@ scroll_vertical_enabled = false
 script = ExtResource( 27 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/ArtistContainer"]
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 12.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Artist" type="Label" parent="Overlay/Spotify/HBoxContainer/VBoxContainer/ArtistContainer/CenterContainer"]
-margin_left = 48.0
+margin_left = 61.0
 margin_top = 2.0
-margin_right = 73.0
+margin_right = 86.0
 margin_bottom = 10.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -2982,7 +2984,7 @@ rotation = 3.03901
 [node name="SuperSalty" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Salty/Path2D/PathFollow2D"]
 rotation = 1.61443
 frames = SubResource( 230 )
-frame = 3
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
