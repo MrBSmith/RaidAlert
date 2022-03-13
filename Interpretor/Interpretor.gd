@@ -46,9 +46,8 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 		
 		if "RAID" in message:
 			var channel_name = words_array[0]
-			var message_wo_channel_name = words_array.duplicate()
-			message_wo_channel_name.erase(channel_name)
-			var nb_raiders = find_number(message_wo_channel_name)
+			words_array.remove(0)
+			var nb_raiders = find_number(words_array)
 			EVENTS.emit_signal("raid", channel_name, nb_raiders)
 		
 		elif "FOLLOW" in message:
@@ -67,6 +66,9 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 			EVENTS.emit_signal("new_subscriber", words_array[2], tier, 1, is_prime)
 		
 		elif "BITS" in message:
-			EVENTS.emit_signal("new_donation", words_array[0], int(words_array[4]))
+			var channel_name = words_array[0]
+			words_array.remove(0)
+			var amount = find_number(words_array)
+			EVENTS.emit_signal("new_donation", channel_name, amount)
 		
 	print(sender_data.user + " : " + message)
