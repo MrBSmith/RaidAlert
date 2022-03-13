@@ -719,6 +719,10 @@ config/icon="res://icon.png"
 GAME="*res://Autoload/Game.gd"
 EVENTS="*res://Autoload/Events.gd"
 
+[debug]
+
+settings/fps/force_fps=30
+
 [display]
 
 window/size/width=640
@@ -765,6 +769,7 @@ ogg_vorbis={
 
 [physics]
 
+common/physics_fps=30
 common/enable_pause_aware_picking=true
 
 [rendering]

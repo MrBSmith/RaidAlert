@@ -17,7 +17,6 @@ export var users : PoolStringArray = []
 
 export(ROLE) var role : int = ROLE.NONE
 
-
 onready var cooldown_timer := Timer.new()
 
 #### ACCESSORS ####
@@ -33,6 +32,8 @@ func _ready() -> void:
 	cooldown_timer.set_autostart(false)
 	cooldown_timer.one_shot = true
 	add_child(cooldown_timer)
+	if cooldown > 0.0:
+		cooldown_timer.wait_time = cooldown
 	cooldown_timer.stop()
 
 
@@ -56,7 +57,8 @@ func trigger() -> void:
 		return
 	
 	if alert != "":
-		cooldown_timer.start()
+		if cooldown > 0.0:
+			cooldown_timer.start()
 		EVENTS.emit_signal("alert", alert)
 	else:
 		push_warning("The command %s has been triggered but has no effect" % name)

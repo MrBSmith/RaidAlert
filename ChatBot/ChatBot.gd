@@ -17,6 +17,7 @@ func get_class() -> String: return "ChatBot"
 
 func _ready() -> void:
 	var __ = EVENTS.connect("alert", self, "_on_EVENTS_alert")
+	__ = EVENTS.connect("raid", self, "_on_EVENTS_raid")
 
 
 #### VIRTUALS ####
@@ -88,3 +89,7 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 func _on_EVENTS_alert(alert: String) -> void:
 	if alert in message_alert_dict.keys():
 		get_parent().chat(message_alert_dict[alert])
+
+
+func _on_EVENTS_raid(channel_name: String, _nb_raiders: int) -> void:
+	get_parent().chat("!so @%s" % channel_name)
