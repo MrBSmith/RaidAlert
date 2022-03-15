@@ -1,4 +1,4 @@
-[gd_scene load_steps=555 format=2]
+[gd_scene load_steps=556 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -82,6 +82,7 @@
 [ext_resource path="res://Alerts/StreamAlerts/Dons.png" type="Texture" id=80]
 [ext_resource path="res://Alerts/StreamAlerts/Subs.png" type="Texture" id=81]
 [ext_resource path="res://Transition/00160.png" type="Texture" id=82]
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill2.png" type="Texture" id=83]
 [ext_resource path="res://Transition/00145.png" type="Texture" id=84]
 [ext_resource path="res://Alerts/StreamAlerts/LionCafard.ogg" type="AudioStream" id=85]
 [ext_resource path="res://Overlay/Animations/Bonk/Bonk.png" type="Texture" id=87]
@@ -976,6 +977,22 @@ animations = [ {
 "speed": 13.0
 } ]
 
+[sub_resource type="AtlasTexture" id=121]
+atlas = ExtResource( 64 )
+region = Rect2( 96, 160, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 64 )
+region = Rect2( 0, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 64 )
+region = Rect2( 32, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 192, 32, 32 )
+
 [sub_resource type="AtlasTexture" id=134]
 atlas = ExtResource( 64 )
 region = Rect2( 96, 128, 32, 32 )
@@ -1028,24 +1045,13 @@ region = Rect2( 32, 128, 32, 32 )
 atlas = ExtResource( 64 )
 region = Rect2( 64, 128, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=121]
-atlas = ExtResource( 64 )
-region = Rect2( 96, 160, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=122]
-atlas = ExtResource( 64 )
-region = Rect2( 0, 192, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=123]
-atlas = ExtResource( 64 )
-region = Rect2( 32, 192, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=124]
-atlas = ExtResource( 64 )
-region = Rect2( 64, 192, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=138]
 animations = [ {
+"frames": [ SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ) ],
+"loop": true,
+"name": "Move",
+"speed": 13.0
+}, {
 "frames": [ SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ) ],
 "loop": true,
 "name": "Push",
@@ -1054,11 +1060,6 @@ animations = [ {
 "frames": [ SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ) ],
 "loop": false,
 "name": "Rise",
-"speed": 13.0
-}, {
-"frames": [ SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ) ],
-"loop": true,
-"name": "Move",
 "speed": 13.0
 } ]
 
@@ -2523,6 +2524,12 @@ text = "650/1000"
 [node name="Gauge" parent="Overlay/MainScene/Goals/Followers" instance=ExtResource( 8 )]
 margin_top = 12.0
 margin_bottom = 34.0
+
+[node name="NinePatchRect" parent="Overlay/MainScene/Goals/Followers/Gauge" index="1"]
+texture = ExtResource( 83 )
+
+[node name="AnimatedSprite" parent="Overlay/MainScene/Goals/Followers/Gauge" index="3"]
+frame = 1
 
 [node name="Label" parent="Overlay/MainScene/Goals/Followers/Gauge" index="4"]
 modulate = Color( 0.321569, 0, 0.176471, 1 )

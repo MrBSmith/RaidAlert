@@ -41,34 +41,31 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 	if "wizebot".is_subsequence_ofi(user) or (OS.is_debug_build() && "babadesbois".is_subsequence_ofi(user)):
 		var words_array = message.split(" ")
 		
-		if "wizebot".is_subsequence_ofi(user):
-			words_array.remove(0)
-		
 		if "RAID" in message:
-			var channel_name = words_array[0]
-			words_array.remove(0)
+			var channel_name = words_array[1]
+			words_array.remove(1)
 			var nb_raiders = find_number(words_array)
 			EVENTS.emit_signal("raid", channel_name, nb_raiders)
 		
 		elif "FOLLOW" in message:
-			var follow = words_array[2].replace(",", "")
+			var follow = words_array[3].replace(",", "")
 			EVENTS.emit_signal("new_follower", follow)
 		
 		elif "SUB GIFT" in message:
-			EVENTS.emit_signal("sub_gift", words_array[3], int(words_array[6]))
+			EVENTS.emit_signal("sub_gift", words_array[4], int(words_array[7]))
 		
 		elif "RESUB" in message:
-			EVENTS.emit_signal("new_subscriber", words_array[1], -1, int(words_array[8]), false)
+			EVENTS.emit_signal("new_subscriber", words_array[2], -1, int(words_array[9]), false)
 		
 		elif "SUB" in message:
 			var is_prime = "prime" in message
-			var tier = -1 if is_prime else int(words_array[10])
-			EVENTS.emit_signal("new_subscriber", words_array[2], tier, 1, is_prime)
+			var tier = -1 if is_prime else int(words_array[11])
+			EVENTS.emit_signal("new_subscriber", words_array[3], tier, 1, is_prime)
 		
 		elif "BITS" in message:
 			var channel_name = words_array[0]
 			words_array.remove(0)
 			var amount = find_number(words_array)
 			EVENTS.emit_signal("new_donation", channel_name, amount)
-		
+	
 	print(sender_data.user + " : " + message)
