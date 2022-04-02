@@ -1,4 +1,4 @@
-[gd_scene load_steps=556 format=2]
+[gd_scene load_steps=561 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://ChatBot/ChatEvent/hadouken.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Overlay/Gauges/Overlay_Gauge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://BabaGodotLib/Fonts/MediumPixel.tres" type="DynamicFont" id=9]
-[ext_resource path="res://Overlay/Goals/Goals.gd" type="Script" id=10]
+[ext_resource path="res://Overlay/Goals/GoalsBars.gd" type="Script" id=10]
 [ext_resource path="res://Overlay/Overlay.gd" type="Script" id=11]
 [ext_resource path="res://Overlay/Sprites/OverlayBackground_Left.png" type="Texture" id=12]
 [ext_resource path="res://Overlay/Sprites/Overlay.png" type="Texture" id=13]
@@ -85,6 +85,7 @@
 [ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill2.png" type="Texture" id=83]
 [ext_resource path="res://Transition/00145.png" type="Texture" id=84]
 [ext_resource path="res://Alerts/StreamAlerts/LionCafard.ogg" type="AudioStream" id=85]
+[ext_resource path="res://VideoLayer/VideoLayer.gd" type="Script" id=86]
 [ext_resource path="res://Overlay/Animations/Bonk/Bonk.png" type="Texture" id=87]
 [ext_resource path="res://Transition/00157.png" type="Texture" id=88]
 [ext_resource path="res://Transition/00162.png" type="Texture" id=89]
@@ -95,6 +96,9 @@
 [ext_resource path="res://Overlay/Animations/Bonk/SwordWoosh.ogg" type="AudioStream" id=94]
 [ext_resource path="res://Transition/00144.png" type="Texture" id=95]
 [ext_resource path="res://Transition/00159.png" type="Texture" id=96]
+[ext_resource path="res://NinePatch/NinePatchPanel.png" type="Texture" id=97]
+[ext_resource path="res://Overlay/Goals/SubGoalsList.gd" type="Script" id=98]
+[ext_resource path="res://Overlay/Goals/PanelSubgoals.png" type="Texture" id=100]
 [ext_resource path="res://Transition/00147.png" type="Texture" id=104]
 [ext_resource path="res://Transition/00156.png" type="Texture" id=105]
 [ext_resource path="res://Transition/00150.png" type="Texture" id=109]
@@ -266,6 +270,7 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 9 )
 Label/styles/normal = null
+RichTextLabel/colors/default_color = Color( 0.321569, 0, 0.176471, 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 10
@@ -977,22 +982,6 @@ animations = [ {
 "speed": 13.0
 } ]
 
-[sub_resource type="AtlasTexture" id=121]
-atlas = ExtResource( 64 )
-region = Rect2( 96, 160, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=122]
-atlas = ExtResource( 64 )
-region = Rect2( 0, 192, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=123]
-atlas = ExtResource( 64 )
-region = Rect2( 32, 192, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=124]
-atlas = ExtResource( 64 )
-region = Rect2( 64, 192, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=134]
 atlas = ExtResource( 64 )
 region = Rect2( 96, 128, 32, 32 )
@@ -1045,13 +1034,24 @@ region = Rect2( 32, 128, 32, 32 )
 atlas = ExtResource( 64 )
 region = Rect2( 64, 128, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=121]
+atlas = ExtResource( 64 )
+region = Rect2( 96, 160, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 64 )
+region = Rect2( 0, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 64 )
+region = Rect2( 32, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 192, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=138]
 animations = [ {
-"frames": [ SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ) ],
-"loop": true,
-"name": "Move",
-"speed": 13.0
-}, {
 "frames": [ SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ) ],
 "loop": true,
 "name": "Push",
@@ -1060,6 +1060,11 @@ animations = [ {
 "frames": [ SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ) ],
 "loop": false,
 "name": "Rise",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ) ],
+"loop": true,
+"name": "Move",
 "speed": 13.0
 } ]
 
@@ -2075,6 +2080,9 @@ animations = [ {
 "speed": 40.0
 } ]
 
+[sub_resource type="Theme" id=314]
+default_font = ExtResource( 9 )
+
 [node name="App" type="Node2D"]
 script = ExtResource( 3 )
 __meta__ = {
@@ -2576,13 +2584,16 @@ margin_top = -2.0
 margin_right = 626.0
 margin_bottom = 37.0
 texture = ExtResource( 18 )
-patch_margin_left = 15
+patch_margin_left = 20
 patch_margin_top = 13
-patch_margin_right = 15
+patch_margin_right = 20
 patch_margin_bottom = 10
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 script = ExtResource( 43 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Spotify"]
 anchor_left = 0.5
@@ -2991,7 +3002,7 @@ rotation = 3.03901
 [node name="SuperSalty" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Salty/Path2D/PathFollow2D"]
 rotation = 1.61443
 frames = SubResource( 230 )
-frame = 2
+frame = 3
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -3026,19 +3037,6 @@ pitch_scale = 1.36
 
 [node name="SuperSalty" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts/Salty"]
 stream = ExtResource( 78 )
-
-[node name="VideoPlayer" type="VideoPlayer" parent="Overlay/Foreground/StreamAlerts"]
-visible = false
-margin_left = 89.8984
-margin_top = 54.6882
-margin_right = 281.898
-margin_bottom = 162.688
-rect_clip_content = true
-autoplay = true
-bus = "Videos"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AudioAlerts" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts"]
 
@@ -3198,6 +3196,80 @@ frames = SubResource( 313 )
 centered = false
 __meta__ = {
 "_edit_lock_": true
+}
+
+[node name="SubGoals" type="Control" parent="Overlay"]
+margin_left = 46.8572
+margin_top = 71.5102
+margin_right = 277.857
+margin_bottom = 290.51
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/SubGoals"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Overlay/SubGoals/VBoxContainer"]
+margin_left = 55.0
+margin_right = 175.0
+margin_bottom = 43.0
+size_flags_horizontal = 6
+texture = ExtResource( 100 )
+
+[node name="SubGoalsPanel" type="NinePatchRect" parent="Overlay/SubGoals/VBoxContainer"]
+margin_top = 47.0
+margin_right = 231.0
+margin_bottom = 219.0
+size_flags_vertical = 3
+theme = SubResource( 314 )
+texture = ExtResource( 97 )
+region_rect = Rect2( 0, 0, 36, 22 )
+patch_margin_left = 11
+patch_margin_top = 8
+patch_margin_right = 15
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource( 98 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/SubGoals/VBoxContainer/SubGoalsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 7
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VideoLayer" type="CanvasLayer" parent="."]
+layer = 5
+script = ExtResource( 86 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="VideoLayer"]
+visible = false
+margin_left = 89.8984
+margin_top = 54.6882
+margin_right = 281.898
+margin_bottom = 162.688
+rect_clip_content = true
+autoplay = true
+bus = "Videos"
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [editable path="Overlay/MainScene/Goals/Followers/Gauge"]

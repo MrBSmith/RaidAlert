@@ -275,9 +275,9 @@ _global_script_classes=[ {
 "path": "res://BabaGodotLib/Scenes/HUD/Gauge/Gauge.gd"
 }, {
 "base": "Control",
-"class": "Goals",
+"class": "GoalsBars",
 "language": "GDScript",
-"path": "res://Overlay/Goals/Goals.gd"
+"path": "res://Overlay/Goals/GoalsBars.gd"
 }, {
 "base": "TextureRect",
 "class": "HUD_Icon",
@@ -519,6 +519,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Overlay/Panel/Panel.gd"
 }, {
+"base": "NinePatchRect",
+"class": "SubGoals",
+"language": "GDScript",
+"path": "res://Overlay/Goals/SubGoalsList.gd"
+}, {
 "base": "TextureRect",
 "class": "TV",
 "language": "GDScript",
@@ -643,7 +648,7 @@ _global_script_class_icons={
 "GameLoader": "",
 "GameSaver": "",
 "Gauge": "",
-"Goals": "",
+"GoalsBars": "",
 "HUD_Icon": "",
 "IconsLineContainer": "",
 "IconsLineData": "",
@@ -692,6 +697,7 @@ _global_script_class_icons={
 "StateMachine": "",
 "StreamLabs_API": "",
 "StreamPanel": "",
+"SubGoals": "",
 "TV": "",
 "TextField": "",
 "TextLineContainer": "",
@@ -718,6 +724,7 @@ config/icon="res://icon.png"
 
 GAME="*res://Autoload/Game.gd"
 EVENTS="*res://Autoload/Events.gd"
+GOALS="*res://Autoload/Goals.gd"
 
 [debug]
 

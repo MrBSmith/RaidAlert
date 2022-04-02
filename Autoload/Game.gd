@@ -4,6 +4,8 @@ extends Node
 const VIDEO_ALERT_DIR_PATH = "res://Alerts/Videos/"
 const AUDIO_ALERT_DIR_PATH = "res://Alerts/Audios/"
 
+
+
 var print_logs := true
 
 var alert_dict = { "audio" : {
@@ -47,6 +49,7 @@ func _fetch_alerts_files(path: String, category_name: String) -> void:
 		if print_logs: print("%s file loaded at path %s" % [file, path + file])
 		
 		alert_dict[category_name][file.split(".")[0].to_lower()] = resource
+
 
 
 

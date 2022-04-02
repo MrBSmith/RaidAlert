@@ -9,7 +9,6 @@ enum ALERT_TYPE {
 
 onready var animation_player = $AnimationPlayer
 
-onready var video_player = $VideoPlayer
 onready var audio_alert = $AudioAlerts
 onready var moai = $Moai
 onready var toucan = $Toucan
@@ -48,7 +47,6 @@ func _ready() -> void:
 	__ = EVENTS.connect("sub_gift", self, "_on_EVENTS_sub_gift")
 	__ = EVENTS.connect("OBS_scene_changed", self, "_on_OBS_scene_changed")
 	__ = animation_player.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
-	__ = $VideoPlayer.connect("finished", self, "_on_video_player_finished")
 	__ = $AudioAlerts.connect("finished", self, "_on_audio_alert_finished")
 	
 	for child in get_children():
@@ -87,16 +85,6 @@ func new_stream_alert(stream_alert: StreamAlert) -> void:
 		alert_queue.append(stream_alert)
 
 
-func _play_video_alert(alert_name: String) -> void:
-	video_player.stream = GAME.alert_dict["video"][alert_name]
-	video_player.play()
-	
-	yield(get_tree().create_timer(0.5), "timeout")
-	video_player.set_visible(true)
-	
-	if print_logs: print("play %s video" % alert_name)
-
-
 func _play_audio_alert(alert_name: String) -> void:
 	audio_alert.stream = GAME.alert_dict["audio"][alert_name]
 	audio_alert.play()
@@ -113,15 +101,8 @@ func _play_audio_alert(alert_name: String) -> void:
 func _on_alert(alert_name: String) -> void:
 	alert_name = alert_name.to_lower()
 	
-	# Video alerts
-	if alert_name in GAME.alert_dict["video"].keys():
-		if video_player.is_playing():
-			video_queue.append(alert_name)
-		else:
-			_play_video_alert(alert_name)
-	
 	# Audio alerts
-	elif alert_name in GAME.alert_dict["audio"].keys():
+	if alert_name in GAME.alert_dict["audio"].keys():
 		if audio_alert.is_playing():
 			audio_queue.append(alert_name)
 		else:
@@ -177,12 +158,6 @@ func _on_OBS_scene_changed(previous_scene: String, next_scene: String) -> void:
 	if "Main" in [previous_scene, next_scene]:
 		moai.play("Eyes")
 
-
-func _on_video_player_finished() -> void:
-	if !video_queue.empty():
-		_play_video_alert(video_queue.pop_front())
-	else:
-		$VideoPlayer.set_visible(false)
 
 
 func _on_jamcat_video_player_finished() -> void:

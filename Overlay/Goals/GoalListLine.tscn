@@ -1,0 +1,24 @@
+[gd_scene format=2]
+
+[node name="GoalListLine" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -345.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoalTitle" type="Label" parent="."]
+margin_right = 620.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="GoalValue" type="Label" parent="."]
+margin_left = 624.0
+margin_right = 640.0
+margin_bottom = 14.0
+text = "30"
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 2.0
+default_color = Color( 0.321569, 0, 0.176471, 1 )

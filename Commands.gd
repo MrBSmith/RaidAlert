@@ -11,17 +11,19 @@ extends Node
 
 
 func _ready() -> void:
-	for category_dict in GAME.alert_dict.values():
-		for alert_name in category_dict.keys():
-			if !_has_command(alert_name):
-				var command = Command.new()
-				command.command = "!" + alert_name.to_lower()
-				command.alert = alert_name
-				command.cooldown = 30.0
-				command.name = alert_name
-				var __ = command.connect("ready", self, "_on_command_ready", [command], CONNECT_ONESHOT)
-				call_deferred("add_child", command)
-				print("command created: %s" % alert_name)
+	pass
+
+#	for category_dict in GAME.alert_dict.values():
+#		for alert_name in category_dict.keys():
+#			if !_has_command(alert_name):
+#				var command = Command.new()
+#				command.command = "!" + alert_name.to_lower()
+#				command.alert = alert_name
+#				command.cooldown = 30.0
+#				command.name = alert_name
+#				var __ = command.connect("ready", self, "_on_command_ready", [command], CONNECT_ONESHOT)
+#				call_deferred("add_child", command)
+#				print("command created: %s" % alert_name)
 
 
 

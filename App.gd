@@ -11,7 +11,7 @@ export var channel_to_listen : String = ""
 func _ready() -> void:
 	chat_handler.connect_to_twitch()
 	yield(chat_handler, "twitch_connected")
-
+	
 	chat_handler.authenticate_oauth(nick_name, token)
 	if(yield(chat_handler, "login_attempt") == false):
 	  print("Invalid username or token.")
