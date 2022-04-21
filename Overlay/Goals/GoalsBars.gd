@@ -1,6 +1,8 @@
 extends Control
 class_name GoalsBars
 
+onready var tween = $Tween
+
 onready var follower_gauge = $Followers/Gauge
 onready var subs_gauge = $Subs/Gauge
 
@@ -46,6 +48,32 @@ func _update_counter(counter_name: String) -> void:
 	
 	var counter_label = get_node(goal_type_name + "/Header/CounterLabel")
 	counter_label.set_text(String(current_value) + "/" + String(current_goal_value))
+
+
+func appear_animation(appear: bool = true, instant: bool = false) -> void:
+	var ease_type = Tween.EASE_OUT if appear else Tween.EASE_IN
+	var from = 50.0 if appear else 0.0
+	var to = 0.0 if appear else 50.0
+	var dur = 0.8 if !instant else 0.0
+	var delay = 1.2 if appear and !instant else 0.0
+	
+	for child in get_children():
+		if child is Control:
+			child.rect_position.y = from
+	
+	if delay != 0.0:
+		yield(get_tree().create_timer(delay), "timeout")
+	
+	for i in range(get_child_count()):
+		var child = get_child(i)
+		
+		if not child is Control:
+			continue
+		
+		var __ = tween.interpolate_property(child, "rect_position:y", from, to, 
+						dur, Tween.TRANS_BACK, ease_type, i * 0.3)
+	
+	var __ = tween.start()
 
 
 #### INPUTS ####

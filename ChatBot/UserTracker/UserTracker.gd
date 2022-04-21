@@ -4,11 +4,20 @@ class_name UserTracker
 var user_name : String = "" setget set_user_name, get_user_name
 var user_role : String = "" setget set_user_role, get_user_role
 
-var messages := PoolStringArray()
+var messages := Array()
 
 var logs : bool = true 
 
 signal first_message()
+
+class Message:
+	var message : String = ""
+	var timecode : Dictionary = {}
+	
+	func _init(m: String, time: Dictionary) -> void:
+		message = m
+		timecode = time
+	
 
 #### ACCESSORS ####
 
@@ -41,7 +50,7 @@ func _ready() -> void:
 #### LOGIC ####
 
 func add_message(message: String) -> void:
-	messages.append(message)
+	messages.append(Message.new(message, OS.get_time()))
 	
 	if messages.size() == 1:
 		emit_signal("first_message")
@@ -52,6 +61,27 @@ func get_last_message() -> String:
 		return messages[-1]
 	else:
 		return ""
+
+
+func get_time_since_last_message() -> Dictionary:
+	if messages.empty():
+		return {}
+	
+	var current_time = OS.get_time()
+	var last_message_time = messages[-1].timecode
+	var past_time = {}
+	
+	for i in range(current_time.keys()):
+		var key = current_time.keys()[i]
+		past_time[key] = current_time[key] - last_message_time[key]
+		
+		if past_time[key] < 0.0 && i > 0:
+			var previous_key = current_time.keys()[i - 1]
+			past_time[previous_key] -= 1.0 
+			past_time[key] += 60.0
+	
+	return past_time
+
 
 
 #### INPUTS ####

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gatsby.ogg-c0a5a553949ed6f02dee0698fa076a17.oggstr"
+
+[deps]
+
+source_file="res://Overlay/Animations/Fireworks/Gatsby.ogg"
+dest_files=[ "res://.import/Gatsby.ogg-c0a5a553949ed6f02dee0698fa076a17.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

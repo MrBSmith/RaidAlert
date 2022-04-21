@@ -519,7 +519,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Overlay/Panel/Panel.gd"
 }, {
-"base": "NinePatchRect",
+"base": "Control",
 "class": "SubGoals",
 "language": "GDScript",
 "path": "res://Overlay/Goals/SubGoalsList.gd"
@@ -568,6 +568,11 @@ _global_script_classes=[ {
 "class": "UserTracker",
 "language": "GDScript",
 "path": "res://ChatBot/UserTracker/UserTracker.gd"
+}, {
+"base": "ChatEvent",
+"class": "UserTrackerEvent",
+"language": "GDScript",
+"path": "res://ChatBot/ChatEvent/UsersTrackerEvent.gd"
 }, {
 "base": "Object",
 "class": "Utils",
@@ -707,6 +712,7 @@ _global_script_class_icons={
 "Trigger": "",
 "TwitchChatHandler": "",
 "UserTracker": "",
+"UserTrackerEvent": "",
 "Utils": "",
 "WorldMap": "",
 "WorldMapEditor": "",

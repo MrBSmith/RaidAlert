@@ -84,9 +84,11 @@ func _on_OBS_scene_changed(previous_scene: String, scene_name: String) -> void:
 	# Main scene animation
 	if scene_name == "Main":
 		main_scene.appear_animation(true, logo_transition, delay)
+		$Goals.appear_animation(true, logo_transition)
 	
 	elif previous_scene == "Main":
 		main_scene.appear_animation(false, logo_transition, delay)
+		$Goals.appear_animation(false, logo_transition)
 		
 		if !logo_transition:
 			yield(get_tree().create_timer(1.0), "timeout")

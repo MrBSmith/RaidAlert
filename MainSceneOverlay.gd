@@ -3,7 +3,6 @@ class_name MainScene
 
 onready var tween = $Tween
 onready var chat = $ChatPanel
-onready var goals = $Goals
 onready var background = $Background
 
 var border_start_pos := Array()
@@ -32,13 +31,11 @@ func _ready() -> void:
 func appear_animation(appear: bool = true, instant: bool = false, delay: float = 0.0) -> void:
 	var background_delay = 0.0 if appear or instant else 1.2
 	var chat_delay = 1.0 if !instant else 0.0
-	var goals_delay = 1.2 if appear and !instant else 0.0
 	
 	set_visible(true)
 	
 	_trigger_background_animation(appear, instant, background_delay + delay)
 	_trigger_chat_appear_animation(appear, instant, chat_delay + delay)
-	_trigger_goals_appear_animation(appear, instant, goals_delay + delay)
 	
 	if !appear:
 		yield(tween, "tween_all_completed")
@@ -60,33 +57,6 @@ func _trigger_chat_appear_animation(appear: bool = true, instant: bool = false, 
 				form, to, dur, trans, Tween.EASE_OUT)
 	
 	__ = tween.start()
-
-
-func _trigger_goals_appear_animation(appear: bool = true, instant: bool = false, delay: float = 0.0) -> void:
-	var ease_type = Tween.EASE_OUT if appear else Tween.EASE_IN
-	var from = 50.0 if appear else 0.0
-	var to = 0.0 if appear else 50.0
-	var dur = 0.8 if !instant else 0.0
-	
-	var children = goals.get_children()
-	
-	for child in children:
-		if child is Control:
-			child.rect_position.y = from
-	
-	if delay != 0.0:
-		yield(get_tree().create_timer(delay), "timeout")
-	
-	for i in range(children.size()):
-		var child = children[i]
-		
-		if not child is Control:
-			continue
-		
-		var __ = tween.interpolate_property(child, "rect_position:y", from, to, 
-						dur, Tween.TRANS_BACK, ease_type, i * 0.3)
-	
-	var __ = tween.start()
 
 
 func _trigger_background_animation(appear: bool = true, instant: bool = false, delay: float = 0.0) -> void:

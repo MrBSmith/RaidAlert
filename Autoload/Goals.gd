@@ -17,6 +17,7 @@ class Goal:
 	var body : String = ""
 	var goal : int = 0
 	var id : int = 0
+	var reached : bool = false
 	
 	func _init(_goal: int, _body: String, _id) -> void:
 		goal = _goal
@@ -61,10 +62,14 @@ func _fetch_goals() -> void:
 	goals_dict = {}
 	
 	for section in sections_array:
-		goals_dict[section] = {}
-		for key in config_file.get_section_keys(section):
+		goals_dict[section] = []
+		var section_keys = config_file.get_section_keys(section)
+		
+		for i in range(section_keys.size()):
+			var key = section_keys[i]
 			var value = config_file.get_value(section, key)
-			goals_dict[section][key] = value
+			
+			goals_dict[section].append(Goal.new(value, key, i))
 
 
 func _set_count(key: String, value: int, init: bool = false) -> void:
@@ -81,16 +86,13 @@ func _fetch_counter_files(init: bool = false) -> void:
 		_set_count(key, _read_count_file(counter_file_path_dict[key]), init)
 
 
-func find_next_goal(goal_key: String) -> Goal:
-	var keys_array = goals_dict[goal_key].keys()
-	var nb_keys = keys_array.size()
+func find_next_goal(goal_type: String) -> Goal:
+	var goals_array = goals_dict[goal_type]
+	var current_value = counters_dict[goal_type]
 	
-	for i in range(nb_keys):
-		var key = keys_array[i]
-		var value = goals_dict[goal_key][key]
-		
-		if counters_dict[goal_key] < value or i == nb_keys - 1:
-			return Goal.new(value, key, i)
+	for goal in goals_array:
+		if goal.goal > current_value && !goal.reached:
+			return goal
 	return null
 
 
@@ -99,8 +101,7 @@ func get_goal_value(goal_type_name: String, goal_key: String) -> int:
 
 
 func get_goal_value_by_id(goal_type_name: String, id: int) -> int:
-	var goal_value_dict = goals_dict[goal_type_name.to_lower()]
-	return goal_value_dict.values()[id]
+	return goals_dict[goal_type_name.to_lower()][id].goal
 
 
 func _read_count_file(path: String) -> int:
@@ -129,10 +130,15 @@ func _on_timer_timeout() -> void:
 
 func _on_count_changed(goal_type: String) -> void:
 	var current_goal = current_goals[goal_type]
-	var goal_value = current_goal.goal
+	var current_value = counters_dict[goal_type]
 	
-	if counters_dict[goal_type] >= goal_value:
-		emit_signal("goal_reached", goal_type, current_goal)
-		var new_goal = find_next_goal(goal_type)
+	for goal in goals_dict[goal_type]:
+		if goal.goal <= current_value:
+			if goal.reached == false:
+				goal.reached = true
+				emit_signal("goal_reached", goal_type, goal)
+	
+	var new_goal = find_next_goal(goal_type)
+	if new_goal != current_goal:
 		current_goals[goal_type] = new_goal
 		emit_signal("goal_changed", goal_type, new_goal)

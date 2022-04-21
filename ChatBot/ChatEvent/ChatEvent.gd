@@ -4,9 +4,11 @@ class_name ChatEvent
 export var condition : String = ""
 
 export var requirement : Dictionary = {
-	"user_name": "",
-	"user_role": ""
+	"user_name": [],
+	"user_role": []
 }
+
+export var alert_event : String = ""
 
 export var keyword : String = ""
 
@@ -30,6 +32,14 @@ func trigger() -> void:
 	for child in get_children():
 		if child.has_method("play"):
 			child.play()
+	
+	if alert_event != "":
+		EVENTS.emit_signal("alert", alert_event)
+
+
+func _is_requirement_fulfilled() -> bool:
+	pass
+
 
 
 #### INPUTS ####
@@ -46,8 +56,11 @@ func _on_chat_event(user_tracker: UserTracker, signal_name: String) -> void:
 		return
 	
 	for key in requirement.keys():
-		var value = requirement[key]
-		if value != "" && value.to_lower() != user_tracker.get(key).to_lower():
-			return
+		var requirement_array = requirement[key]
+		
+		
+		for requirment in requirement_array:
+			if value != "" && value.to_lower() != user_tracker.get(key).to_lower():
+				return
 	
 	trigger()

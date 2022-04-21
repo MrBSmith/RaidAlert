@@ -116,6 +116,8 @@ func _on_alert(alert_name: String) -> void:
 			"dejavu": $DejaVu/AnimationPlayer.play("DejaVu")
 			"salty": $Salty/AnimationPlayer.play("Salty")
 			"bonk": $Bonk/AnimationPlayer.play("Bonk")
+			"garbarath": $Garbarath/AnimationPlayer.play("Garbarath")
+			"fireworks": $Fireworks.play()
 		
 		if print_logs: print("play special alert %s" % alert_name)
 
@@ -157,7 +159,6 @@ func _on_animated_sprite_frame_changed(animated_sprite: AnimatedSprite) -> void:
 func _on_OBS_scene_changed(previous_scene: String, next_scene: String) -> void:
 	if "Main" in [previous_scene, next_scene]:
 		moai.play("Eyes")
-
 
 
 func _on_jamcat_video_player_finished() -> void:
