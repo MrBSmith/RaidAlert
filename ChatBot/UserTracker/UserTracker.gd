@@ -9,6 +9,7 @@ var messages := Array()
 var logs : bool = true 
 
 signal first_message()
+signal message()
 
 class Message:
 	var message : String = ""
@@ -34,7 +35,7 @@ func get_user_role() -> String: return user_role
 
 
 func _init(_user_name: String, _user_role: String) -> void:
-	set_user_name(_user_name)
+	set_user_name(_user_name.to_lower())
 	set_user_role(_user_role)
 
 
@@ -54,6 +55,8 @@ func add_message(message: String) -> void:
 	
 	if messages.size() == 1:
 		emit_signal("first_message")
+	
+	emit_signal("message")
 
 
 func get_last_message() -> String:
@@ -71,7 +74,7 @@ func get_time_since_last_message() -> Dictionary:
 	var last_message_time = messages[-1].timecode
 	var past_time = {}
 	
-	for i in range(current_time.keys()):
+	for i in range(current_time.keys().size()):
 		var key = current_time.keys()[i]
 		past_time[key] = current_time[key] - last_message_time[key]
 		

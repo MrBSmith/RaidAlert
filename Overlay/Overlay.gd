@@ -101,6 +101,9 @@ func _on_OBS_scene_changed(previous_scene: String, scene_name: String) -> void:
 	elif previous_scene in ["WaitingScreen", "EndingScreen", "Pause"]:
 		panel.appear_animation(false, logo_transition, delay)
 	
+	if "Pause" in [scene_name, previous_scene]:
+		tv.zap(1.0)
+	
 	if logo_transition:
 		$LogoTransition.set_frame(0)
 		$LogoTransition.play("default")

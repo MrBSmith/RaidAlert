@@ -2,6 +2,7 @@ extends Node
 class_name ChatEvent
 
 export var condition : String = ""
+export var oneshot : bool = false
 
 export var requirement : Dictionary = {
 	"user_name": [],
@@ -24,6 +25,8 @@ func get_class() -> String: return "ChatEvent"
 
 #### VIRTUALS ####
 
+func _condition(_user_tracker: UserTracker) -> bool:
+	return true
 
 
 #### LOGIC ####
@@ -35,10 +38,25 @@ func trigger() -> void:
 	
 	if alert_event != "":
 		EVENTS.emit_signal("alert", alert_event)
+	
+	if oneshot:
+		queue_free()
 
 
-func _is_requirement_fulfilled() -> bool:
-	pass
+func _are_all_requirements_fulfilled(user_tracker: UserTracker) -> bool:
+	for key in requirement.keys():
+		var requirement_array = requirement[key]
+		var lower_req_array = PoolStringArray()
+		
+		for req in requirement_array:
+			lower_req_array.append(req.to_lower())
+		
+		var user_value = user_tracker.get(key).to_lower()
+		
+		if !requirement_array.empty() && not user_value in lower_req_array:
+			return false
+	
+	return true
 
 
 
@@ -55,12 +73,7 @@ func _on_chat_event(user_tracker: UserTracker, signal_name: String) -> void:
 	if keyword != "" && !keyword.is_subsequence_ofi(user_tracker.get_last_message()):
 		return
 	
-	for key in requirement.keys():
-		var requirement_array = requirement[key]
-		
-		
-		for requirment in requirement_array:
-			if value != "" && value.to_lower() != user_tracker.get(key).to_lower():
-				return
+	if !_are_all_requirements_fulfilled(user_tracker) or !_condition(user_tracker):
+		return
 	
 	trigger()

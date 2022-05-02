@@ -60,8 +60,11 @@ func _trigger_user_tracker(sender_data: SenderData, message: String) -> void:
 		user_tracker_list.add_child(user_tracker)
 		
 		for event in $Events.get_children():
-			user_tracker.connect("first_message", event, "_on_chat_event", 
-						[user_tracker, "first_message"])
+			for signal_dict in user_tracker.get_signal_list():
+				var signal_name = signal_dict["name"]
+				
+				var __ = user_tracker.connect(signal_name, event, "_on_chat_event", 
+						[user_tracker, signal_name])
 	
 	user_tracker.add_message(message)
 
@@ -73,6 +76,12 @@ func _trigger_commands(sender_data: SenderData, message: String) -> void:
 				if command.is_user_valid(sender_data):
 					command.trigger()
 
+
+func get_user_tracker(user: String) -> UserTracker:
+	for child in user_tracker_list.get_children():
+		if child.user_name.to_lower() == user.to_lower():
+			return child
+	return null
 
 
 #### INPUTS ####

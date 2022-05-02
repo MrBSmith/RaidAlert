@@ -29,6 +29,14 @@ func find_number(splited_string: PoolStringArray) -> int:
 			return nb
 	return 0
 
+
+func donation_alert(message: String, currency: String) -> void:
+	var words_array = message.split(" ")
+	var channel_name = words_array[0]
+	words_array.remove(0)
+	var amount = find_number(words_array)
+	EVENTS.emit_signal("new_donation", channel_name, amount, currency)
+
 #### INPUTS ####
 
 
@@ -63,9 +71,10 @@ func _on_chat_message(sender_data: SenderData, message: String) -> void:
 			EVENTS.emit_signal("new_subscriber", words_array[3], tier, 1, is_prime)
 		
 		elif "BITS" in message:
-			var channel_name = words_array[0]
-			words_array.remove(0)
-			var amount = find_number(words_array)
-			EVENTS.emit_signal("new_donation", channel_name, amount)
+			donation_alert(message, "Bits")
+		
+	elif "KofiStreamBot".is_subsequence_ofi(user):
+		donation_alert(message, "€")
+
 	
 	print(sender_data.user + " : " + message)

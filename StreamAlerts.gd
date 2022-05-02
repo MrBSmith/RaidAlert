@@ -19,7 +19,7 @@ export var alert_message_dict = {
 	"follow": "Merci pour ton follow [color=red]%s[/color], bienvenue dans les bois!",
 	"subscriber": "[color=red]%s[/color] s'élève au dessus de la plèbe %s %s!!",
 	"sub_gift": "[color=red]%s[/color] jette %d subs sur la plèbe!! Merci beaucoup!",
-	"donation": "[color=red]%s[/color] a donné %d %s %s! Merci beaucoup mécène boisé!"
+	"donation": "[color=red]%s[/color] a donné %d %s! Merci beaucoup mécène boisé!"
 }
 
 var alert_queue = []
@@ -187,10 +187,8 @@ func _on_EVENTS_sub_gift(gifter: String, amount: int) -> void:
 	new_stream_alert(stream_alert)
 
 
-func _on_EVENTS_new_donation(donator: String, amount: int, on_kofi: bool = false) -> void:
-	var currency = "€" if on_kofi else "bits"
-	var sufix = "sur Ko-Fi" if on_kofi else ""
-	var stream_alert = StreamAlert.new(ALERT_TYPE.DONATION, [donator, amount, currency, sufix])
+func _on_EVENTS_new_donation(donator: String, amount: int, currency: String) -> void:
+	var stream_alert = StreamAlert.new(ALERT_TYPE.DONATION, [donator, amount, currency])
 	new_stream_alert(stream_alert)
 
 

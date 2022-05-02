@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BonjourAToiJeuneStreamer.ogg-d66e5064de0e39306a41aac111f1723f.oggstr"
+
+[deps]
+
+source_file="res://Overlay/Animations/TimtimPX/BonjourAToiJeuneStreamer.ogg"
+dest_files=[ "res://.import/BonjourAToiJeuneStreamer.ogg-d66e5064de0e39306a41aac111f1723f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

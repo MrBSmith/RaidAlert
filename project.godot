@@ -62,7 +62,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "AnimationEvent",
 "language": "GDScript",
-"path": "res://BabaGodotLib/AnimationEvents/AnimationEvent.gd"
+"path": "res://BabaGodotLib/Animation/AnimationEvents/AnimationEvent.gd"
 }, {
 "base": "State",
 "class": "AppearState",
@@ -309,6 +309,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Inputs/InputProfile.gd"
 }, {
+"base": "Node",
+"class": "InputSequence",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Inputs/InputSequence.gd"
+}, {
+"base": "Resource",
+"class": "InputSequenceElement",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Inputs/InputSequenceElement.gd"
+}, {
 "base": "Node2D",
 "class": "InteractiveObject",
 "language": "GDScript",
@@ -524,7 +534,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Overlay/Goals/SubGoalsList.gd"
 }, {
-"base": "TextureRect",
+"base": "AnimatedSprite",
+"class": "SyncAnimatedSprite",
+"language": "GDScript",
+"path": "res://BabaGodotLib/Animation/SyncAnimatedSprite.gd"
+}, {
+"base": "AnimatedSprite",
 "class": "TV",
 "language": "GDScript",
 "path": "res://Overlay/TV/TV.gd"
@@ -660,6 +675,8 @@ _global_script_class_icons={
 "ImageCache": "",
 "InputMapper": "",
 "InputProfile": "",
+"InputSequence": "",
+"InputSequenceElement": "",
 "InteractiveObject": "",
 "Interpretor": "",
 "LastFollowPanel": "",
@@ -703,6 +720,7 @@ _global_script_class_icons={
 "StreamLabs_API": "",
 "StreamPanel": "",
 "SubGoals": "",
+"SyncAnimatedSprite": "",
 "TV": "",
 "TextField": "",
 "TextLineContainer": "",

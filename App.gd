@@ -20,4 +20,3 @@ func _ready() -> void:
 	chat_handler.join_channel(channel_to_listen)
 	
 	var _err = chat_handler.connect("chat_message", chat, "_on_chat_message")
-
