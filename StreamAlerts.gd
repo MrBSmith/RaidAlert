@@ -61,15 +61,6 @@ func _ready() -> void:
 
 #### LOGIC ####
 
-func _panier_animation() -> void:
-	toucan.play("Panier")
-	yield(toucan, "animation_finished")
-	
-	moai.play("OhYeah")
-	
-	yield(get_tree().create_timer(0.1), "timeout")
-	moai.get_node("OhYeah").play()
-
 
 func new_stream_alert(stream_alert: StreamAlert) -> void:
 	if !animation_player.is_playing():
@@ -110,14 +101,18 @@ func _on_alert(alert_name: String) -> void:
 	
 	# Special alerts
 	else:
-		match(alert_name):
-			"panier": _panier_animation()
-			"couette": $Couette_douce/Master.play("CouetteAlert")
-			"dejavu": $DejaVu/AnimationPlayer.play("DejaVu")
-			"salty": $Salty/AnimationPlayer.play("Salty")
-			"bonk": $Bonk/AnimationPlayer.play("Bonk")
-			"garbarath": $Garbarath/AnimationPlayer.play("Garbarath")
-			"fireworks": $Fireworks.play()
+		for child in get_children():
+			if child.name.to_lower() != alert_name:
+				continue
+			
+			var anim_player = child.get_node("AnimationPlayer")
+			var anim_list = anim_player.get_animation_list()
+			
+			for anim in anim_list:
+				if anim.to_lower() != alert_name:
+					continue
+				
+				anim_player.play(anim)
 		
 		if print_logs: print("play special alert %s" % alert_name)
 

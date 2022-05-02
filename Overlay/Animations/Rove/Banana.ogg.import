@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Banana.ogg-682747fa59c79aa8fd8e41c7903546cb.oggstr"
+
+[deps]
+
+source_file="res://Overlay/Animations/Rove/Banana.ogg"
+dest_files=[ "res://.import/Banana.ogg-682747fa59c79aa8fd8e41c7903546cb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

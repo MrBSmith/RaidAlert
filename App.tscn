@@ -1,4 +1,4 @@
-[gd_scene load_steps=674 format=2]
+[gd_scene load_steps=676 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -280,6 +280,8 @@
 [ext_resource path="res://Overlay/Animations/Rove/Lightning2.png" type="Texture" id=278]
 [ext_resource path="res://Overlay/Animations/Rove/Lightning1.png" type="Texture" id=279]
 [ext_resource path="res://Overlay/Animations/Rove/Lightning4.png" type="Texture" id=280]
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill3.png" type="Texture" id=281]
+[ext_resource path="res://Overlay/Animations/Rove/Banana.ogg" type="AudioStream" id=282]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -874,22 +876,6 @@ animations = [ {
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 91, 324 )
 
-[sub_resource type="AtlasTexture" id=91]
-atlas = ExtResource( 55 )
-region = Rect2( 0, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=92]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=93]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 324, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=94]
-atlas = ExtResource( 55 )
-region = Rect2( 0, 324, 91, 324 )
-
 [sub_resource type="AtlasTexture" id=95]
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 91, 324 )
@@ -926,6 +912,22 @@ region = Rect2( 273, 324, 91, 324 )
 atlas = ExtResource( 14 )
 region = Rect2( 364, 0, 91, 324 )
 
+[sub_resource type="AtlasTexture" id=91]
+atlas = ExtResource( 55 )
+region = Rect2( 0, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=92]
+atlas = ExtResource( 55 )
+region = Rect2( 91, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=93]
+atlas = ExtResource( 55 )
+region = Rect2( 91, 324, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=94]
+atlas = ExtResource( 55 )
+region = Rect2( 0, 324, 91, 324 )
+
 [sub_resource type="SpriteFrames" id=105]
 animations = [ {
 "frames": [ SubResource( 104 ) ],
@@ -933,15 +935,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ) ],
-"loop": true,
-"name": "Croa",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ) ],
 "loop": false,
 "name": "Panier",
 "speed": 11.0
+}, {
+"frames": [ SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ) ],
+"loop": true,
+"name": "Croa",
+"speed": 10.0
 } ]
 
 [sub_resource type="AtlasTexture" id=106]
@@ -1216,7 +1218,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=142]
-resource_name = "CouetteAlert"
+resource_name = "Couette"
 length = 12.0
 tracks/0/type = "animation"
 tracks/0/path = NodePath("Emboidery")
@@ -2281,8 +2283,8 @@ animations = [ {
 } ]
 
 [sub_resource type="Animation" id=407]
-resource_name = "Appear"
-length = 4.0
+resource_name = "Rove"
+length = 4.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Poney:position")
@@ -2439,6 +2441,34 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/13/type = "audio"
+tracks/13/path = NodePath("AudioStreamPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"clips": [ {
+"end_offset": 90.0,
+"start_offset": 13.4,
+"stream": ExtResource( 282 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "audio"
+tracks/14/path = NodePath("Ding")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 1.35 )
 }
 
 [sub_resource type="AtlasTexture" id=358]
@@ -3131,7 +3161,7 @@ disk_cache = true
 
 [node name="ChatBot" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler"]
 script = ExtResource( 5 )
-users_to_track = PoolStringArray( "Arlokken", "Subbarath", "OP_Astree", "timtimPX" )
+users_to_track = PoolStringArray( "Arlokken", "Subbarath", "OP_Astree", "timtimPX", "Made_with_Rove" )
 message_alert_dict = {
 "coquinou": "babadeCoqu babadeInou ",
 "love": "babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove ",
@@ -3159,9 +3189,18 @@ script = ExtResource( 6 )
 condition = "first_message"
 oneshot = true
 requirement = {
-"user_name": "timtimpx"
+"user_name": "timtimPX"
 }
 alert_event = "timtimpx"
+
+[node name="Rove" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Events"]
+script = ExtResource( 6 )
+condition = "first_message"
+oneshot = true
+requirement = {
+"user_name": "Made_with_Rove"
+}
+alert_event = "rove"
 
 [node name="Garbarath" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Events"]
 script = ExtResource( 269 )
@@ -3342,6 +3381,12 @@ users = PoolStringArray( "BabaDesBois" )
 script = ExtResource( 36 )
 command = "!timtimpx"
 alert = "timtimpx"
+users = PoolStringArray( "BabaDesBois" )
+
+[node name="Rove" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!rove"
+alert = "rove"
 users = PoolStringArray( "BabaDesBois" )
 
 [node name="Interpretor" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler"]
@@ -3711,28 +3756,28 @@ volume_db = -6.0
 stream = ExtResource( 42 )
 volume_db = 3.975
 
-[node name="Couette_douce" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
+[node name="Couette" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
 
-[node name="Embroidery" type="Sprite" parent="Overlay/Foreground/StreamAlerts/Couette_douce"]
+[node name="Embroidery" type="Sprite" parent="Overlay/Foreground/StreamAlerts/Couette"]
 position = Vector2( -36.0149, 70.0976 )
 rotation = -3.15181
 texture = ExtResource( 63 )
 
-[node name="Babybot" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Couette_douce"]
+[node name="Babybot" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Couette"]
 position = Vector2( 236.441, 344 )
 frames = SubResource( 138 )
 animation = "Rise"
 flip_h = true
 
-[node name="Emboidery" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Couette_douce"]
+[node name="Emboidery" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Couette"]
 anims/BabybotPush = SubResource( 139 )
 anims/Fall = SubResource( 140 )
 anims/RESET = SubResource( 141 )
 
-[node name="Master" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Couette_douce"]
-anims/CouetteAlert = SubResource( 142 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Couette"]
+anims/Couette = SubResource( 142 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts/Couette_douce"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts/Couette"]
 stream = ExtResource( 59 )
 
 [node name="Garbarath" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
@@ -3894,18 +3939,16 @@ volume_db = -9.0
 [node name="Rove" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
 
 [node name="Poney" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove"]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 755, 181.224 )
+position = Vector2( -78.3416, 181.224 )
 frames = SubResource( 377 )
 animation = "Move"
-frame = 1
+frame = 3
 playing = true
 
 [node name="LaserEndPoint" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney"]
 position = Vector2( -96, -7 )
 frames = SubResource( 389 )
-animation = "Apparition"
-frame = 9
+animation = "Loop"
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3914,8 +3957,7 @@ __meta__ = {
 position = Vector2( -325, 0 )
 scale = Vector2( 60, 1 )
 frames = SubResource( 394 )
-animation = "Apparition"
-frame = 2
+animation = "Loop"
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3935,7 +3977,15 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Rove"]
-anims/Appear = SubResource( 407 )
+anims/Rove = SubResource( 407 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts/Rove"]
+stream = ExtResource( 282 )
+volume_db = -6.0
+
+[node name="Ding" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts/Rove"]
+stream = ExtResource( 24 )
+volume_db = -9.0
 
 [node name="AudioAlerts" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts"]
 
@@ -4144,6 +4194,12 @@ text = "650/1000"
 [node name="Gauge" parent="Overlay/Goals/Followers" instance=ExtResource( 8 )]
 margin_top = 12.0
 margin_bottom = 34.0
+
+[node name="NinePatchRect" parent="Overlay/Goals/Followers/Gauge" index="1"]
+texture = ExtResource( 281 )
+
+[node name="AnimatedSprite" parent="Overlay/Goals/Followers/Gauge" index="3"]
+frame = 2
 
 [node name="Label" parent="Overlay/Goals/Followers/Gauge" index="4"]
 modulate = Color( 0.321569, 0, 0.176471, 1 )
