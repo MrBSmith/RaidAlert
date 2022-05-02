@@ -1,4 +1,4 @@
-[gd_scene load_steps=631 format=2]
+[gd_scene load_steps=674 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -272,7 +272,14 @@
 [ext_resource path="res://Overlay/Animations/Garbarath/Garbarath.ogg" type="AudioStream" id=270]
 [ext_resource path="res://Overlay/Animations/TimtimPX/BonjourAToiSpriteSheet.png" type="Texture" id=271]
 [ext_resource path="res://Overlay/TV/TV.png" type="Texture" id=272]
-[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill3.png" type="Texture" id=273]
+[ext_resource path="res://Overlay/Animations/Rove/SunglassesSpriteSheet.png" type="Texture" id=273]
+[ext_resource path="res://Overlay/Animations/Rove/PoneySpriteSheet.png" type="Texture" id=274]
+[ext_resource path="res://Overlay/Animations/Rove/LaserEndPointSpriteSheet.png" type="Texture" id=275]
+[ext_resource path="res://Overlay/Animations/Rove/LaserSpriteSheet.png" type="Texture" id=276]
+[ext_resource path="res://Overlay/Animations/Rove/Lightning3.png" type="Texture" id=277]
+[ext_resource path="res://Overlay/Animations/Rove/Lightning2.png" type="Texture" id=278]
+[ext_resource path="res://Overlay/Animations/Rove/Lightning1.png" type="Texture" id=279]
+[ext_resource path="res://Overlay/Animations/Rove/Lightning4.png" type="Texture" id=280]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -2089,33 +2096,354 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 )
 }
 
+[sub_resource type="AtlasTexture" id=372]
+atlas = ExtResource( 274 )
+region = Rect2( 151, 0, 151, 147 )
+
+[sub_resource type="AtlasTexture" id=373]
+atlas = ExtResource( 274 )
+region = Rect2( 302, 0, 151, 147 )
+
+[sub_resource type="AtlasTexture" id=374]
+atlas = ExtResource( 274 )
+region = Rect2( 453, 0, 151, 147 )
+
+[sub_resource type="AtlasTexture" id=375]
+atlas = ExtResource( 274 )
+region = Rect2( 604, 0, 151, 147 )
+
+[sub_resource type="AtlasTexture" id=376]
+atlas = ExtResource( 274 )
+region = Rect2( 0, 0, 151, 147 )
+
+[sub_resource type="SpriteFrames" id=377]
+animations = [ {
+"frames": [ SubResource( 372 ), SubResource( 373 ), SubResource( 374 ), SubResource( 375 ) ],
+"loop": true,
+"name": "Move",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 376 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=378]
+atlas = ExtResource( 275 )
+region = Rect2( 490, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=379]
+atlas = ExtResource( 275 )
+region = Rect2( 0, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=380]
+atlas = ExtResource( 275 )
+region = Rect2( 49, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=381]
+atlas = ExtResource( 275 )
+region = Rect2( 98, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=382]
+atlas = ExtResource( 275 )
+region = Rect2( 147, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=383]
+atlas = ExtResource( 275 )
+region = Rect2( 196, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=384]
+atlas = ExtResource( 275 )
+region = Rect2( 245, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=385]
+atlas = ExtResource( 275 )
+region = Rect2( 294, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=386]
+atlas = ExtResource( 275 )
+region = Rect2( 343, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=387]
+atlas = ExtResource( 275 )
+region = Rect2( 392, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=388]
+atlas = ExtResource( 275 )
+region = Rect2( 441, 0, 49, 48 )
+
+[sub_resource type="SpriteFrames" id=389]
+animations = [ {
+"frames": [ SubResource( 378 ) ],
+"loop": true,
+"name": "Loop",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 379 ), SubResource( 380 ), SubResource( 381 ), SubResource( 382 ), SubResource( 383 ), SubResource( 384 ), SubResource( 385 ), SubResource( 386 ), SubResource( 387 ), SubResource( 388 ) ],
+"loop": false,
+"name": "Apparition",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=390]
+atlas = ExtResource( 276 )
+region = Rect2( 33, 0, 11, 21 )
+
+[sub_resource type="AtlasTexture" id=391]
+atlas = ExtResource( 276 )
+region = Rect2( 0, 0, 11, 21 )
+
+[sub_resource type="AtlasTexture" id=392]
+atlas = ExtResource( 276 )
+region = Rect2( 11, 0, 11, 21 )
+
+[sub_resource type="AtlasTexture" id=393]
+atlas = ExtResource( 276 )
+region = Rect2( 22, 0, 11, 21 )
+
+[sub_resource type="SpriteFrames" id=394]
+animations = [ {
+"frames": [ SubResource( 390 ) ],
+"loop": true,
+"name": "Loop",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 391 ), SubResource( 392 ), SubResource( 393 ) ],
+"loop": false,
+"name": "Apparition",
+"speed": 15.0
+} ]
+
+[sub_resource type="AnimatedTexture" id=395]
+flags = 2
+frames = 4
+fps = 15.0
+frame_0/texture = ExtResource( 279 )
+frame_1/texture = ExtResource( 278 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 277 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 280 )
+frame_3/delay_sec = 0.0
+
+[sub_resource type="AtlasTexture" id=396]
+atlas = ExtResource( 273 )
+region = Rect2( 0, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=397]
+atlas = ExtResource( 273 )
+region = Rect2( 28, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=398]
+atlas = ExtResource( 273 )
+region = Rect2( 56, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=399]
+atlas = ExtResource( 273 )
+region = Rect2( 84, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=400]
+atlas = ExtResource( 273 )
+region = Rect2( 112, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=401]
+atlas = ExtResource( 273 )
+region = Rect2( 140, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=402]
+atlas = ExtResource( 273 )
+region = Rect2( 168, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=403]
+atlas = ExtResource( 273 )
+region = Rect2( 196, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=404]
+atlas = ExtResource( 273 )
+region = Rect2( 224, 0, 28, 23 )
+
+[sub_resource type="AtlasTexture" id=405]
+atlas = ExtResource( 273 )
+region = Rect2( 252, 0, 28, 23 )
+
+[sub_resource type="SpriteFrames" id=406]
+animations = [ {
+"frames": [ SubResource( 396 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 397 ), SubResource( 398 ), SubResource( 399 ), SubResource( 400 ), SubResource( 401 ), SubResource( 402 ), SubResource( 403 ), SubResource( 404 ), SubResource( 405 ) ],
+"loop": true,
+"name": "Reflection",
+"speed": 13.0
+} ]
+
+[sub_resource type="Animation" id=407]
+resource_name = "Appear"
+length = 4.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Poney:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 2.75, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -78.3416, 181.224 ), Vector2( 320, 181.224 ), Vector2( 320, 181.224 ), Vector2( 755, 181.224 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Poney/LaserEndPoint/Lightning:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Poney/LaserEndPoint:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Loop", "Apparition" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Poney/LaserEndPoint/Laser:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Loop", "Apparition" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Poney:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "Move", "Idle", "Move" ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Poney:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Poney/LaserEndPoint:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6, 1.1, 2.1, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 9, 0, 0, 9 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Poney/LaserEndPoint:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Poney/LaserEndPoint/Laser:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.6, 0.7, 2.5, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 2, 0, 0, 2 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Poney/LaserEndPoint/Laser:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.75, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Poney/Sunglasses:animation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.3, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "Idle", "Reflection", "Idle" ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Poney/Sunglasses:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1.3, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 8 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Poney:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 3.4, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="AtlasTexture" id=358]
 atlas = ExtResource( 33 )
 region = Rect2( 0, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=359]
-atlas = ExtResource( 33 )
-region = Rect2( 147, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=360]
-atlas = ExtResource( 33 )
-region = Rect2( 294, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=361]
-atlas = ExtResource( 33 )
-region = Rect2( 441, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=362]
-atlas = ExtResource( 33 )
-region = Rect2( 588, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=363]
-atlas = ExtResource( 33 )
-region = Rect2( 735, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=364]
-atlas = ExtResource( 33 )
-region = Rect2( 882, 0, 147, 121 )
 
 [sub_resource type="AtlasTexture" id=365]
 atlas = ExtResource( 33 )
@@ -2145,17 +2473,36 @@ region = Rect2( 1764, 0, 147, 121 )
 atlas = ExtResource( 33 )
 region = Rect2( 1911, 0, 147, 121 )
 
+[sub_resource type="AtlasTexture" id=359]
+atlas = ExtResource( 33 )
+region = Rect2( 147, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=360]
+atlas = ExtResource( 33 )
+region = Rect2( 294, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=361]
+atlas = ExtResource( 33 )
+region = Rect2( 441, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=362]
+atlas = ExtResource( 33 )
+region = Rect2( 588, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=363]
+atlas = ExtResource( 33 )
+region = Rect2( 735, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=364]
+atlas = ExtResource( 33 )
+region = Rect2( 882, 0, 147, 121 )
+
 [sub_resource type="SpriteFrames" id=357]
 animations = [ {
 "frames": [ SubResource( 358 ) ],
 "loop": true,
 "name": "On",
 "speed": 15.0
-}, {
-"frames": [ SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ), SubResource( 363 ), SubResource( 364 ) ],
-"loop": false,
-"name": "TurnOff",
-"speed": 18.0
 }, {
 "frames": [ SubResource( 365 ) ],
 "loop": true,
@@ -2165,6 +2512,11 @@ animations = [ {
 "frames": [ SubResource( 366 ), SubResource( 367 ), SubResource( 368 ), SubResource( 369 ), SubResource( 370 ), SubResource( 371 ) ],
 "loop": false,
 "name": "TurnOn",
+"speed": 18.0
+}, {
+"frames": [ SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ), SubResource( 363 ), SubResource( 364 ) ],
+"loop": false,
+"name": "TurnOff",
 "speed": 18.0
 } ]
 
@@ -3539,6 +3891,52 @@ anims/Fireworks = SubResource( 325 )
 stream = ExtResource( 102 )
 volume_db = -9.0
 
+[node name="Rove" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
+
+[node name="Poney" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 755, 181.224 )
+frames = SubResource( 377 )
+animation = "Move"
+frame = 1
+playing = true
+
+[node name="LaserEndPoint" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney"]
+position = Vector2( -96, -7 )
+frames = SubResource( 389 )
+animation = "Apparition"
+frame = 9
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Laser" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney/LaserEndPoint"]
+position = Vector2( -325, 0 )
+scale = Vector2( 60, 1 )
+frames = SubResource( 394 )
+animation = "Apparition"
+frame = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Lightning" type="Sprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney/LaserEndPoint"]
+position = Vector2( -352, 0 )
+texture = SubResource( 395 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 43 )
+
+[node name="Sunglasses" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney"]
+position = Vector2( 54, -54 )
+frames = SubResource( 406 )
+animation = "Idle"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Rove"]
+anims/Appear = SubResource( 407 )
+
 [node name="AudioAlerts" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts"]
 
 [node name="TV" type="AnimatedSprite" parent="Overlay"]
@@ -3746,12 +4144,6 @@ text = "650/1000"
 [node name="Gauge" parent="Overlay/Goals/Followers" instance=ExtResource( 8 )]
 margin_top = 12.0
 margin_bottom = 34.0
-
-[node name="NinePatchRect" parent="Overlay/Goals/Followers/Gauge" index="1"]
-texture = ExtResource( 273 )
-
-[node name="AnimatedSprite" parent="Overlay/Goals/Followers/Gauge" index="3"]
-frame = 2
 
 [node name="Label" parent="Overlay/Goals/Followers/Gauge" index="4"]
 modulate = Color( 0.321569, 0, 0.176471, 1 )
