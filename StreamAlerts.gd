@@ -147,6 +147,9 @@ func _on_animated_sprite_frame_changed(animated_sprite: AnimatedSprite) -> void:
 				
 				moai.play()
 			
+			if frame == 2:
+				moai.get_node("OhYeah").play()
+			
 			if frame == 8:
 				moai.get_node("Ding").play()
 

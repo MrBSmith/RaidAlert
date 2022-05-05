@@ -1,4 +1,4 @@
-[gd_scene load_steps=676 format=2]
+[gd_scene load_steps=675 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Interpretor/Interpretor.gd" type="Script" id=4]
 [ext_resource path="res://ChatBot/ChatBot.gd" type="Script" id=5]
 [ext_resource path="res://ChatBot/ChatEvent/ChatEvent.gd" type="Script" id=6]
-[ext_resource path="res://ChatBot/ChatEvent/hadouken.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Overlay/Gauges/Overlay_Gauge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://BabaGodotLib/Fonts/MediumPixel.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Overlay/Goals/GoalsBars.gd" type="Script" id=10]
@@ -280,7 +279,6 @@
 [ext_resource path="res://Overlay/Animations/Rove/Lightning2.png" type="Texture" id=278]
 [ext_resource path="res://Overlay/Animations/Rove/Lightning1.png" type="Texture" id=279]
 [ext_resource path="res://Overlay/Animations/Rove/Lightning4.png" type="Texture" id=280]
-[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill3.png" type="Texture" id=281]
 [ext_resource path="res://Overlay/Animations/Rove/Banana.ogg" type="AudioStream" id=282]
 
 [sub_resource type="StyleBoxEmpty" id=1]
@@ -332,6 +330,38 @@ size = 12
 extra_spacing_top = -2
 extra_spacing_bottom = -2
 font_data = ExtResource( 31 )
+
+[sub_resource type="Animation" id=408]
+resource_name = "Panier"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("../Toucan")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Panier", false ],
+"method": "play"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Moai")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "OhYeah", false ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 81 )
@@ -876,6 +906,22 @@ animations = [ {
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 91, 324 )
 
+[sub_resource type="AtlasTexture" id=91]
+atlas = ExtResource( 55 )
+region = Rect2( 0, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=92]
+atlas = ExtResource( 55 )
+region = Rect2( 91, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=93]
+atlas = ExtResource( 55 )
+region = Rect2( 91, 324, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=94]
+atlas = ExtResource( 55 )
+region = Rect2( 0, 324, 91, 324 )
+
 [sub_resource type="AtlasTexture" id=95]
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 91, 324 )
@@ -912,22 +958,6 @@ region = Rect2( 273, 324, 91, 324 )
 atlas = ExtResource( 14 )
 region = Rect2( 364, 0, 91, 324 )
 
-[sub_resource type="AtlasTexture" id=91]
-atlas = ExtResource( 55 )
-region = Rect2( 0, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=92]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 0, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=93]
-atlas = ExtResource( 55 )
-region = Rect2( 91, 324, 91, 324 )
-
-[sub_resource type="AtlasTexture" id=94]
-atlas = ExtResource( 55 )
-region = Rect2( 0, 324, 91, 324 )
-
 [sub_resource type="SpriteFrames" id=105]
 animations = [ {
 "frames": [ SubResource( 104 ) ],
@@ -935,15 +965,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ) ],
-"loop": false,
-"name": "Panier",
-"speed": 11.0
-}, {
 "frames": [ SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ) ],
 "loop": true,
 "name": "Croa",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ) ],
+"loop": false,
+"name": "Panier",
+"speed": 11.0
 } ]
 
 [sub_resource type="AtlasTexture" id=106]
@@ -3161,7 +3191,7 @@ disk_cache = true
 
 [node name="ChatBot" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler"]
 script = ExtResource( 5 )
-users_to_track = PoolStringArray( "Arlokken", "Subbarath", "OP_Astree", "timtimPX", "Made_with_Rove" )
+users_to_track = PoolStringArray( "Arlokken", "Subbarath", "OP_Astree", "timtimPX", "Made_With_Rove" )
 message_alert_dict = {
 "coquinou": "babadeCoqu babadeInou ",
 "love": "babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove babadeLove ",
@@ -3177,19 +3207,17 @@ script = ExtResource( 6 )
 condition = "first_message"
 oneshot = true
 requirement = {
-"user_name": "arlokken",
+"user_name": [ "Arlokken" ],
 "user_role": ""
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Events/Hadouken"]
-stream = ExtResource( 7 )
+alert_event = "hadoken"
 
 [node name="TimtimPX" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Events"]
 script = ExtResource( 6 )
 condition = "first_message"
 oneshot = true
 requirement = {
-"user_name": "timtimPX"
+"user_name": [ "timtimPX" ]
 }
 alert_event = "timtimpx"
 
@@ -3198,7 +3226,7 @@ script = ExtResource( 6 )
 condition = "first_message"
 oneshot = true
 requirement = {
-"user_name": "Made_with_Rove"
+"user_name": [ "Made_With_Rove" ]
 }
 alert_event = "rove"
 
@@ -3207,8 +3235,7 @@ script = ExtResource( 269 )
 condition = "message"
 oneshot = true
 requirement = {
-"user_name": [ "OP_Astree", "Subbarath" ],
-"user_role": [  ]
+"user_name": [ "OP_Astree", "Subbarath" ]
 }
 alert_event = "Garbarath"
 
@@ -3582,6 +3609,11 @@ z_as_relative = false
 script = ExtResource( 20 )
 print_logs = true
 
+[node name="Panier" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Panier"]
+anims/Panier = SubResource( 408 )
+
 [node name="Subcription" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
 visible = false
 __meta__ = {
@@ -3854,7 +3886,7 @@ rotation = 3.03901
 [node name="SuperSalty" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Salty/Path2D/PathFollow2D"]
 rotation = 1.61443
 frames = SubResource( 230 )
-frame = 3
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -3942,7 +3974,7 @@ volume_db = -9.0
 position = Vector2( -78.3416, 181.224 )
 frames = SubResource( 377 )
 animation = "Move"
-frame = 3
+frame = 2
 playing = true
 
 [node name="LaserEndPoint" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney"]
@@ -4194,12 +4226,6 @@ text = "650/1000"
 [node name="Gauge" parent="Overlay/Goals/Followers" instance=ExtResource( 8 )]
 margin_top = 12.0
 margin_bottom = 34.0
-
-[node name="NinePatchRect" parent="Overlay/Goals/Followers/Gauge" index="1"]
-texture = ExtResource( 281 )
-
-[node name="AnimatedSprite" parent="Overlay/Goals/Followers/Gauge" index="3"]
-frame = 2
 
 [node name="Label" parent="Overlay/Goals/Followers/Gauge" index="4"]
 modulate = Color( 0.321569, 0, 0.176471, 1 )

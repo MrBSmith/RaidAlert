@@ -11,7 +11,8 @@ var print_logs := true
 var alert_dict = { "audio" : {
 		"vilain": load("res://Alerts/Audios/Vilain.ogg"),
 		"malaxe": load("res://Alerts/Audios/Malaxe.ogg"),
-		"coquinou": load("res://Alerts/Audios/Coquinou.ogg")
+		"coquinou": load("res://Alerts/Audios/Coquinou.ogg"),
+		"hadoken": load("res://Alerts/Audios/hadouken.mp3")
 	}}
 
 var screen_size = Vector2(ProjectSettings.get_setting("display/window/size/width"),
