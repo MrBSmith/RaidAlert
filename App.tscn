@@ -1,4 +1,4 @@
-[gd_scene load_steps=675 format=2]
+[gd_scene load_steps=700 format=2]
 
 [ext_resource path="res://RaidAlert/RaidAlert.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TwitchChatHandler/BabaTwitchChatHandler.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Interpretor/Interpretor.gd" type="Script" id=4]
 [ext_resource path="res://ChatBot/ChatBot.gd" type="Script" id=5]
 [ext_resource path="res://ChatBot/ChatEvent/ChatEvent.gd" type="Script" id=6]
+[ext_resource path="res://Overlay/Gauges/Sprites/JaugeFill2.png" type="Texture" id=7]
 [ext_resource path="res://Overlay/Gauges/Overlay_Gauge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://BabaGodotLib/Fonts/MediumPixel.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Overlay/Goals/GoalsBars.gd" type="Script" id=10]
@@ -279,7 +280,11 @@
 [ext_resource path="res://Overlay/Animations/Rove/Lightning2.png" type="Texture" id=278]
 [ext_resource path="res://Overlay/Animations/Rove/Lightning1.png" type="Texture" id=279]
 [ext_resource path="res://Overlay/Animations/Rove/Lightning4.png" type="Texture" id=280]
+[ext_resource path="res://Overlay/Animations/Moai/MoaiCrevindiou.png" type="Texture" id=281]
 [ext_resource path="res://Overlay/Animations/Rove/Banana.ogg" type="AudioStream" id=282]
+[ext_resource path="res://Alerts/Audios/Tomato.ogg" type="AudioStream" id=283]
+[ext_resource path="res://Alerts/Audios/crevindiou.ogg" type="AudioStream" id=284]
+[ext_resource path="res://Overlay/Animations/Toucan/ToucanTomate.png" type="Texture" id=285]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -884,6 +889,30 @@ region = Rect2( 116, 278, 58, 139 )
 atlas = ExtResource( 16 )
 region = Rect2( 174, 278, 58, 139 )
 
+[sub_resource type="AtlasTexture" id=409]
+atlas = ExtResource( 281 )
+region = Rect2( 0, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=410]
+atlas = ExtResource( 281 )
+region = Rect2( 58, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=411]
+atlas = ExtResource( 281 )
+region = Rect2( 116, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=412]
+atlas = ExtResource( 281 )
+region = Rect2( 174, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=413]
+atlas = ExtResource( 281 )
+region = Rect2( 232, 0, 58, 139 )
+
+[sub_resource type="AtlasTexture" id=414]
+atlas = ExtResource( 281 )
+region = Rect2( 290, 0, 58, 139 )
+
 [sub_resource type="SpriteFrames" id=90]
 animations = [ {
 "frames": [ SubResource( 89 ) ],
@@ -900,6 +929,11 @@ animations = [ {
 "loop": false,
 "name": "OhYeah",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ), SubResource( 414 ), SubResource( 411 ), SubResource( 410 ), SubResource( 409 ) ],
+"loop": false,
+"name": "Crevindiou",
+"speed": 8.0
 } ]
 
 [sub_resource type="AtlasTexture" id=104]
@@ -958,6 +992,58 @@ region = Rect2( 273, 324, 91, 324 )
 atlas = ExtResource( 14 )
 region = Rect2( 364, 0, 91, 324 )
 
+[sub_resource type="AtlasTexture" id=415]
+atlas = ExtResource( 285 )
+region = Rect2( 91, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=416]
+atlas = ExtResource( 285 )
+region = Rect2( 182, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=417]
+atlas = ExtResource( 285 )
+region = Rect2( 273, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=418]
+atlas = ExtResource( 285 )
+region = Rect2( 364, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=419]
+atlas = ExtResource( 285 )
+region = Rect2( 455, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=420]
+atlas = ExtResource( 285 )
+region = Rect2( 546, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=421]
+atlas = ExtResource( 285 )
+region = Rect2( 637, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=422]
+atlas = ExtResource( 285 )
+region = Rect2( 728, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=423]
+atlas = ExtResource( 285 )
+region = Rect2( 819, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=424]
+atlas = ExtResource( 285 )
+region = Rect2( 910, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=425]
+atlas = ExtResource( 285 )
+region = Rect2( 1001, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=426]
+atlas = ExtResource( 285 )
+region = Rect2( 1092, 0, 91, 324 )
+
+[sub_resource type="AtlasTexture" id=427]
+atlas = ExtResource( 285 )
+region = Rect2( 1183, 0, 91, 324 )
+
 [sub_resource type="SpriteFrames" id=105]
 animations = [ {
 "frames": [ SubResource( 104 ) ],
@@ -973,6 +1059,11 @@ animations = [ {
 "frames": [ SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ) ],
 "loop": false,
 "name": "Panier",
+"speed": 11.0
+}, {
+"frames": [ SubResource( 415 ), SubResource( 416 ), SubResource( 417 ), SubResource( 418 ), SubResource( 419 ), SubResource( 420 ), SubResource( 421 ), SubResource( 422 ), SubResource( 423 ), SubResource( 424 ), SubResource( 425 ), SubResource( 426 ), SubResource( 427 ) ],
+"loop": false,
+"name": "Tomato",
 "speed": 11.0
 } ]
 
@@ -1040,22 +1131,6 @@ animations = [ {
 "speed": 13.0
 } ]
 
-[sub_resource type="AtlasTexture" id=121]
-atlas = ExtResource( 64 )
-region = Rect2( 96, 160, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=122]
-atlas = ExtResource( 64 )
-region = Rect2( 0, 192, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=123]
-atlas = ExtResource( 64 )
-region = Rect2( 32, 192, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=124]
-atlas = ExtResource( 64 )
-region = Rect2( 64, 192, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=125]
 atlas = ExtResource( 64 )
 region = Rect2( 64, 64, 32, 32 )
@@ -1108,13 +1183,24 @@ region = Rect2( 32, 160, 32, 32 )
 atlas = ExtResource( 64 )
 region = Rect2( 64, 160, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=121]
+atlas = ExtResource( 64 )
+region = Rect2( 96, 160, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 64 )
+region = Rect2( 0, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 64 )
+region = Rect2( 32, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 64 )
+region = Rect2( 64, 192, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=138]
 animations = [ {
-"frames": [ SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ) ],
-"loop": true,
-"name": "Move",
-"speed": 13.0
-}, {
 "frames": [ SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ) ],
 "loop": false,
 "name": "Rise",
@@ -1123,6 +1209,11 @@ animations = [ {
 "frames": [ SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ) ],
 "loop": true,
 "name": "Push",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ) ],
+"loop": true,
+"name": "Move",
 "speed": 13.0
 } ]
 
@@ -2161,10 +2252,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=378]
-atlas = ExtResource( 275 )
-region = Rect2( 490, 0, 49, 48 )
-
 [sub_resource type="AtlasTexture" id=379]
 atlas = ExtResource( 275 )
 region = Rect2( 0, 0, 49, 48 )
@@ -2205,22 +2292,22 @@ region = Rect2( 392, 0, 49, 48 )
 atlas = ExtResource( 275 )
 region = Rect2( 441, 0, 49, 48 )
 
+[sub_resource type="AtlasTexture" id=378]
+atlas = ExtResource( 275 )
+region = Rect2( 490, 0, 49, 48 )
+
 [sub_resource type="SpriteFrames" id=389]
 animations = [ {
-"frames": [ SubResource( 378 ) ],
-"loop": true,
-"name": "Loop",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 379 ), SubResource( 380 ), SubResource( 381 ), SubResource( 382 ), SubResource( 383 ), SubResource( 384 ), SubResource( 385 ), SubResource( 386 ), SubResource( 387 ), SubResource( 388 ) ],
 "loop": false,
 "name": "Apparition",
 "speed": 15.0
+}, {
+"frames": [ SubResource( 378 ) ],
+"loop": true,
+"name": "Loop",
+"speed": 5.0
 } ]
-
-[sub_resource type="AtlasTexture" id=390]
-atlas = ExtResource( 276 )
-region = Rect2( 33, 0, 11, 21 )
 
 [sub_resource type="AtlasTexture" id=391]
 atlas = ExtResource( 276 )
@@ -2234,17 +2321,21 @@ region = Rect2( 11, 0, 11, 21 )
 atlas = ExtResource( 276 )
 region = Rect2( 22, 0, 11, 21 )
 
+[sub_resource type="AtlasTexture" id=390]
+atlas = ExtResource( 276 )
+region = Rect2( 33, 0, 11, 21 )
+
 [sub_resource type="SpriteFrames" id=394]
 animations = [ {
-"frames": [ SubResource( 390 ) ],
-"loop": true,
-"name": "Loop",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 391 ), SubResource( 392 ), SubResource( 393 ) ],
 "loop": false,
 "name": "Apparition",
 "speed": 15.0
+}, {
+"frames": [ SubResource( 390 ) ],
+"loop": true,
+"name": "Loop",
+"speed": 5.0
 } ]
 
 [sub_resource type="AnimatedTexture" id=395]
@@ -2258,10 +2349,6 @@ frame_2/texture = ExtResource( 277 )
 frame_2/delay_sec = 0.0
 frame_3/texture = ExtResource( 280 )
 frame_3/delay_sec = 0.0
-
-[sub_resource type="AtlasTexture" id=396]
-atlas = ExtResource( 273 )
-region = Rect2( 0, 0, 28, 23 )
 
 [sub_resource type="AtlasTexture" id=397]
 atlas = ExtResource( 273 )
@@ -2299,17 +2386,21 @@ region = Rect2( 224, 0, 28, 23 )
 atlas = ExtResource( 273 )
 region = Rect2( 252, 0, 28, 23 )
 
+[sub_resource type="AtlasTexture" id=396]
+atlas = ExtResource( 273 )
+region = Rect2( 0, 0, 28, 23 )
+
 [sub_resource type="SpriteFrames" id=406]
 animations = [ {
-"frames": [ SubResource( 396 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 397 ), SubResource( 398 ), SubResource( 399 ), SubResource( 400 ), SubResource( 401 ), SubResource( 402 ), SubResource( 403 ), SubResource( 404 ), SubResource( 405 ) ],
 "loop": true,
 "name": "Reflection",
 "speed": 13.0
+}, {
+"frames": [ SubResource( 396 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=407]
@@ -2501,37 +2592,69 @@ tracks/14/keys = {
 "times": PoolRealArray( 1.35 )
 }
 
-[sub_resource type="AtlasTexture" id=358]
-atlas = ExtResource( 33 )
-region = Rect2( 0, 0, 147, 121 )
+[sub_resource type="Animation" id=428]
+resource_name = "Crevindiou"
+length = 4.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("../Moai")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Crevindiou", false ],
+"method": "play"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Toucan")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Tomato", false ],
+"method": "play"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../Toucan/Tomato")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 8.5,
+"start_offset": 0.0,
+"stream": ExtResource( 283 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("../Moai/Crevindiou")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 284 )
+} ],
+"times": PoolRealArray( 1.4 )
+}
 
 [sub_resource type="AtlasTexture" id=365]
 atlas = ExtResource( 33 )
 region = Rect2( 1029, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=366]
-atlas = ExtResource( 33 )
-region = Rect2( 1176, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=367]
-atlas = ExtResource( 33 )
-region = Rect2( 1323, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=368]
-atlas = ExtResource( 33 )
-region = Rect2( 1470, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=369]
-atlas = ExtResource( 33 )
-region = Rect2( 1617, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=370]
-atlas = ExtResource( 33 )
-region = Rect2( 1764, 0, 147, 121 )
-
-[sub_resource type="AtlasTexture" id=371]
-atlas = ExtResource( 33 )
-region = Rect2( 1911, 0, 147, 121 )
 
 [sub_resource type="AtlasTexture" id=359]
 atlas = ExtResource( 33 )
@@ -2557,27 +2680,55 @@ region = Rect2( 735, 0, 147, 121 )
 atlas = ExtResource( 33 )
 region = Rect2( 882, 0, 147, 121 )
 
+[sub_resource type="AtlasTexture" id=366]
+atlas = ExtResource( 33 )
+region = Rect2( 1176, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=367]
+atlas = ExtResource( 33 )
+region = Rect2( 1323, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=368]
+atlas = ExtResource( 33 )
+region = Rect2( 1470, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=369]
+atlas = ExtResource( 33 )
+region = Rect2( 1617, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=370]
+atlas = ExtResource( 33 )
+region = Rect2( 1764, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=371]
+atlas = ExtResource( 33 )
+region = Rect2( 1911, 0, 147, 121 )
+
+[sub_resource type="AtlasTexture" id=358]
+atlas = ExtResource( 33 )
+region = Rect2( 0, 0, 147, 121 )
+
 [sub_resource type="SpriteFrames" id=357]
 animations = [ {
-"frames": [ SubResource( 358 ) ],
-"loop": true,
-"name": "On",
-"speed": 15.0
-}, {
 "frames": [ SubResource( 365 ) ],
 "loop": true,
 "name": "Off",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ), SubResource( 363 ), SubResource( 364 ) ],
+"loop": false,
+"name": "TurnOff",
+"speed": 18.0
 }, {
 "frames": [ SubResource( 366 ), SubResource( 367 ), SubResource( 368 ), SubResource( 369 ), SubResource( 370 ), SubResource( 371 ) ],
 "loop": false,
 "name": "TurnOn",
 "speed": 18.0
 }, {
-"frames": [ SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ), SubResource( 363 ), SubResource( 364 ) ],
-"loop": false,
-"name": "TurnOff",
-"speed": 18.0
+"frames": [ SubResource( 358 ) ],
+"loop": true,
+"name": "On",
+"speed": 15.0
 } ]
 
 [sub_resource type="AtlasTexture" id=239]
@@ -3416,6 +3567,13 @@ command = "!rove"
 alert = "rove"
 users = PoolStringArray( "BabaDesBois" )
 
+[node name="Vindiou" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler/ChatBot/Commands"]
+script = ExtResource( 36 )
+command = "!vindiou"
+alert = "crevindiou"
+aliases = PoolStringArray( "!crevindiou" )
+users = PoolStringArray( "BabaDesBois", "pyairvander" )
+
 [node name="Interpretor" type="Node" parent="Overlay/MainScene/ChatPanel/Chat/TwitchChatHandler"]
 script = ExtResource( 4 )
 users_to_listen = PoolStringArray( "moobot", "babadesbois", "wizebot" )
@@ -3673,7 +3831,6 @@ anims/Bonk = SubResource( 73 )
 position = Vector2( 29, 291 )
 z_index = 1
 frames = SubResource( 90 )
-animation = "Eyes"
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3693,15 +3850,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Crevindiou" type="AudioStreamPlayer2D" parent="Overlay/Foreground/StreamAlerts/Moai"]
+volume_db = 5.0
+
 [node name="Toucan" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts"]
 position = Vector2( 594, 198 )
 z_index = 1
 frames = SubResource( 105 )
-animation = "Croa"
+animation = "Tomato"
 script = ExtResource( 54 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Tomato" type="AudioStreamPlayer2D" parent="Overlay/Foreground/StreamAlerts/Toucan"]
+position = Vector2( -565, 93 )
+volume_db = -9.176
 
 [node name="Bell" type="AudioStreamPlayer2D" parent="Overlay/Foreground/StreamAlerts/Toucan"]
 position = Vector2( -82, -111 )
@@ -3886,7 +4050,7 @@ rotation = 3.03901
 [node name="SuperSalty" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Salty/Path2D/PathFollow2D"]
 rotation = 1.61443
 frames = SubResource( 230 )
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -3974,7 +4138,7 @@ volume_db = -9.0
 position = Vector2( -78.3416, 181.224 )
 frames = SubResource( 377 )
 animation = "Move"
-frame = 2
+frame = 1
 playing = true
 
 [node name="LaserEndPoint" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney"]
@@ -4020,6 +4184,11 @@ stream = ExtResource( 24 )
 volume_db = -9.0
 
 [node name="AudioAlerts" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts"]
+
+[node name="Crevindiou" type="Node2D" parent="Overlay/Foreground/StreamAlerts"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Foreground/StreamAlerts/Crevindiou"]
+anims/Crevindiou = SubResource( 428 )
 
 [node name="TV" type="AnimatedSprite" parent="Overlay"]
 position = Vector2( 566.823, 300.044 )
@@ -4226,6 +4395,12 @@ text = "650/1000"
 [node name="Gauge" parent="Overlay/Goals/Followers" instance=ExtResource( 8 )]
 margin_top = 12.0
 margin_bottom = 34.0
+
+[node name="NinePatchRect" parent="Overlay/Goals/Followers/Gauge" index="1"]
+texture = ExtResource( 7 )
+
+[node name="AnimatedSprite" parent="Overlay/Goals/Followers/Gauge" index="3"]
+frame = 1
 
 [node name="Label" parent="Overlay/Goals/Followers/Gauge" index="4"]
 modulate = Color( 0.321569, 0, 0.176471, 1 )
