@@ -3857,7 +3857,6 @@ volume_db = 5.0
 position = Vector2( 594, 198 )
 z_index = 1
 frames = SubResource( 105 )
-animation = "Tomato"
 script = ExtResource( 54 )
 __meta__ = {
 "_edit_lock_": true
@@ -4010,6 +4009,7 @@ anims/Garbarath = SubResource( 327 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Overlay/Foreground/StreamAlerts/Garbarath"]
 stream = ExtResource( 270 )
+volume_db = 12.0
 
 [node name="DejaVu" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts"]
 position = Vector2( 155.574, 303.682 )
@@ -4050,7 +4050,6 @@ rotation = 3.03901
 [node name="SuperSalty" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Salty/Path2D/PathFollow2D"]
 rotation = 1.61443
 frames = SubResource( 230 )
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -4138,7 +4137,6 @@ volume_db = -9.0
 position = Vector2( -78.3416, 181.224 )
 frames = SubResource( 377 )
 animation = "Move"
-frame = 1
 playing = true
 
 [node name="LaserEndPoint" type="AnimatedSprite" parent="Overlay/Foreground/StreamAlerts/Rove/Poney"]
